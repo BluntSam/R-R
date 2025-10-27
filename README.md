@@ -2,11 +2,15 @@
 Made in Unity  
 
 Made by:  
-Jack Cope (Game Designer)  
-Ellissa Coutts (Producer)  
+Jack Cope (Game Designer)   
 Samuel Hiller (Programmer)  
 Talon Hnatiak (Programmer)  
 Evan Ter Velde (Game Designer)
+
+
+
+art credits:
+Ellissa Coutts
 
 # Run Instructions
 Open the ThreadfulDevBuild1 folder and click on the Threadful.exe executable. There is currently no quit option, so using Alt+F4 is required to exit the program. It is in extremely basic stages of development currently.
