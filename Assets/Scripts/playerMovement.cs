@@ -32,7 +32,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         handleMovement();
-        clampedMovement();
+        //  clampedMovement();
         //flipCharacterX();
     }
 
