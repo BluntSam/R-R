@@ -1,17 +1,14 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class startGameScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   public void PlayGame ()
     {
-        // making button start the game.
-
+        SceneManager.LoadSceneAsync("mainScene");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitGame ()
     {
-        
+        Application.Quit();
     }
 }

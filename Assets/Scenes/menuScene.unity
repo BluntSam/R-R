@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 145714435}
   - component: {fileID: 145714434}
   - component: {fileID: 145714433}
-  - component: {fileID: 145714436}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -202,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 145714434}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: startGameScript, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &145714434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,18 +252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145714431}
   m_CullTransparentMesh: 1
---- !u!114 &145714436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145714431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 917b53733c9787d4da0e7aa807898212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &228020610
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +626,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -752,6 +752,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1976688033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917b53733c9787d4da0e7aa807898212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::startGameScript
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +930,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 728098137}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: startGameScript, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &728098137
 MonoBehaviour:
   m_ObjectHideFlags: 0
