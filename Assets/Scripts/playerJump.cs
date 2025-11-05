@@ -10,19 +10,17 @@ public class playerJump : MonoBehaviour
     [SerializeField] private float jumpForce = 6;
     //Just the sprite renderer
     [SerializeField] private SpriteRenderer spriteRenderer;
-    //Half player height
-    private float playerHalfHeight;
     //Movement for 2D Vector
     private Vector2 movement;
     //If touching the floor
     private bool isGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, playerHalfHeight + 0.1f, LayerMask.GetMask("Ground"));
+        return Physics2D.Raycast(transform.position, Vector2.down, 0.25f, LayerMask.GetMask("Ground"));
     }
 
     private void Start()
     {
-        playerHalfHeight = spriteRenderer.bounds.extents.y;
+        
     }
 
     void Update()
@@ -39,6 +37,12 @@ public class playerJump : MonoBehaviour
         movement.y = rigidBody.linearVelocity.y;
         GetComponent<Animator>().SetBool("isRising", movement.y > 0);
         GetComponent<Animator>().SetBool("isFalling", movement.y < 0);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 0.25f);
     }
 
     //makes them jump upwards
