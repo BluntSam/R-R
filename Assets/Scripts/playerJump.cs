@@ -12,6 +12,8 @@ public class playerJump : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     //Half player height
     private float playerHalfHeight;
+    //Movement for 2D Vector
+    private Vector2 movement;
     //If touching the floor
     private bool isGrounded()
     {
@@ -30,6 +32,16 @@ public class playerJump : MonoBehaviour
             Jump();
         }
     }
+
+    private void FixedUpdate()
+    {
+        //this is for animating falling and rising aka jumping
+        movement.y = rigidBody.linearVelocity.y;
+        GetComponent<Animator>().SetBool("isRising", movement.y > 0);
+        GetComponent<Animator>().SetBool("isFalling", movement.y < 0);
+    }
+
+    //makes them jump upwards
     private void Jump()
     {
         rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
