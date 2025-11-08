@@ -12,4 +12,5 @@ Open the ThreadfulDevBuild1 folder and click on the Threadful.exe executable. Th
 
 # Credits
 Useful Unity Tutorials from Wild Cockatiel Games [https://www.youtube.com/@wildcockatielgames](url)  
+enemy ai basic tutorial https://www.youtube.com/watch?v=2SXa10ILJms&t=231s
 Concept Art: Ellissa Coutts
