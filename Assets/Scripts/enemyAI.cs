@@ -8,13 +8,6 @@ public class enemyAI : MonoBehaviour
 
     private float distance;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         distance = Vector2.Distance(transform.position, Hopps.transform.position);
