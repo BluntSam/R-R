@@ -6,7 +6,7 @@ public class playerMovement : MonoBehaviour
 {
     //Declaring Variables
     //Speed of the character
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 8f;
     //Just the sprite renderer
     [SerializeField] private SpriteRenderer spriteRenderer;
     //Movement for 2D Vector

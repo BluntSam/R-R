@@ -7,7 +7,7 @@ public class playerJump : MonoBehaviour
     //The collision
     [SerializeField] private Rigidbody2D rigidBody;
     //The jump value
-    [SerializeField] private float jumpForce = 6;
+    [SerializeField] private float jumpForce = 13;
     //Just the sprite renderer
     [SerializeField] private SpriteRenderer spriteRenderer;
     //Movement for 2D Vector

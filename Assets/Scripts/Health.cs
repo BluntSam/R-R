@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -5,7 +6,7 @@ public class Health : MonoBehaviour
     public int health;
     public int maxHealth = 10;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the first execution of Update after the MonoBehavior is created
     void Start()
     {
         health = maxHealth;
@@ -15,10 +16,10 @@ public class Health : MonoBehaviour
     {
         health -= amount;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             gameObject.SetActive(false);
-            gameObject.transform.position = new Vector2(-3,-2);
+            gameObject.transform.position = new Vector2(-7, -2);
             health = maxHealth;
             gameObject.SetActive(true);
         }
