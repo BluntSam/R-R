@@ -22,7 +22,5 @@ public class Damage : MonoBehaviour
             playerHealth.takeDamage(damage);
         }
     }
-   
-   
 }
 
