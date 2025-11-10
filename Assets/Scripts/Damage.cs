@@ -8,7 +8,7 @@ public class Damage : MonoBehaviour
 
     public int damage = 1;
     private Health playerHealth;
-  
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -18,7 +18,8 @@ public class Damage : MonoBehaviour
             {
                 playerHealth = collision.gameObject.GetComponent<Health>();
             }
-
+            
+            Debug.Log("Collided with Obstacle");
             playerHealth.takeDamage(damage);
         }
     }

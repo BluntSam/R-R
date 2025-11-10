@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             gameObject.SetActive(false);
-            gameObject.transform.position = new Vector2(-7, -2);
+            gameObject.transform.position = new Vector2(-6, -3);
             health = maxHealth;
             gameObject.SetActive(true);
         }
