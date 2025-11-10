@@ -74,7 +74,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: attackAnimation
-  m_Speed: 0.25
+  m_Speed: 0.15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7250069065933921452}
