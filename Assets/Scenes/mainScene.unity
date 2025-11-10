@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 575455102}
   - component: {fileID: 575455101}
   - component: {fileID: 575455108}
+  - component: {fileID: 575455109}
   m_Layer: 0
   m_Name: Hopps
   m_TagString: Player
@@ -840,8 +841,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.039157152, y: 1.9704478}
-  m_Size: {x: 2.1397552, y: 3.9238067}
+  m_Offset: {x: -0.075, y: 2}
+  m_Size: {x: 2.25, y: 3.75}
   m_Direction: 0
 --- !u!114 &575455103
 MonoBehaviour:
@@ -985,6 +986,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 0
   maxHealth: 10
+--- !u!114 &575455109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575455100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7d1b150038d174cbe79750b09e191e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::normalAttack
 --- !u!1 &610343785
 GameObject:
   m_ObjectHideFlags: 0

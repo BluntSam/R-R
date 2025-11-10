@@ -26,14 +26,19 @@ public class playerJump : MonoBehaviour
         {
             Jump();
         }
-    }
-
-    private void FixedUpdate()
-    {
         //this is for animating falling and rising aka jumping
         movement.y = rigidBody.linearVelocity.y;
-        GetComponent<Animator>().SetBool("isRising", movement.y > 0);
-        GetComponent<Animator>().SetBool("isFalling", movement.y < 0);
+        if (movement.y != 0)
+        {
+            GetComponent<Animator>().SetBool("isRising", movement.y > 0);
+            GetComponent<Animator>().SetBool("isFalling", movement.y < 0);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("isRising", false);
+            GetComponent<Animator>().SetBool("isFalling", false);
+        }
+        
     }
 
     private void OnDrawGizmosSelected()

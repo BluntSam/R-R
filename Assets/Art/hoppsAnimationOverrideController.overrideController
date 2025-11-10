@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: hoppsAnimationOverrideController
+  m_Controller: {fileID: 9100000, guid: bc5387a602fd3464fbf97be20900715c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: bd228deffb1e815489dd031a05b2dd4e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d7e61bff3db42744ba40c87854a79362, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 59cc6d72df2a68e45a255ba474c4b559, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d7e61bff3db42744ba40c87854a79362, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dece8f05e983afd4ab2977db5b46f7dc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d7e61bff3db42744ba40c87854a79362, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 777528e47ff45a34e9118cae31d72572, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d7e61bff3db42744ba40c87854a79362, type: 2}
