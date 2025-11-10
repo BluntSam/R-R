@@ -3,12 +3,7 @@ using UnityEngine;
 public class normalAttack : MonoBehaviour
 {
     private bool attacking = false;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public bool violence = false;
 
     // Update is called once per frame
     void Update()
@@ -18,12 +13,18 @@ public class normalAttack : MonoBehaviour
             //Animation
             attacking = true;
             GetComponent<Animator>().SetBool("isAttacking", attacking);
+            
+            //Turning on damage variable
+            violence = true;
         }
         if(Input.GetButtonUp("Attack"))
         {
             //Animation
             attacking = false;
             GetComponent<Animator>().SetBool("isAttacking", attacking);
+
+            //Turning off damage variable
+            violence = false;
         }
     }
 }

@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour
     //Just the sprite renderer
     [SerializeField] private SpriteRenderer spriteRenderer;
     //Movement for 2D Vector
-    private Vector2 movement;
+    public Vector2 movement;
     //Screen boundaries
     private Vector2 screenBounds;
     //Half the player's width
