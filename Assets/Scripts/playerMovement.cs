@@ -15,7 +15,9 @@ public class playerMovement : MonoBehaviour
     private Vector2 screenBounds;
     //Half the player's width
     private float playerHalfWidth;
-    public AudioSource audioSource;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
+    public AudioSource audioSource3;
 
 
     //Start Function: Called once before Update Function
@@ -53,8 +55,6 @@ public class playerMovement : MonoBehaviour
         if (movement.x < 0)
         {
             spriteRenderer.flipX = true;
-            
-
         }
         if (movement.x > 0)
         {
@@ -63,12 +63,11 @@ public class playerMovement : MonoBehaviour
         }
         if ((movement.x > 0) || (movement.x  < 0))
         {
-            audioSource.enabled = true;
-          
+            audioSource1.enabled = true;
         }
         else
         { 
-            audioSource.enabled = false;
+            audioSource1.enabled = false;
         }
     }
 }

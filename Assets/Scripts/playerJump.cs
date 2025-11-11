@@ -12,13 +12,17 @@ public class playerJump : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     //Movement for 2D Vector
     private Vector2 movement;
+    public playerMovement pMovement;
     //If touching the floor
     private bool isGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 0.25f, LayerMask.GetMask("Ground"));
     }
 
-   
+    private void Start()
+    {
+        pMovement.audioSource2.enabled = true;
+    }
 
     void Update()
     {
@@ -26,6 +30,7 @@ public class playerJump : MonoBehaviour
         {
             Jump();
         }
+
         //this is for animating falling and rising aka jumping
         movement.y = rigidBody.linearVelocity.y;
         if (movement.y != 0)
@@ -38,7 +43,6 @@ public class playerJump : MonoBehaviour
             GetComponent<Animator>().SetBool("isRising", false);
             GetComponent<Animator>().SetBool("isFalling", false);
         }
-        
     }
 
     private void OnDrawGizmosSelected()
