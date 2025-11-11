@@ -7,7 +7,6 @@ public class damagedEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.tag == "enemy")
         {
             if (enemyHealth == null)
@@ -15,7 +14,7 @@ public class damagedEnemy : MonoBehaviour
                 enemyHealth = collision.gameObject.GetComponent<enemyHealth>();
             }
 
-            Debug.Log(" enemy Collided with Obstacle");
+            Debug.Log("Enemy Collided with Obstacle");
             enemyHealth.takeDamage(damage);
         }
     }

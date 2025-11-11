@@ -19,7 +19,7 @@ public class Damage : MonoBehaviour
                 playerHealth = collision.gameObject.GetComponent<Health>();
             }
             
-            Debug.Log("Collided with Obstacle");
+            Debug.Log("Player Took Damage");
             playerHealth.takeDamage(damage);
         }
     }
