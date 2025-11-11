@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
     private Vector2 screenBounds;
     //Half the player's width
     private float playerHalfWidth;
+    public AudioSource audioSource;
+    private bool footsteps = false;
 
     //Start Function: Called once before Update Function
     private void Start()
@@ -33,7 +35,14 @@ public class playerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Animation
         GetComponent<Animator>().SetBool("isWalking", movement.x != 0);
+
+        if (movement.x != 0)
+        {
+            audioSource.Play();
+            Debug.Log("audio :)");
+        }
     }
 
     private void handleMovement()
