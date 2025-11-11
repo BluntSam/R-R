@@ -16,7 +16,7 @@ public class playerMovement : MonoBehaviour
     //Half the player's width
     private float playerHalfWidth;
     public AudioSource audioSource;
-    private bool footsteps = false;
+
 
     //Start Function: Called once before Update Function
     private void Start()
@@ -38,11 +38,7 @@ public class playerMovement : MonoBehaviour
         //Animation
         GetComponent<Animator>().SetBool("isWalking", movement.x != 0);
 
-        if (movement.x != 0)
-        {
-            audioSource.Play();
-            Debug.Log("audio :)");
-        }
+       
     }
 
     private void handleMovement()
@@ -51,16 +47,28 @@ public class playerMovement : MonoBehaviour
         float input = Input.GetAxis("Horizontal"); //Getting the horizontal axis
         movement.x = input * speed * Time.deltaTime; //Horizontal movement
         transform.Translate(movement); //Making them move
+       
 
         //flip sprite based on direction
         if (movement.x < 0)
         {
             spriteRenderer.flipX = true;
+            
 
         }
         if (movement.x > 0)
         {
             spriteRenderer.flipX = false;
+           
+        }
+        if ((movement.x > 0) || (movement.x  < 0))
+        {
+            audioSource.enabled = true;
+          
+        }
+        else
+        { 
+            audioSource.enabled = false;
         }
     }
 }
