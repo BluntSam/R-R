@@ -1016,6 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::normalAttack
   violence: 0
+  enemyHit: {fileID: 1192244009}
 --- !u!1 &610343785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1456,7 @@ GameObject:
   - component: {fileID: 1192244006}
   - component: {fileID: 1192244008}
   - component: {fileID: 1192244007}
+  - component: {fileID: 1192244009}
   m_Layer: 0
   m_Name: attackTrigger
   m_TagString: attackTrigger
@@ -1595,6 +1597,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::attackTrigger
   Hopps: {fileID: 575455100}
   spriteRenderer: {fileID: 1192244006}
+--- !u!114 &1192244009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192244004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ee5050ca3c5584399fb0de48ef9652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyHit
+  damage: 1
+  normalAttack: {fileID: 575455109}
+  canHit: 1
 --- !u!1 &1284574969
 GameObject:
   m_ObjectHideFlags: 0

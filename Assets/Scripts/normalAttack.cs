@@ -4,11 +4,12 @@ public class normalAttack : MonoBehaviour
 {
     private bool attacking = false;
     public bool violence = false;
-
+    public enemyHit enemyHit;
+    
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Attack"))
+        if(Input.GetButton("Attack") && enemyHit.canHit)
         {
             //Animation
             attacking = true;
