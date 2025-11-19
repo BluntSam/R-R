@@ -2112,9 +2112,6 @@ GameObject:
   - component: {fileID: 575455113}
   - component: {fileID: 575455115}
   - component: {fileID: 575455112}
-  - component: {fileID: 575455113}
-  - component: {fileID: 575455115}
-  - component: {fileID: 575455114}
   m_Layer: 0
   m_Name: Hopps
   m_TagString: Player
@@ -2554,9 +2551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e37362ab784b0b4caf60b4b3be331a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grapple
-  rb: {fileID: 0}
-  lr: {fileID: 575455115}
-  dj: {fileID: 575455114}
   grappleLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -2579,7 +2573,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 6.708204
+  m_Distance: 1.96
   m_MaxDistanceOnly: 0
 --- !u!120 &575455115
 LineRenderer:
@@ -2607,7 +2601,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2653,7 +2647,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
