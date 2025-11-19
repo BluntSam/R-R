@@ -2108,10 +2108,10 @@ GameObject:
   - component: {fileID: 575455108}
   - component: {fileID: 575455109}
   - component: {fileID: 575455110}
-  - component: {fileID: 575455112}
-  - component: {fileID: 575455115}
   - component: {fileID: 575455114}
   - component: {fileID: 575455113}
+  - component: {fileID: 575455115}
+  - component: {fileID: 575455112}
   m_Layer: 0
   m_Name: Hopps
   m_TagString: Player
