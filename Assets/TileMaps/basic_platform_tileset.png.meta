@@ -53,7 +53,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -110,12 +110,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 12
-        width: 25
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        y: 13
+        width: 24
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.45454547}
+      border: {x: 0, y: 1, z: 1, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -131,13 +131,13 @@ TextureImporter:
       name: basic_platform_tileset_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 11
-        width: 26
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 25
+        y: 12
+        width: 24
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 1, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -153,13 +153,13 @@ TextureImporter:
       name: basic_platform_tileset_2
       rect:
         serializedVersion: 2
-        x: 49
-        y: 12
-        width: 25
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 50
+        y: 13
+        width: 24
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.45454547}
+      border: {x: 1, y: 1, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a84f9b00726fa094abc3330f8f260519
     internalID: 0
     vertices: []
     indices: 
