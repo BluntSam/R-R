@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour
 {
-    Rigidbody rb;
-    LineRenderer lr;
-    DistanceJoint2D dj;
+    public Rigidbody rb;
+    public LineRenderer lr;
+    public DistanceJoint2D dj;
     public LayerMask grappleLayer;
     public bool isGrappling;
-    Vector3 point;
+    private Vector3 point;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
