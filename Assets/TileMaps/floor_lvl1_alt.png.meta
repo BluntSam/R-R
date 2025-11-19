@@ -127,12 +127,12 @@ TextureImporter:
       name: floor_lvl1_alt_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 49
-        width: 10
-        height: 10
+        x: 16
+        y: 50
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: floor_lvl1_alt_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 24
-        width: 10
-        height: 26
+        x: 16
+        y: 25
+        width: 8
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: floor_lvl1_alt_2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 49
-        width: 26
-        height: 10
+        x: 25
+        y: 50
+        width: 24
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -198,7 +198,7 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: floor_lvl1_alt_4
       rect:
         serializedVersion: 2
-        x: 49
-        y: 49
-        width: 10
-        height: 10
+        x: 50
+        y: 50
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -237,12 +237,12 @@ TextureImporter:
       name: floor_lvl1_alt_5
       rect:
         serializedVersion: 2
-        x: 49
-        y: 24
-        width: 10
-        height: 26
+        x: 50
+        y: 25
+        width: 8
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,12 +259,12 @@ TextureImporter:
       name: floor_lvl1_alt_6
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 10
-        height: 10
+        x: 16
+        y: 16
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: floor_lvl1_alt_7
       rect:
         serializedVersion: 2
-        x: 24
-        y: 15
-        width: 26
-        height: 10
+        x: 25
+        y: 16
+        width: 24
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -303,12 +303,12 @@ TextureImporter:
       name: floor_lvl1_alt_8
       rect:
         serializedVersion: 2
-        x: 49
-        y: 15
-        width: 10
-        height: 10
+        x: 50
+        y: 16
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -325,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dcfab607b7d17c64cb1919903be2360c
     internalID: 0
     vertices: []
     indices: 
