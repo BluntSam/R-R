@@ -50,6 +50,7 @@ public class playerMovement : MonoBehaviour
         movement.x = input * speed * Time.deltaTime; //Horizontal movement
         transform.Translate(movement); //Making them move
        
+        
 
         //flip sprite based on direction
         if (movement.x < 0)
@@ -64,10 +65,22 @@ public class playerMovement : MonoBehaviour
         if ((movement.x > 0) || (movement.x  < 0))
         {
             audioSource1.enabled = true;
+            if (IsGrounded())
+            {
+                audioSource1.enabled = true;
+            }
+            else
+            {
+                audioSource1.enabled = false;
+            }
         }
         else
-        { 
+        {
             audioSource1.enabled = false;
         }
+    }
+    private bool IsGrounded()
+    {
+        return Physics2D.Raycast(transform.position, Vector2.down, 0.25f, LayerMask.GetMask("Ground"));
     }
 }
