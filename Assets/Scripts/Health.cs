@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -18,10 +19,12 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            gameObject.SetActive(false);
-            gameObject.transform.position = new Vector2(-6, -3);
-            health = maxHealth;
-            gameObject.SetActive(true);
+            SceneManager.LoadSceneAsync("mainScene");
+
+            //gameObject.SetActive(false);
+            //gameObject.transform.position = new Vector2(-6, -3);
+            //health = maxHealth;
+            //gameObject.SetActive(true);
         }
     }
 }
