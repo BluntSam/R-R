@@ -11,7 +11,7 @@ public class enemyHealth : MonoBehaviour
         health = maxHealth;
     }
 
-    public void takeDamage(int amount)
+    public void takeDamage(int amount) //Don't touch this Samuel. -Samuel
     {
         health -= amount;
 
