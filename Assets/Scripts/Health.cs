@@ -20,16 +20,11 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             SceneManager.LoadSceneAsync("mainScene");
-        }
-    }
 
-    public void gainHealth(int amount)
-    {
-        health += amount;
-
-        if (health >= maxHealth)
-        {
-            health = maxHealth;
+            //gameObject.SetActive(false);
+            //gameObject.transform.position = new Vector2(-6, -3);
+            //health = maxHealth;
+            //gameObject.SetActive(true);
         }
     }
 }

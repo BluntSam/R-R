@@ -289,11 +289,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &69634021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-  m_PrefabInstance: {fileID: 244864386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &110109381
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,11 +510,7 @@ PrefabInstance:
     - target: {fileID: 1630486499593762205, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: Enemy
       value: 
-<<<<<<< Updated upstream
       objectReference: {fileID: 1597650081}
-=======
-      objectReference: {fileID: 69634021}
->>>>>>> Stashed changes
     - target: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -575,17 +566,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-<<<<<<< Updated upstream
 --- !u!1 &381780298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
   m_PrefabInstance: {fileID: 526049703}
-=======
---- !u!1 &323382964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-  m_PrefabInstance: {fileID: 1026141352}
->>>>>>> Stashed changes
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &411469739
 GameObject:
@@ -750,11 +734,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::healthBar
   Hopps: {fileID: 575455100}
---- !u!1 &473513890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-  m_PrefabInstance: {fileID: 558796518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &526049703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -782,11 +761,7 @@ PrefabInstance:
     - target: {fileID: 1630486499593762205, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: Enemy
       value: 
-<<<<<<< Updated upstream
       objectReference: {fileID: 381780298}
-=======
-      objectReference: {fileID: 1699492964}
->>>>>>> Stashed changes
     - target: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -869,11 +844,7 @@ PrefabInstance:
     - target: {fileID: 1630486499593762205, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: Enemy
       value: 
-<<<<<<< Updated upstream
       objectReference: {fileID: 1241544562}
-=======
-      objectReference: {fileID: 473513890}
->>>>>>> Stashed changes
     - target: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -939,17 +910,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5012626518709789048, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
   m_PrefabInstance: {fileID: 5240890634403317888}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &575455114 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5968614900303016516, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-  m_PrefabInstance: {fileID: 5240890634403317888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575455100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf448b3ef7c1de847befc2d820486e14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &637525451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,11 +1413,7 @@ PrefabInstance:
     - target: {fileID: 1630486499593762205, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: Enemy
       value: 
-<<<<<<< Updated upstream
       objectReference: {fileID: 1908232028}
-=======
-      objectReference: {fileID: 323382964}
->>>>>>> Stashed changes
     - target: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -1513,16 +1469,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-<<<<<<< Updated upstream
 --- !u!1 &1241544562 stripped
-=======
---- !u!1 &1066011835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-  m_PrefabInstance: {fileID: 9166876681972831095}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1086582169
->>>>>>> Stashed changes
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
   m_PrefabInstance: {fileID: 558796518}
@@ -1759,17 +1706,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
 --- !u!1 &1597650081 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
   m_PrefabInstance: {fileID: 244864386}
-=======
---- !u!1 &1699492964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
-  m_PrefabInstance: {fileID: 526049703}
->>>>>>> Stashed changes
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1744222139
 GameObject:
@@ -1878,10 +1818,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hopps
       objectReference: {fileID: 0}
-    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: playerHealth
-      value: 
-      objectReference: {fileID: 575455114}
     - target: {fileID: 5012626518709789048, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.81
@@ -1938,11 +1874,7 @@ PrefabInstance:
     - target: {fileID: 1630486499593762205, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: Enemy
       value: 
-<<<<<<< Updated upstream
       objectReference: {fileID: 1293596033}
-=======
-      objectReference: {fileID: 1066011835}
->>>>>>> Stashed changes
     - target: {fileID: 5608025520661675577, guid: 960fbe10b964fe643bf4fbca5fffdea0, type: 3}
       propertyPath: m_Name
       value: Enemy
