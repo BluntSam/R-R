@@ -16,8 +16,8 @@ public class smoothCamera : MonoBehaviour
     {
         //Initialization
         stats = new CameraStats();
-        camVelocity = new Vector3(0, 0, 2);
-        stats.SmoothTime = 0.5f;
+        camVelocity = new Vector3(0, 0, 4);
+        stats.SmoothTime = 0.25f;
     }
 
     private void FixedUpdate()
@@ -28,8 +28,8 @@ public class smoothCamera : MonoBehaviour
     private void CameraMove()
     {
         posCurrent = transform.position;
-        posTarget = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        posTarget = new Vector3(player.transform.position.x, player.transform.position.y + 2.5f, -10);
 
-        transform.position = Vector3.SmoothDamp(posCurrent, posTarget, ref camVelocity, stats.SmoothTime);
+        transform.position = Vector3.SmoothDamp(posCurrent, posTarget, ref camVelocity, stats.SmoothTime, 100f, Time.smoothDeltaTime);
     }
 }
