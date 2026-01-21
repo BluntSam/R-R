@@ -3,10 +3,14 @@ using UnityEngine;
 public class attackTriggerEnemy : MonoBehaviour
 {
     public GameObject Enemy;
-    [SerializeField] private SpriteRenderer spriteRenderer;
 
     // Update is called once per frame
     void Update()
+    {
+        Flipping();
+    }
+
+    private void Flipping()
     {
         //flip trigger location based on direction
         if (Enemy.GetComponent<enemyAI>().movement.x < 0)
