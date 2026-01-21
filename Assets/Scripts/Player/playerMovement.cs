@@ -9,8 +9,6 @@ using UnityEngine.Windows;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputManager))]
 public class playerMovement : MonoBehaviour
 {
-    //this code was so ass
-
     //Components
     private Rigidbody2D rBody;
     private SpriteRenderer sRend;

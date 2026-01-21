@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::attackTriggerEnemy
   Enemy: {fileID: 5608025520661675577}
-  spriteRenderer: {fileID: 8864957202259779419}
 --- !u!1 &5608025520661675577
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,9 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Hopps: {fileID: 0}
+  sRend: {fileID: 5610831069059415637}
   speed: 2
   movement: {x: 0, y: 0}
-  spriteRenderer: {fileID: 5610831069059415637}
   distance: 0
   LOR: 0
   chaseRange: 10
