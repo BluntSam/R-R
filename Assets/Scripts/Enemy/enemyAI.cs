@@ -8,6 +8,7 @@ public class enemyAI : MonoBehaviour
     //Components
     [SerializeField] private GameObject Hopps;
     [SerializeField] private SpriteRenderer sRend;
+    //if i need to comment what these two are for you, my condolences
 
     //Variables
     public const string PLAYER_TAG = "Player"; //Hopps' Tag
@@ -38,29 +39,29 @@ public class enemyAI : MonoBehaviour
     //this is the problem.
     private void handleMovement()
     {
-        if (distance >= chaseRange)
+        if (distance >= chaseRange) //If Hopps is in Chase Range
         {
-            if (noFloor() || blocked())
+            if (noFloor() || blocked()) //If there is no floor or if there's something blocking the enemy
             {
-                LOR = !LOR;
+                LOR = !LOR; //el flipo :)
             }
-            else
+            else //If there's floor and no blocking objects
             {
                 //idk what im doing man
                 //idk what you were doing past me either
-                transform.Translate(new Vector3(direction.x * speed * Time.deltaTime, 0, 0));
+                transform.Translate(new Vector3(direction.x * speed * Time.deltaTime, 0, 0)); //Move forward based on Enemy speed
                 
-                moveVector.x = direction.x; //for sprite flip
+                moveVector.x = direction.x; //Sets direction vector to the same as the movement vector. yes, we did just use direction like the movement vector. no, the sprite won't flip without this.
             }
         }
         else
         {
-            target = Hopps.transform.position - transform.position; //changing vector direction towards Hopps
-            transform.position = Vector2.MoveTowards(this.transform.position, Hopps.transform.position, speed * Time.deltaTime); //Moving towards Hopps
+            target = Hopps.transform.position - transform.position; //changing target vector towards Hopps
+            transform.position = Vector2.MoveTowards(this.transform.position, Hopps.transform.position, speed * Time.deltaTime); //Moving towards target vector
             
-            moveVector.x = target.x; //for sprite flip
+            moveVector.x = target.x; //for sprite flip (again, won't flip visually without it. it probably shouldn't need this, but it does)
 
-            if (moveVector.x < 0) //LOR flip
+            if (moveVector.x < 0) //Change LOR to match Movement Vector
             {
                 LOR = false;
             }
@@ -69,12 +70,11 @@ public class enemyAI : MonoBehaviour
                 LOR = true;
             }
         }
-
-
     }
 
     /// <summary>
-    /// This just checks if the enemy is facing left or right. why did I code it like this? good question. I wish I knew.
+    /// This just checks if the enemy is facing left or right, and sets the direction vector to match.
+    /// why did I code it this way? good question. I wish I knew.
     /// </summary>
     private void LORCheck()
     {
