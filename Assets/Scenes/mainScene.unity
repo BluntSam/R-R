@@ -2665,7 +2665,6 @@ GameObject:
   - component: {fileID: 937380696}
   - component: {fileID: 937380694}
   - component: {fileID: 937380695}
-  - component: {fileID: 937380698}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Obstacle
@@ -2805,19 +2804,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2020321363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &937380698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937380693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8409cf04a38e2048b9fa2f5138bd755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::damagedEnemy
-  damage: 10
 --- !u!1001 &964099708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44223,7 +44209,6 @@ GameObject:
   - component: {fileID: 1541948025}
   - component: {fileID: 1541948024}
   - component: {fileID: 1541948023}
-  - component: {fileID: 1541948022}
   m_Layer: 0
   m_Name: Spikes (1)
   m_TagString: Obstacle
@@ -44231,19 +44216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1541948022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541948021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8409cf04a38e2048b9fa2f5138bd755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::damagedEnemy
-  damage: 10
 --- !u!114 &1541948023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44494,7 +44466,6 @@ GameObject:
   - component: {fileID: 1618346280}
   - component: {fileID: 1618346279}
   - component: {fileID: 1618346278}
-  - component: {fileID: 1618346277}
   m_Layer: 0
   m_Name: Spikes (2)
   m_TagString: Obstacle
@@ -44502,19 +44473,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1618346277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618346276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8409cf04a38e2048b9fa2f5138bd755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::damagedEnemy
-  damage: 10
 --- !u!114 &1618346278
 MonoBehaviour:
   m_ObjectHideFlags: 0

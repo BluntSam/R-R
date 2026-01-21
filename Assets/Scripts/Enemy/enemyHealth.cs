@@ -5,8 +5,7 @@ public class enemyHealth : MonoBehaviour
     public int health;
     public int maxHealth = 3;
 
-    // Start is called once before the first execution of Update after the MonoBehavior is created
-    void Start()
+    void Awake()
     {
         health = maxHealth;
     }
