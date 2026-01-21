@@ -7,8 +7,7 @@ public class Health : MonoBehaviour
     public int health;
     public int maxHealth = 10;
 
-    // Start is called once before the first execution of Update after the MonoBehavior is created
-    void Start()
+    void Awake()
     {
         health = maxHealth;
     }
@@ -19,7 +18,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadSceneAsync("mainScene");
+            SceneManager.LoadSceneAsync("mainScene"); //Change to allow for checkpoints and loading into other levels later
         }
     }
 
