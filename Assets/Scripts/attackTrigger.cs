@@ -8,6 +8,7 @@ public class attackTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         //flip trigger location based on direction
         if (Hopps.GetComponent<playerMovement>().movement.x < 0)
         {
@@ -17,5 +18,6 @@ public class attackTrigger : MonoBehaviour
         {
             transform.position = new Vector2(Hopps.transform.position.x + 2f, Hopps.transform.position.y + 2);
         }
+        */
     }
 }
