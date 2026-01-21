@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4e3de86c9cd5546aa9ddfb0306bb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::attackTriggerEnemy
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 5608025520661675577}
   spriteRenderer: {fileID: 8864957202259779419}
 --- !u!1 &5608025520661675577
 GameObject:
@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 7025004133985518936}
   - component: {fileID: 7006728114452557132}
   - component: {fileID: 4935291769089622309}
+  - component: {fileID: 7591582161230024533}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb74ec7c00442694893975a5f0d9460a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Hopps: {fileID: 1231859981295989950, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+  Hopps: {fileID: 0}
   speed: 2
   movement: {x: 0, y: 0}
   spriteRenderer: {fileID: 5610831069059415637}
@@ -358,3 +359,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemyHealth
   health: 0
   maxHealth: 3
+--- !u!95 &7591582161230024533
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608025520661675577}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae3c13a9220edd84e8d109de7a0b90ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

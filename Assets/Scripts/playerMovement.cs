@@ -1,86 +1,111 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using UnityEngine.Windows;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputManager))]
 public class playerMovement : MonoBehaviour
 {
-    //Declaring Variables
-    //Speed of the character
-    [SerializeField] private float speed = 8f;
-    //Just the sprite renderer
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    //Movement for 2D Vector
-    public Vector2 movement;
-    //Screen boundaries
-    private Vector2 screenBounds;
-    //Half the player's width
-    private float playerHalfWidth;
-    public AudioSource audioSource1;
-    public AudioSource audioSource2;
-    public AudioSource audioSource3;
+    //this code was so ass
+
+    //Components
+    private Rigidbody2D rBody;
+    private SpriteRenderer sRend;
+    private Animator pAnimator;
+    private PlayerInputManager pInput;
+
+    [Header("Movement Variables")]
+    [SerializeField] private float speed = 10f; //Player Speed
+    private bool isGrounded;
+    private float horizontalVelocity;
+    public Vector2 moveVector;
+
+    [Header("Jump Variables")]
+    [SerializeField] private float jumpForce = 15f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.5f;
 
 
     //Start Function: Called once before Update Function
-    private void Start()
+    private void Awake()
     {
-        //Calculation to convert screen units into world units
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        //Getting the edge of the sprite
-        playerHalfWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
+        //Initializing
+        rBody = GetComponent<Rigidbody2D>();
+        sRend = GetComponent<SpriteRenderer>();
+        pAnimator = GetComponent<Animator>();
+        pInput = GetComponent<PlayerInputManager>();
     }
 
     //Update Function: Called once per frame
-    void Update()
-    {
-        handleMovement();
-    }
-
     private void FixedUpdate()
     {
-        //Animation
-        GetComponent<Animator>().SetBool("isWalking", movement.x != 0);
+        //Movement
+        HandleMovement();
+        HandleJump();
 
-       
+        //Animation
+        AnimatePlayer();
     }
 
-    private void handleMovement()
+    private void Update()
     {
-        //The actual movement
-        float input = Input.GetAxis("Horizontal"); //Getting the horizontal axis
-        movement.x = input * speed * Time.deltaTime; //Horizontal movement
-        transform.Translate(movement); //Making them move
-       
-        
+        //Ground Check
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
 
-        //flip sprite based on direction
-        if (movement.x < 0)
+    private void HandleMovement()
+    {
+        horizontalVelocity = pInput.MoveInput.x * speed;
+        moveVector = new Vector2(horizontalVelocity, rBody.linearVelocity.y);
+        rBody.linearVelocity = moveVector;
+    }
+
+    private void HandleJump()
+    {
+        if (pInput.JumpTriggered && isGrounded)
         {
-            spriteRenderer.flipX = true;
+            rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
+            rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        if (movement.x > 0)
+    }
+
+    private void AnimatePlayer()
+    {
+        //Walking
+        pAnimator.SetBool("isWalking", moveVector.x != 0);
+
+        //Rising
+        if (rBody.linearVelocity.y >= 0.5f && !isGrounded)
         {
-            spriteRenderer.flipX = false;
-           
-        }
-        if ((movement.x > 0) || (movement.x  < 0))
-        {
-            audioSource1.enabled = true;
-            if (IsGrounded())
-            {
-                audioSource1.enabled = true;
-            }
-            else
-            {
-                audioSource1.enabled = false;
-            }
+            pAnimator.SetBool("isRising", true);
         }
         else
         {
-            audioSource1.enabled = false;
+            pAnimator.SetBool("isRising", false);
         }
-    }
-    private bool IsGrounded()
-    {
-        return Physics2D.Raycast(transform.position, Vector2.down, 0.25f, LayerMask.GetMask("Ground"));
+
+        //Falling
+        if (rBody.linearVelocity.y <= -0.5f && !isGrounded)
+        {
+            pAnimator.SetBool("isFalling", true);
+        }
+        else
+        {
+            pAnimator.SetBool("isFalling", false);
+        }
+
+        //flip sprite based on direction
+        if (moveVector.x < 0)
+        {
+            sRend.flipX = true;
+        }
+        if (moveVector.x > 0)
+        {
+            sRend.flipX = false;
+        }
     }
 }
