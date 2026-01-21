@@ -13,11 +13,11 @@ public class attackTriggerEnemy : MonoBehaviour
     private void Flipping()
     {
         //flip trigger location based on direction
-        if (Enemy.GetComponent<enemyAI>().movement.x < 0)
+        if (Enemy.GetComponent<enemyAI>().moveVector.x < 0)
         {
             transform.position = new Vector2(Enemy.transform.position.x - 2f, Enemy.transform.position.y);
         }
-        if (Enemy.GetComponent<enemyAI>().movement.x > 0)
+        if (Enemy.GetComponent<enemyAI>().moveVector.x > 0)
         {
             transform.position = new Vector2(Enemy.transform.position.x + 2f, Enemy.transform.position.y);
         }

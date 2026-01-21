@@ -4,15 +4,20 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class enemyAI : MonoBehaviour
 {
+    //auuugh.wav
+
+    //Components
     public GameObject Hopps;
-    public float speed = 2f;
-    public Vector2 movement;
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    public float distance;
-    private Vector2 direction;
-    private Vector2 target;
-    public bool LOR;
-    public float chaseRange = 10f;
+    [SerializeField] private SpriteRenderer sRend;
+
+    //Variables
+    public float speed = 2f;        //Speed of Enemy
+    public Vector2 moveVector;      //Movement Vector of Enemy
+    public float distance;          //distance between Enemy and Hopps
+    private Vector2 direction;      //Direction Enemy is facing
+    private Vector2 target;         //Hopps' Location when in Chase Range
+    public bool LOR;                //Left or Right
+    public float chaseRange = 10f;  //Enemy's Range for spotting Hopps
 
     void Update()
     {
@@ -27,7 +32,7 @@ public class enemyAI : MonoBehaviour
 
         handleMovement();
 
-        distance = Vector2.Distance(transform.position, Hopps.transform.position); //distance between enemy and Hopps
+        distance = Vector2.Distance(transform.position, Hopps.transform.position);
     }
 
     private void handleMovement()
@@ -40,10 +45,11 @@ public class enemyAI : MonoBehaviour
             }
             else
             {
-                Vector3 moving = new Vector3(direction.x * speed * Time.deltaTime, 0, 0); //idk what im doing man
-                transform.Translate(moving); //Making them move
+                //idk what im doing man
+                //idk what you were doing past me either
+                transform.Translate(new Vector3(direction.x * speed * Time.deltaTime, 0, 0));
                 
-                movement.x = direction.x; //for sprite flip
+                moveVector.x = direction.x; //for sprite flip
             }
         }
         else
@@ -51,26 +57,26 @@ public class enemyAI : MonoBehaviour
             target = Hopps.transform.position - transform.position; //changing vector direction towards Hopps
             transform.position = Vector2.MoveTowards(this.transform.position, Hopps.transform.position, speed * Time.deltaTime); //Moving towards Hopps
             
-            movement.x = target.x; //for sprite flip
+            moveVector.x = target.x; //for sprite flip
 
-            if (movement.x < 0) //LOR flip
+            if (moveVector.x < 0) //LOR flip
             {
                 LOR = false;
             }
-            if (movement.x > 0)
+            if (moveVector.x > 0)
             {
                 LOR = true;
             }
         }
 
         //flip sprite based on movement direction
-        if (movement.x < 0)
+        if (moveVector.x < 0)
         {
-            spriteRenderer.flipX = true;
+            sRend.flipX = true;
         }
-        if (movement.x > 0)
+        if (moveVector.x > 0)
         {
-            spriteRenderer.flipX = false;
+            sRend.flipX = false;
 
         }
     }
