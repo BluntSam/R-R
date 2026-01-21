@@ -1418,6 +1418,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf448b3ef7c1de847befc2d820486e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &575455122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5045667680610459571, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+  m_PrefabInstance: {fileID: 5240890634403317888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575455100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7d1b150038d174cbe79750b09e191e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::normalAttack
 --- !u!1 &597732333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2552,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &890799473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6415853867125039601, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+  m_PrefabInstance: {fileID: 5240890634403317888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b186b723a4cc554e9497a9941f529f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::attackTrigger
 --- !u!1 &899246096
 GameObject:
   m_ObjectHideFlags: 0
@@ -69160,6 +69182,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5045667680610459571, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: aTrigger
+      value: 
+      objectReference: {fileID: 890799473}
+    - target: {fileID: 5045667680610459571, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: enemyHit
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415853867125039601, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: nAttack
+      value: 
+      objectReference: {fileID: 575455122}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

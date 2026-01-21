@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::normalAttack
   violence: 0
-  enemyHit: {fileID: 4952361545845698969}
+  enemyHit: {fileID: 0}
 --- !u!82 &5325971079094965521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -735,7 +735,6 @@ GameObject:
   - component: {fileID: 8307705450421831953}
   - component: {fileID: 6415853867125039601}
   - component: {fileID: 6670898269405556963}
-  - component: {fileID: 4952361545845698969}
   m_Layer: 0
   m_Name: attackTrigger
   m_TagString: attackTrigger
@@ -876,21 +875,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4952361545845698969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3043620700909545025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ee5050ca3c5584399fb0de48ef9652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyHit
-  damage: 1
-  normalAttack: {fileID: 5045667680610459571}
-  canHit: 1
 --- !u!1 &6246733279971898013
 GameObject:
   m_ObjectHideFlags: 0
