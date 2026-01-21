@@ -18,12 +18,13 @@ public class playerMovement : MonoBehaviour
     private PlayerInputManager pInput;
 
     [Header("Movement Variables")]
-    [SerializeField] private float speed = 8f; //Player Speed
+    [SerializeField] private float speed = 10f; //Player Speed
     private bool isGrounded;
     private float horizontalVelocity;
+    public Vector2 moveVector;
 
     [Header("Jump Variables")]
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] private float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.5f;
@@ -59,7 +60,8 @@ public class playerMovement : MonoBehaviour
     private void HandleMovement()
     {
         horizontalVelocity = pInput.MoveInput.x * speed;
-        rBody.linearVelocity = new Vector2(horizontalVelocity, rBody.linearVelocity.y);
+        moveVector = new Vector2(horizontalVelocity, rBody.linearVelocity.y);
+        rBody.linearVelocity = moveVector;
     }
 
     private void HandleJump()
@@ -73,19 +75,37 @@ public class playerMovement : MonoBehaviour
 
     private void AnimatePlayer()
     {
-        /*
-        //Animation
-        pAnimator.SetBool("isWalking", movement.x != 0);
+        //Walking
+        pAnimator.SetBool("isWalking", moveVector.x != 0);
+
+        //Rising
+        if (rBody.linearVelocity.y >= 0.5f && !isGrounded)
+        {
+            pAnimator.SetBool("isRising", true);
+        }
+        else
+        {
+            pAnimator.SetBool("isRising", false);
+        }
+
+        //Falling
+        if (rBody.linearVelocity.y <= -0.5f && !isGrounded)
+        {
+            pAnimator.SetBool("isFalling", true);
+        }
+        else
+        {
+            pAnimator.SetBool("isFalling", false);
+        }
 
         //flip sprite based on direction
-        if (movement.x < 0)
+        if (moveVector.x < 0)
         {
             sRend.flipX = true;
         }
-        if (movement.x > 0)
+        if (moveVector.x > 0)
         {
             sRend.flipX = false;
         }
-        */
     }
 }
