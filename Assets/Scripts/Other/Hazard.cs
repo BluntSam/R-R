@@ -3,24 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class Damage : MonoBehaviour
+public class Hazard : MonoBehaviour
 {
-
-    public int damage = 1;
+    //wtf is this past me what were you doing
+    public int damage = 10;
     private Health playerHealth;
+    public const string PLAYER_TAG = "Player";
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == PLAYER_TAG)
         {
             if (playerHealth == null)
             {
                 playerHealth = collision.gameObject.GetComponent<Health>();
             }
             
-            Debug.Log("Player Took Damage");
             playerHealth.takeDamage(damage);
+            Debug.Log("Player Took Damage");
         }
     }
 }
