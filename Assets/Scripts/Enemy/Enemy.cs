@@ -38,12 +38,12 @@ public class Enemy : MonoBehaviour
 
     /// <summary>
     /// Enemy Attack Power (Attack Strength)
-    /// Protected Get-Set: Only Children of Enemy can get or set the Enemy's Attack Power
+    /// Public Get & Protected Set: All can get the Enemy's Attack Power, but only Children of Enemy can set the Enemy's Attack Power
     /// </summary>
-    protected int AttackPower
+    public int AttackPower
     {
         get { return attackPower; }
-        set { attackPower = value; }
+        protected set { attackPower = value; }
     }
 
     /// <summary>

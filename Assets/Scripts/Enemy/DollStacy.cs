@@ -10,6 +10,7 @@ public class DollStacy : Enemy
     private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider;
+    public attackTriggerStacy aTrigger;
 
     //Hopps Components
     [Header("Hopps")]
@@ -33,6 +34,7 @@ public class DollStacy : Enemy
     public float distanceBetween;
     private Vector2 target;
     private bool harmfulToTouch = true;
+    private bool canAttack = true;
 
     //Other Variables
 
@@ -44,8 +46,10 @@ public class DollStacy : Enemy
         sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
+        aTrigger = GetComponentInChildren<attackTriggerStacy>();
 
         Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
+        playerHealth = Hopps.GetComponent<Health>();
 
         //Setting Variables
         MaxHealth = mHealth;
@@ -131,7 +135,20 @@ public class DollStacy : Enemy
 
     private void Attack()
     {
-        Chase();
+        if (canAttack)
+        {
+            canAttack = false;
+            atkPower = AttackPower;
+            aTrigger.isHitting = true;
+            Chase(); //Keep running at Hopps
+            StartCoroutine(HitCooldown());
+        }
+    }
+
+    private IEnumerator HitCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+        canAttack = true;
     }
 
     //Currently not needed as the only animation we are using, is Stacy constantly walking no matter what.

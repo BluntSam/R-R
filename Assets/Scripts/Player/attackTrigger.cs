@@ -4,10 +4,9 @@ using UnityEngine;
 public class attackTrigger : MonoBehaviour
 {
     //Components
-    [SerializeField] private SpriteRenderer sRend;
-    private Enemy enemy;
     [SerializeField] private GameObject Hopps;
     public normalAttack nAttack;
+    private Enemy enemy;
 
     //Variables
     public const string ENEMY_TAG = "Enemy";
@@ -15,7 +14,7 @@ public class attackTrigger : MonoBehaviour
     private bool isHitting;
     public bool canHitCooldown = false;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Flipping();
     }
