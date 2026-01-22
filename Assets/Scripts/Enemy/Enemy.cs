@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //Private Fields
+
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth;      //Maximum Health of the Enemy
     [SerializeField] private int currentHealth;  //Current Health of the Enemy
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed;    //Movement Speed of the Enemy
     [SerializeField] private float jumpForce;    //Jump Force of the Enemy
     [SerializeField] private float sightRange;   //Targeting Range of the Enemy
+    [SerializeField] public bool isDead;
 
     //Public/Protected Properties
 
@@ -73,23 +75,42 @@ public class Enemy : MonoBehaviour
         get { return sightRange; }
         set { sightRange = value; }
     }
+
+    /// <summary>
+    /// Enemy Is Dead (Dead)
+    /// Public Get: All can get the Enemy's Death Status
+    /// </summary>
+    public bool IsDead
+    {
+        get { return isDead; }
+    }
+
+    //Functions
+
+    /// <summary>
+    /// Enemy Takes Damage
+    /// </summary>
+    /// <param name="amount"></param>
+    public void TakeDamage(int amount)
+    {
+        if (IsDead) { return; }
+
+        CurrentHealth -= amount;
+        Debug.Log($"{gameObject.name}'s HP is now: {CurrentHealth}.");
+
+        if (CurrentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    /// <summary>
+    /// Enemy Dies
+    /// </summary>
+    protected void Die()
+    {
+        isDead = true;
+        Debug.Log($"{gameObject.name} has died.");
+        gameObject.SetActive(false);
+    }
 }
-
-//welcome to hell, boys (and girl)
-//Notes pasted from a google doc
-//putting a get set for like everything cus idk what the fuck we are gonna do with this shit
-/*
- * Enemy AI
-Health
-Take Damage
-Behavior
-Patrol
-Flip
-Chase
-Attack
-Damage
-
-(animation) <- AAAAAAAAAAAAAAAAHHHH
-flip
-walk
- */

@@ -35,4 +35,37 @@ public class DollStacy : Enemy
         JumpForce = jForce;
         SightRange = sRange;
     }
+
+    private void Update()
+    {
+        //Either I update them only when needed, or just do it all the time. I'm tired. This is temporary.
+        mHealth = MaxHealth;
+        cHealth = CurrentHealth;
+        atkPower = AttackPower;
+        mSpeed = MoveSpeed;
+        jForce = JumpForce;
+        sRange = SightRange;
+    }
+
+    //Functions
+
 }
+
+//welcome to hell, boys (and girl)
+//Notes pasted from a google doc
+//putting a get set for like everything cus idk what the fuck we are gonna do with this shit
+/*
+ * Enemy AI
+Health
+Take Damage
+Behavior
+Patrol
+Flip
+Chase
+Attack
+Damage
+
+(animation) <- AAAAAAAAAAAAAAAAHHHH
+flip
+walk
+ */
