@@ -8800,7 +8800,7 @@ GameObject:
   - component: {fileID: 1326437368}
   - component: {fileID: 1326437367}
   m_Layer: 3
-  m_Name: Grid
+  m_Name: Testing Platforms (SamuelEH)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
