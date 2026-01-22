@@ -64,11 +64,11 @@ public class enemyAI : MonoBehaviour
 
             if (moveVector.x < 0) //Change LOR to match Movement Vector
             {
-                LOR = false;
+                LOR = false; //-1
             }
             if (moveVector.x > 0)
             {
-                LOR = true;
+                LOR = true; //1
             }
         }
     }

@@ -1,23 +1,34 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DollStacy : Enemy
 {
     //Components
+
     //[Header("Components")]
     private Rigidbody2D rBody;
     private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider;
-    
+
+    //Hopps Components
+    [SerializeField] private GameObject Hopps;
+    private const string PLAYER_TAG = "Player";
 
     //Field Variables
+
     //Mainly Initial Stats that Shouldn't change much
     private int mHealth = 3;       //Max Health
     private int cHealth = 3;       //Current Health
     private int atkPower = 1;      //Attack Power
-    private float mSpeed = 2.0f;   //Movement Speed
+    private float mSpeed = 1.5f;   //Movement Speed
     private float jForce = 2.0f;   //Jump Force
     private float sRange = 10.0f;  //Sight Range
+
+    //Movement Variables
+    public Vector2 moveVector;
+    private float distanceBetween;
+    private Vector2 target;
 
     private void Awake()
     {
@@ -27,6 +38,9 @@ public class DollStacy : Enemy
         sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
+
+        Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
+
         //Setting Variables
         MaxHealth = mHealth;
         CurrentHealth = cHealth;
@@ -34,32 +48,80 @@ public class DollStacy : Enemy
         MoveSpeed = mSpeed;
         JumpForce = jForce;
         SightRange = sRange;
+
+        //Movement Variable
+        moveVector = new Vector2(mSpeed, 0);
     }
 
     private void Update()
     {
-        Animate();
+        //Animate();
         SpriteFlip();
+
+        CheckForHopps();
+        BehaviorChoice();
 
         //Either I update them only when needed, or just do it all the time. I'm tired. This is temporary.
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         atkPower = AttackPower;
-        mSpeed = MoveSpeed;
         jForce = JumpForce;
-        sRange = SightRange;
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     //Functions
 
+    private void CheckForHopps()
+    {
+        distanceBetween = Vector2.Distance(transform.position, Hopps.transform.position); //Get distance between this Stacy and Hopps
+    }
+
+    private void BehaviorChoice()
+    {
+        sRange = SightRange;
+        mSpeed = MoveSpeed;
+
+        if (distanceBetween >= sRange) //Hopps is out of sight
+        {
+            Patrol();
+        }
+        else if (distanceBetween < sRange || distanceBetween > 1) //Hopps is in sight
+        {
+            Chase();
+        }
+        else if (distanceBetween <= 1) //Hopps is RIGHT THERE
+        {
+            Attack();
+        }
+    }
+
     private void Patrol()
     {
+        if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Stacy
+        {
+            StacyFlip();
+        }
+        else //There is floor, and there's nothing blocking this Stacy
+        {
+            transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+        }
+    }
 
+    private void StacyFlip()
+    {
+        moveVector.x = moveVector.x * -1;
     }
 
     private void Chase()
     {
-
+        target = Hopps.transform.position - transform.position;
+        if (target.x <= -1.5) { moveVector.x = -1.5f; }
+        if (target.x >= 1.5) { moveVector.x = 1.5f; }
+        transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
     }
 
     private void Attack()
@@ -67,14 +129,46 @@ public class DollStacy : Enemy
 
     }
 
+    //Currently not needed as the only animation we are using, is Stacy constantly walking no matter what.
+    //Will be needed when we decide to not do that.
     private void Animate()
     {
-
+        //Where the animation code would go if we had any.
     }
 
     private void SpriteFlip()
     {
+        if (moveVector.x < 0)
+        {
+            sRend.flipX = true;
+        }
+        if (moveVector.x > 0)
+        {
+            sRend.flipX = false;
+        }
+    }
 
+    /// <summary>
+    /// Uses Raycasting to observe if there's floor in front of the Stacy
+    /// </summary>
+    /// <returns></returns>
+    public bool NoFloor()
+    {
+        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x * 0.4f, -1.5f);
+        Debug.DrawRay(RCOrigin, Vector2.down * 0.5f, Color.red);
+        return !Physics2D.Raycast(RCOrigin, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
+    }
+
+    /// <summary>
+    /// Uses Raycasting to observe if there's something blocking the Stacy's movement
+    /// </summary>
+    /// <returns></returns>
+    public bool OnBlocked()
+    {
+        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x, -1f);
+        Vector2 RCDirection = new Vector2(moveVector.x, 0);
+        Debug.DrawRay(RCOrigin, RCDirection * 0.5f, Color.red);
+        return Physics2D.Raycast(RCOrigin, RCDirection, 0.5f, LayerMask.GetMask("Ground"));
     }
 }
 
@@ -83,16 +177,17 @@ public class DollStacy : Enemy
 //putting a get set for like everything cus idk what the fuck we are gonna do with this shit
 /*
  * Enemy AI
-Health - functional?
-Take Damage
-Behavior
+Health - functional
+Take Damage - functional
+Die - functional
 Patrol
 Flip
 Chase
 Attack
-Damage
 
 (animation) <- AAAAAAAAAAAAAAAAHHHH
 flip
 walk
+
+just reused my old checking for no floor and checking for blocked code
  */

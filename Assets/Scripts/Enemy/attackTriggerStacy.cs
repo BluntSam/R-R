@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class attackTriggerStacy : MonoBehaviour
 {
-    public GameObject Enemy;
+    public GameObject enemy;
+
+    private void Awake()
+    {
+        //Initialize
+        enemy = this.transform.parent.gameObject;
+    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Flipping();
     }
@@ -13,15 +19,13 @@ public class attackTriggerStacy : MonoBehaviour
     private void Flipping()
     {
         //flip trigger location based on direction
-        /*
-        if (Enemy.GetComponent<DollStacy>().moveVector.x < 0)
+        if (enemy.GetComponent<DollStacy>().moveVector.x < 0)
         {
-            transform.position = new Vector2(Enemy.transform.position.x - 2f, Enemy.transform.position.y);
+            transform.position = new Vector2(enemy.transform.position.x - 2f, enemy.transform.position.y);
         }
-        if (Enemy.GetComponent<DollStacy>().moveVector.x > 0)
+        if (enemy.GetComponent<DollStacy>().moveVector.x > 0)
         {
-            transform.position = new Vector2(Enemy.transform.position.x + 2f, Enemy.transform.position.y);
+            transform.position = new Vector2(enemy.transform.position.x + 2f, enemy.transform.position.y);
         }
-        */
     }
 }
