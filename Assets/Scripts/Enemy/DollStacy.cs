@@ -38,6 +38,9 @@ public class DollStacy : Enemy
 
     private void Update()
     {
+        Animate();
+        SpriteFlip();
+
         //Either I update them only when needed, or just do it all the time. I'm tired. This is temporary.
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
@@ -49,6 +52,30 @@ public class DollStacy : Enemy
 
     //Functions
 
+    private void Patrol()
+    {
+
+    }
+
+    private void Chase()
+    {
+
+    }
+
+    private void Attack()
+    {
+
+    }
+
+    private void Animate()
+    {
+
+    }
+
+    private void SpriteFlip()
+    {
+
+    }
 }
 
 //welcome to hell, boys (and girl)
@@ -56,7 +83,7 @@ public class DollStacy : Enemy
 //putting a get set for like everything cus idk what the fuck we are gonna do with this shit
 /*
  * Enemy AI
-Health
+Health - functional?
 Take Damage
 Behavior
 Patrol

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Obsolete]
 public class enemyHealth : MonoBehaviour
 {
     public int health;

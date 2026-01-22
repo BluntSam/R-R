@@ -73922,7 +73922,7 @@ GameObject:
   - component: {fileID: 3668996527617977635}
   m_Layer: 0
   m_Name: Doll Stacy Enemy
-  m_TagString: enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74003,6 +74003,7 @@ MonoBehaviour:
   moveSpeed: 2
   jumpForce: 2
   sightRange: 10
+  isDead: 0
 --- !u!1 &5074448579594304661
 GameObject:
   m_ObjectHideFlags: 0

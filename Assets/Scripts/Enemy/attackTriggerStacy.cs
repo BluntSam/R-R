@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class attackTriggerEnemy : MonoBehaviour
+public class attackTriggerStacy : MonoBehaviour
 {
     public GameObject Enemy;
 
@@ -13,13 +13,15 @@ public class attackTriggerEnemy : MonoBehaviour
     private void Flipping()
     {
         //flip trigger location based on direction
-        if (Enemy.GetComponent<enemyAI>().moveVector.x < 0)
+        /*
+        if (Enemy.GetComponent<DollStacy>().moveVector.x < 0)
         {
             transform.position = new Vector2(Enemy.transform.position.x - 2f, Enemy.transform.position.y);
         }
-        if (Enemy.GetComponent<enemyAI>().moveVector.x > 0)
+        if (Enemy.GetComponent<DollStacy>().moveVector.x > 0)
         {
             transform.position = new Vector2(Enemy.transform.position.x + 2f, Enemy.transform.position.y);
         }
+        */
     }
 }

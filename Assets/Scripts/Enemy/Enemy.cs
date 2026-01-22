@@ -28,12 +28,12 @@ public class Enemy : MonoBehaviour
 
     /// <summary>
     /// Current Enemy Health (HP)
-    /// Protected Get-Set: Only Children of Enemy can get or set the Enemy's Current Health
+    /// Public Get & Protected Set: All can get the Enemy's Current Health, but only Children of Enemy can set the Enemy's Current Health
     /// </summary>
-    protected int CurrentHealth
+    public int CurrentHealth
     {
         get { return currentHealth; }
-        set { currentHealth = value; }
+        protected set { currentHealth = value; }
     }
 
     /// <summary>
@@ -111,6 +111,6 @@ public class Enemy : MonoBehaviour
     {
         isDead = true;
         Debug.Log($"{gameObject.name} has died.");
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
