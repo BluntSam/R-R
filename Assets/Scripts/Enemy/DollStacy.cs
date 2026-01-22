@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class DollStacy : Enemy
 {
@@ -12,8 +12,10 @@ public class DollStacy : Enemy
     private CapsuleCollider2D cCollider;
 
     //Hopps Components
+    [Header("Hopps")]
     [SerializeField] private GameObject Hopps;
     private const string PLAYER_TAG = "Player";
+    private Health playerHealth;
 
     //Field Variables
 
@@ -26,9 +28,13 @@ public class DollStacy : Enemy
     private float sRange = 10.0f;  //Sight Range
 
     //Movement Variables
+    [Header("Variables")]
     public Vector2 moveVector;
     public float distanceBetween;
     private Vector2 target;
+    private bool harmfulToTouch = true;
+
+    //Other Variables
 
     private void Awake()
     {
@@ -64,7 +70,6 @@ public class DollStacy : Enemy
         //Either I update them only when needed, or just do it all the time. I'm tired. This is temporary.
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
-        atkPower = AttackPower;
         jForce = JumpForce;
     }
 
@@ -95,7 +100,6 @@ public class DollStacy : Enemy
         }
         else if (distanceBetween <= 4) //Hopps is RIGHT THERE
         {
-            Debug.Log("ATTACK DISTANCE");
             Attack();
         }
     }
@@ -127,7 +131,7 @@ public class DollStacy : Enemy
 
     private void Attack()
     {
-
+        Chase();
     }
 
     //Currently not needed as the only animation we are using, is Stacy constantly walking no matter what.
@@ -137,6 +141,7 @@ public class DollStacy : Enemy
         //Where the animation code would go if we had any.
     }
 
+    //Flips the Sprite *gasp*
     private void SpriteFlip()
     {
         if (moveVector.x < 0)
@@ -170,6 +175,30 @@ public class DollStacy : Enemy
         Vector2 RCDirection = new Vector2(moveVector.x, 0);
         Debug.DrawRay(RCOrigin, RCDirection * 0.5f, Color.red);
         return Physics2D.Raycast(RCOrigin, RCDirection, 0.5f, LayerMask.GetMask("Ground"));
+    }
+
+    //This just makes it hurt to touch the Stacy
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == PLAYER_TAG && harmfulToTouch)
+        {
+            if (playerHealth == null)
+            {
+                playerHealth = collision.gameObject.GetComponent<Health>();
+            }
+
+            harmfulToTouch = false;
+            atkPower = AttackPower;
+            playerHealth.takeDamage(atkPower);
+            Debug.Log($"Player Took {atkPower} Damage");
+            StartCoroutine(HurtCooldown());
+        }
+    }
+
+    private IEnumerator HurtCooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        harmfulToTouch = true;
     }
 }
 

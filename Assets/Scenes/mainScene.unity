@@ -7730,6 +7730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   damage: 10
+  harmfulToPlayer: 1
+  harmfulToEnemy: 1
 --- !u!212 &937380696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49024,6 +49026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   damage: 10
+  harmfulToPlayer: 1
+  harmfulToEnemy: 1
 --- !u!61 &1541948024
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49269,6 +49273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   damage: 10
+  harmfulToPlayer: 1
+  harmfulToEnemy: 1
 --- !u!61 &1618346279
 BoxCollider2D:
   m_ObjectHideFlags: 0
