@@ -73919,8 +73919,9 @@ GameObject:
   - component: {fileID: 459831372664673706}
   - component: {fileID: 2182730469032252975}
   - component: {fileID: 1616227146701970466}
+  - component: {fileID: 3668996527617977635}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Doll Stacy Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73984,6 +73985,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3668996527617977635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667333871081385294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df60fa35ff9686a41836ad96cb876cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DollStacy
+  maxHealth: 3
+  currentHealth: 3
+  attackPower: 1
+  moveSpeed: 2
+  jumpForce: 2
+  sightRange: 10
 --- !u!1 &5074448579594304661
 GameObject:
   m_ObjectHideFlags: 0

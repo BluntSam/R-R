@@ -4,16 +4,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //Private Fields
-
-    private int maxHealth;      //Maximum Health of the Enemy
-    private int currentHealth;  //Current Health of the Enemy
-
-    private int attackPower;    //Attack Power of the Enemy
-
-    private float moveSpeed;    //Movement Speed of the Enemy
-    private float jumpForce;    //Jump Force of the Enemy
-
-    private float sightRange;   //Targeting Range of the Enemy
+    [Header("Enemy Stats")]
+    [SerializeField] private int maxHealth;      //Maximum Health of the Enemy
+    [SerializeField] private int currentHealth;  //Current Health of the Enemy
+    [SerializeField] private int attackPower;    //Attack Power of the Enemy
+    [SerializeField] private float moveSpeed;    //Movement Speed of the Enemy
+    [SerializeField] private float jumpForce;    //Jump Force of the Enemy
+    [SerializeField] private float sightRange;   //Targeting Range of the Enemy
 
     //Public/Protected Properties
 
@@ -91,20 +88,6 @@ Flip
 Chase
 Attack
 Damage
-
-(health)
-maxHealth
-currentHealth
-
-(attack)
-damagePower (changed to Attack, is more clear)
-
-(general movement)
-moveSpeed
-jumpForce
-
-(specific movement)
-chaseRange
 
 (animation) <- AAAAAAAAAAAAAAAAHHHH
 flip
