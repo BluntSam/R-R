@@ -9,13 +9,15 @@ public class Hazard : MonoBehaviour
     //wtf^2 why were there separate scripts for spikes hitting player and enemy?
     public int damage = 10;
     private Health playerHealth;
-    private enemyHealth enemyHealth;
+    private Enemy enemy;
     public const string PLAYER_TAG = "Player";
-    public const string ENEMY_TAG = "enemy";
+    public const string ENEMY_TAG = "Enemy";
+    public bool harmfulToPlayer = true;
+    public bool harmfulToEnemy = true;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == PLAYER_TAG)
+        if (collision.gameObject.tag == PLAYER_TAG && harmfulToPlayer)
         {
             if (playerHealth == null)
             {
@@ -23,17 +25,17 @@ public class Hazard : MonoBehaviour
             }
             
             playerHealth.takeDamage(damage);
-            Debug.Log("Player Took Damage");
+            Debug.Log($"Player Took {damage} Damage");
         }
-        else if(collision.gameObject.tag == ENEMY_TAG)
+        else if(collision.gameObject.tag == ENEMY_TAG && harmfulToEnemy)
         {
-            if (enemyHealth == null)
+            if (enemy == null)
             {
-                enemyHealth = collision.gameObject.GetComponent<enemyHealth>();
+                enemy = collision.gameObject.GetComponent<Enemy>();
             }
 
-            Debug.Log("Enemy Took Damage");
-            enemyHealth.takeDamage(damage);
+            Debug.Log($"{collision.gameObject.name} Took {damage} Damage");
+            enemy.TakeDamage(damage);
         }
     }
 }

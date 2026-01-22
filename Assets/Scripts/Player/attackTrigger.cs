@@ -4,18 +4,17 @@ using UnityEngine;
 public class attackTrigger : MonoBehaviour
 {
     //Components
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    private enemyHealth enemyHealth;
     [SerializeField] private GameObject Hopps;
     public normalAttack nAttack;
+    private Enemy enemy;
 
     //Variables
-    public const string ENEMY_TAG = "enemy";
+    public const string ENEMY_TAG = "Enemy";
     public int damage = 1;
     private bool isHitting;
     public bool canHitCooldown = false;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Flipping();
     }
@@ -40,13 +39,13 @@ public class attackTrigger : MonoBehaviour
         {
             if (collision.gameObject.tag == ENEMY_TAG && !canHitCooldown)
             {
-                if (enemyHealth == null)
+                if (enemy == null)
                 {
-                    enemyHealth = collision.gameObject.GetComponent<enemyHealth>();
+                    enemy = collision.gameObject.GetComponent<Enemy>();
                 }
 
                 Debug.Log("Enemy was Hit");
-                enemyHealth.takeDamage(damage);
+                enemy.TakeDamage(damage);
 
                 StartCoroutine(attackCooldown());
             }
