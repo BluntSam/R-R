@@ -27,7 +27,7 @@ public class DollStacy : Enemy
 
     //Movement Variables
     public Vector2 moveVector;
-    private float distanceBetween;
+    public float distanceBetween;
     private Vector2 target;
 
     private void Awake()
@@ -89,12 +89,13 @@ public class DollStacy : Enemy
         {
             Patrol();
         }
-        else if (distanceBetween < sRange || distanceBetween > 1) //Hopps is in sight
+        else if (distanceBetween < sRange && distanceBetween > 4) //Hopps is in sight
         {
             Chase();
         }
-        else if (distanceBetween <= 1) //Hopps is RIGHT THERE
+        else if (distanceBetween <= 4) //Hopps is RIGHT THERE
         {
+            Debug.Log("ATTACK DISTANCE");
             Attack();
         }
     }

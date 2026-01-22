@@ -74006,6 +74006,7 @@ MonoBehaviour:
   isDead: 0
   Hopps: {fileID: 575455100}
   moveVector: {x: 0, y: 0}
+  distanceBetween: 0
 --- !u!1 &5074448579594304661
 GameObject:
   m_ObjectHideFlags: 0
@@ -74030,14 +74031,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 403324238750575429, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 403324238750575429, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 1231859981295989950, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_Name
       value: Hopps
@@ -74174,12 +74167,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5639179852248068204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd4e3de86c9cd5546aa9ddfb0306bb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::attackTriggerEnemy
-  enemy: {fileID: 0}
+  enemy: {fileID: 3667333871081385294}
 --- !u!4 &8895134749652705031
 Transform:
   m_ObjectHideFlags: 0
