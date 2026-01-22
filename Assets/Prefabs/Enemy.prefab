@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1906754696795973691}
   - component: {fileID: 1630486499593762205}
   m_Layer: 0
-  m_Name: attackTriggerEnemy
+  m_Name: AttackTriggerEnemy
   m_TagString: attackTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,6 +151,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::attackTriggerEnemy
   Enemy: {fileID: 5608025520661675577}
+--- !u!1 &4132995896574570466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308096537169562736}
+  m_Layer: 0
+  m_Name: GroundCheckEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &308096537169562736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132995896574570466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6908853662357232557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5608025520661675577
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3187833962664049810}
+  - {fileID: 308096537169562736}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5610831069059415637
@@ -263,7 +295,7 @@ MonoBehaviour:
   Hopps: {fileID: 0}
   sRend: {fileID: 5610831069059415637}
   speed: 2
-  movement: {x: 0, y: 0}
+  moveVector: {x: 0, y: 0}
   distance: 0
   LOR: 0
   chaseRange: 10

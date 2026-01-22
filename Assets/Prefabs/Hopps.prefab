@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d1b150038d174cbe79750b09e191e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::normalAttack
-  violence: 0
-  enemyHit: {fileID: 0}
+  violent: 0
+  aTrigger: {fileID: 6415853867125039601}
 --- !u!82 &5325971079094965521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 6415853867125039601}
   - component: {fileID: 6670898269405556963}
   m_Layer: 0
-  m_Name: attackTrigger
+  m_Name: AttackTrigger
   m_TagString: attackTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,8 +827,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b186b723a4cc554e9497a9941f529f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::attackTrigger
-  Hopps: {fileID: 1231859981295989950}
   spriteRenderer: {fileID: 8307705450421831953}
+  Hopps: {fileID: 1231859981295989950}
+  nAttack: {fileID: 5045667680610459571}
+  damage: 1
+  canHitCooldown: 0
 --- !u!61 &6670898269405556963
 BoxCollider2D:
   m_ObjectHideFlags: 0
