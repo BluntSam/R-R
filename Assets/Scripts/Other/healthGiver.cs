@@ -23,7 +23,7 @@ public class healthGiver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerHealth.gainHealth(hpgain);
+            playerHealth.GainHealth(hpgain);
             StartCoroutine(Cooldown());
         }
     }

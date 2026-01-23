@@ -47,6 +47,7 @@ public class playerMovement : MonoBehaviour
 
         //Animation
         AnimatePlayer();
+        FlipSprite();
     }
 
     private void Update()
@@ -95,7 +96,10 @@ public class playerMovement : MonoBehaviour
         {
             pAnimator.SetBool("isFalling", false);
         }
+    }
 
+    private void FlipSprite()
+    {
         //flip sprite based on direction
         if (moveVector.x < 0)
         {

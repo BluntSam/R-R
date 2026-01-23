@@ -54,7 +54,7 @@ public class attackTriggerStacy : MonoBehaviour
                 }
 
                 Debug.Log("Player was Hit");
-                playerhealth.takeDamage(damage);
+                playerhealth.TakeDamage(damage);
 
                 isHitting = false;
 
