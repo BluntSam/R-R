@@ -68630,6 +68630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hopps
       objectReference: {fileID: 0}
+    - target: {fileID: 1540389777657427464, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 2706e49e664c36b47bafbf7f8744964f, type: 2}
     - target: {fileID: 5012626518709789048, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -68670,6 +68674,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5844616874337703355, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 2706e49e664c36b47bafbf7f8744964f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
