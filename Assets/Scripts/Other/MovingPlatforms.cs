@@ -1,4 +1,3 @@
-using UnityEditor.SettingsManagement;
 using UnityEngine;
 
 public class MovingPlatforms : MonoBehaviour
@@ -6,14 +5,14 @@ public class MovingPlatforms : MonoBehaviour
     //variables 
     public Transform pointA;
     public Transform pointB;
-    private float moveSpeed = 2f;
-
+    [SerializeField] private float moveSpeed = 2f;
     private Vector3 nextPosition;
+    private const string PLAYER_TAG = "Player";
+
     void Awake()
     { //setting next position to point b 
         nextPosition = pointB.position;
     }
-
     
     void FixedUpdate()
     {
@@ -29,7 +28,7 @@ public class MovingPlatforms : MonoBehaviour
   
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(PLAYER_TAG))
         {
             collision.gameObject.transform.parent = transform;
         }
@@ -37,7 +36,7 @@ public class MovingPlatforms : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(PLAYER_TAG))
         {
             collision.gameObject.transform.parent = null;
         }
