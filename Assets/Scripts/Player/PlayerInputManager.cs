@@ -8,6 +8,7 @@ public class PlayerInputManager : MonoBehaviour
     //Variables
     private Vector2 moveInput;
     private bool jumpPressed = false;
+    private bool glidePressed = false;
 
     //Properties
     public Vector2 MoveInput
@@ -18,6 +19,11 @@ public class PlayerInputManager : MonoBehaviour
     {
         get { return jumpPressed; }
     }
+
+    public bool GlideTriggered
+    {
+        get { return glidePressed; }
+    }    
 
     //Functions
     public void OnMove(InputAction.CallbackContext context)
@@ -36,4 +42,17 @@ public class PlayerInputManager : MonoBehaviour
             jumpPressed = false;
         }
     }
+
+    public void OnGlide(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            glidePressed = true;
+        }
+        else if (context.canceled)
+        {
+            glidePressed = false;
+        }
+    }
+
 }

@@ -44,6 +44,7 @@ public class playerMovement : MonoBehaviour
         //Movement
         HandleMovement();
         HandleJump();
+        HandleGlide();
 
         //Animation
         AnimatePlayer();
@@ -68,8 +69,23 @@ public class playerMovement : MonoBehaviour
         {
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log(isGrounded);
+            
         }
     }
+
+    private void HandleGlide()
+    {
+        if (pInput.GlideTriggered && !isGrounded)
+        {
+            rBody.gravityScale = 0.5f;
+            Debug.Log("gliding");
+        }
+        else
+        {
+            rBody.gravityScale = 2;
+        }
+    }    
 
     private void AnimatePlayer()
     {
