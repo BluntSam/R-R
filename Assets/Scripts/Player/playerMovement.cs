@@ -20,9 +20,9 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float speed = 10f; //Player Speed
 
     private bool isGrounded;
-    bool hasJumped = false;
+   
     private float horizontalVelocity;
-    public float targetTime = 5f;
+   
     public Vector2 moveVector;
   
     [Header("Jump Variables")]
@@ -45,7 +45,7 @@ public class playerMovement : MonoBehaviour
     //Update Function: Called once per frame
     private void FixedUpdate()
     {
-        targetTime -= Time.deltaTime;
+       
 
         //Movement
         HandleMovement();
@@ -78,21 +78,19 @@ public class playerMovement : MonoBehaviour
             
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-           hasJumped = true;
+
+             
+
         }
     }
    
     private void HandleGlide()
     {
-        if (pInput.GlideTriggered && hasJumped && isGrounded == false )
+        if (pInput.GlideTriggered && isGrounded == false )
         {
             rBody.gravityScale = 0.2f;
             Debug.Log("gliding");
-            
-            if (targetTime <= 0.0f)
-            {
-                hasJumped = false;
-            }
+          
         }
         else
         {

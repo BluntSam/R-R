@@ -94,7 +94,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold(duration=2)",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -498,7 +498,7 @@
                     "name": "",
                     "id": "aa18fc1e-401d-45b1-87df-d84cb0b29899",
                     "path": "<Keyboard>/space",
-                    "interactions": "Hold(duration=1)",
+                    "interactions": "Hold(duration=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Glide",
@@ -509,7 +509,7 @@
                     "name": "",
                     "id": "da37aa2d-8099-4761-96f3-bf15edeb71ed",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Hold(duration=1)",
+                    "interactions": "Hold(duration=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Glide",
