@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,10 +18,13 @@ public class playerMovement : MonoBehaviour
 
     [Header("Movement Variables")]
     [SerializeField] private float speed = 10f; //Player Speed
-    private bool isGrounded;
-    private float horizontalVelocity;
-    public Vector2 moveVector;
 
+    private bool isGrounded;
+    bool hasJumped = false;
+    private float horizontalVelocity;
+    public float targetTime = 5f;
+    public Vector2 moveVector;
+  
     [Header("Jump Variables")]
     [SerializeField] private float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
@@ -41,6 +45,8 @@ public class playerMovement : MonoBehaviour
     //Update Function: Called once per frame
     private void FixedUpdate()
     {
+        targetTime -= Time.deltaTime;
+
         //Movement
         HandleMovement();
         HandleJump();
@@ -54,6 +60,7 @@ public class playerMovement : MonoBehaviour
     {
         //Ground Check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        
     }
 
     private void HandleMovement()
@@ -65,28 +72,34 @@ public class playerMovement : MonoBehaviour
 
     private void HandleJump()
     {
+         
         if (pInput.JumpTriggered && isGrounded)
         {
+            
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            Debug.Log(isGrounded);
-            
+           hasJumped = true;
         }
     }
-
+   
     private void HandleGlide()
     {
-        if (pInput.GlideTriggered && !isGrounded)
+        if (pInput.GlideTriggered && hasJumped && isGrounded == false )
         {
-            rBody.gravityScale = 0.5f;
+            rBody.gravityScale = 0.2f;
             Debug.Log("gliding");
+            
+            if (targetTime <= 0.0f)
+            {
+                hasJumped = false;
+            }
         }
         else
         {
             rBody.gravityScale = 2;
         }
     }    
-
+   
     private void AnimatePlayer()
     {
         //Walking
