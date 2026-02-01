@@ -19,7 +19,7 @@ public class playerMovement : MonoBehaviour
     public Vector2 moveVector;
   
     [Header("Jump Variables")]
-    [SerializeField] private float jumpForce = 15f;
+    public float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.5f;
@@ -69,12 +69,8 @@ public class playerMovement : MonoBehaviour
          
         if (pInput.JumpTriggered && isGrounded)
         {
-            
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
-             
-
         }
     }
    

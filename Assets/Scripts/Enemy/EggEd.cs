@@ -17,7 +17,6 @@ public class EggEd : Enemy
     [Header("Hopps")]
     [SerializeField] private GameObject Hopps;
     private const string PLAYER_TAG = "Player";
-    private Health playerHealth;
 
     //Field Variables
 
@@ -33,7 +32,6 @@ public class EggEd : Enemy
     [Header("Variables")]
     public float distanceBetween;
     private Vector2 target;
-    private bool harmfulToTouch = true;
     private bool canAttack = true;
 
     //The Egg Variables
@@ -53,7 +51,6 @@ public class EggEd : Enemy
         bCollider = GetComponentInChildren<BoxCollider2D>();
 
         Hopps = GameObject.FindWithTag(PLAYER_TAG);
-        playerHealth = Hopps.GetComponent<Health>();
 
         //Setting Variables
         MaxHealth = mHealth;
@@ -183,6 +180,21 @@ public class EggEd : Enemy
             sRend.flipX = true;
             cCollider.offset = new Vector2(0.15f, cCollider.offset.y);
             bCollider.offset = new Vector2(0.15f, bCollider.offset.y);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == PLAYER_TAG)
+        {
+            if (collision.otherCollider is BoxCollider2D)
+            {
+                //Debug.Log($"{gameObject.name} HIT HEAD");
+                TakeDamage(10);
+                Rigidbody2D hRBODY = Hopps.GetComponent<Rigidbody2D>();
+                hRBODY.linearVelocity = new Vector2(hRBODY.linearVelocity.x, 0);
+                hRBODY.AddForce(Vector2.up * Hopps.GetComponent<playerMovement>().jumpForce, ForceMode2D.Impulse);
+            }
         }
     }
 }
