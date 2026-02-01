@@ -43706,7 +43706,8 @@ GameObject:
   - component: {fileID: 1574114112}
   - component: {fileID: 1574114115}
   - component: {fileID: 1574114116}
-  m_Layer: 0
+  - component: {fileID: 1574114117}
+  m_Layer: 3
   m_Name: Egg Ed Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -43870,8 +43871,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.15190959, y: 0.14074004}
-  m_Size: {x: 1.8961806, y: 2.3185198}
+  m_Offset: {x: -0.14999998, y: 0}
+  m_Size: {x: 2, y: 2.5}
   m_Direction: 0
 --- !u!114 &1574114116
 MonoBehaviour:
@@ -43885,8 +43886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14e46724c6cd0f41b9326d081de5787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EggEd
-  maxHealth: 1
-  currentHealth: 1
+  maxHealth: 2
+  currentHealth: 2
   attackPower: 1
   moveSpeed: 6
   jumpForce: 2
@@ -43896,6 +43897,53 @@ MonoBehaviour:
   aTrigger: {fileID: 0}
   Hopps: {fileID: 575455100}
   distanceBetween: 0
+  noTop: {fileID: -6544329843217157280, guid: 3ef9f958934ed244589caf3bef586b0e, type: 3}
+--- !u!61 &1574114117
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574114109}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.15, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.2, y: 2.6}
+    newSize: {x: 0.22, y: 0.26}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.5, y: 0.75}
+  m_EdgeRadius: 0
 --- !u!1001 &1581061962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44204,7 +44252,7 @@ GameObject:
   - component: {fileID: 1638881856}
   - component: {fileID: 1638881855}
   - component: {fileID: 1638881857}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackTriggerEnemy
   m_TagString: attackTrigger
   m_Icon: {fileID: 0}

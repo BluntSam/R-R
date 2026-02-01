@@ -9,8 +9,9 @@ public class EggEd : Enemy
     private Rigidbody2D rBody;
     private SpriteRenderer sRend;
     private Animator eAnimate;
-    private CapsuleCollider2D cCollider;
+    private CapsuleCollider2D cCollider; //Normal Main Body Collider
     public attackTriggerEnemy aTrigger;
+    private BoxCollider2D bCollider; //Top Collider
 
     //Hopps Components
     [Header("Hopps")]
@@ -21,8 +22,8 @@ public class EggEd : Enemy
     //Field Variables
 
     //Mainly Initial Stats that Shouldn't change much
-    private int mHealth = 1;       //Max Health
-    private int cHealth = 1;       //Current Health
+    private int mHealth = 2;       //Max Health
+    private int cHealth = 2;       //Current Health
     private int atkPower = 1;      //Attack Power
     private float mSpeed = 6.0f;   //Movement Speed
     private float jForce = 2.0f;   //Jump Force
@@ -35,6 +36,9 @@ public class EggEd : Enemy
     private bool harmfulToTouch = true;
     private bool canAttack = true;
 
+    //The Egg Variables
+    [SerializeField] private Sprite noTop;
+
     //Other Variables
 
     private void Awake()
@@ -46,6 +50,7 @@ public class EggEd : Enemy
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
+        bCollider = GetComponentInChildren<BoxCollider2D>();
 
         Hopps = GameObject.FindWithTag(PLAYER_TAG);
         playerHealth = Hopps.GetComponent<Health>();
@@ -64,6 +69,8 @@ public class EggEd : Enemy
 
     private void Update()
     {
+        EggCheck();
+
         //Animate();
         SpriteFlip();
     }
@@ -79,6 +86,16 @@ public class EggEd : Enemy
     }
 
     //Functions
+
+    private void EggCheck()
+    {
+        if (cHealth < 2)
+        {
+            sRend.sprite = noTop;
+            cCollider.size = new Vector2(2f, 2f);
+            cCollider.offset = new Vector2(-0.15f, -0.25f);
+        }
+    }
 
     private void CheckForHopps()
     {
@@ -158,10 +175,14 @@ public class EggEd : Enemy
         if (moveVector.x < 0)
         {
             sRend.flipX = false;
+            cCollider.offset = new Vector2(-0.15f, cCollider.offset.y);
+            bCollider.offset = new Vector2(-0.15f, bCollider.offset.y);
         }
         if (moveVector.x > 0)
         {
             sRend.flipX = true;
+            cCollider.offset = new Vector2(0.15f, cCollider.offset.y);
+            bCollider.offset = new Vector2(0.15f, bCollider.offset.y);
         }
     }
 }
