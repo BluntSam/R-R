@@ -197,7 +197,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 10
   attackPower: 1
-  moveSpeed: 6
+  moveSpeed: 3
   jumpForce: 2
   sightRange: 10
   isDead: 0

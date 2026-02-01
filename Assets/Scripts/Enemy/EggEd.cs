@@ -24,7 +24,7 @@ public class EggEd : Enemy
     private int mHealth = 10;       //Max Health
     private int cHealth = 10;       //Current Health
     private int atkPower = 1;      //Attack Power
-    private float mSpeed = 6.0f;   //Movement Speed
+    private float mSpeed = 3.0f;   //Movement Speed
     private float jForce = 2.0f;   //Jump Force
     private float sRange = 10.0f;  //Sight Range
 
@@ -141,15 +141,15 @@ public class EggEd : Enemy
         if (NoFloor()) //If there's no floor
         {
             target = Hopps.transform.position - transform.position;
-            if (target.x <= -1.5) { moveVector.x = -1.5f; }
-            if (target.x >= 1.5) { moveVector.x = 1.5f; }
+            if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
+            if (target.x >= mSpeed) { moveVector.x = mSpeed; }
             transform.Translate(new Vector3(0, 0, 0));
         }
         else //If there's floor
         {
             target = Hopps.transform.position - transform.position;
-            if (target.x <= -1.5) { moveVector.x = -1.5f; }
-            if (target.x >= 1.5) { moveVector.x = 1.5f; }
+            if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
+            if (target.x >= mSpeed) { moveVector.x = mSpeed; }
             transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
         }
     }

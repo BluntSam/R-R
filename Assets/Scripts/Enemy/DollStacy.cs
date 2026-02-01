@@ -125,8 +125,8 @@ public class DollStacy : Enemy
     private void Chase()
     {
         target = Hopps.transform.position - transform.position;
-        if (target.x <= -1.5) { moveVector.x = -1.5f; }
-        if (target.x >= 1.5) { moveVector.x = 1.5f; }
+        if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
+        if (target.x >= mSpeed) { moveVector.x = mSpeed; }
         transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
     }
 
