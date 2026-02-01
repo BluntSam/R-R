@@ -55,7 +55,7 @@ public class attackTriggerEnemy : MonoBehaviour
                 }
 
                 Debug.Log("Player was Hit");
-                playerhealth.TakeDamage(damage);
+                playerhealth.TakeDamage(damage, enemy);
 
                 isHitting = false;
 

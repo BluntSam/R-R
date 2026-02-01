@@ -131,7 +131,7 @@ public class Enemy : MonoBehaviour
     }
     private IEnumerator KnockBackCooldown()
     {
-        Debug.Log("KNOCKBACK");
+        //Debug.Log("KNOCKBACK");
         isKnockedBack = true;
         hoppsLocation = Hopps.transform.position;
         enemyLocation = transform.position;
