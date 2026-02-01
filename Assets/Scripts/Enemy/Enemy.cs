@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))] //Also include any type of 2d Collider, but that is more flexible. (Not Triggers)
@@ -13,7 +14,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float jumpForce;    //Jump Force of the Enemy
     [SerializeField] private float sightRange;   //Targeting Range of the Enemy
     [SerializeField] public bool isDead;
+    [SerializeField] public bool isKnockedBack;
+
+    //Hopps Components
+    [Header("Hopps")]
+    [SerializeField] protected GameObject Hopps;
+    protected const string PLAYER_TAG = "Player";
+    private Vector2 hoppsLocation;
+
+    [Header("Enemy Movement")]
     public Vector2 moveVector;
+    [SerializeField] protected Rigidbody2D rBody;
+    private Vector2 enemyLocation;
 
     //Public/Protected Properties
 
@@ -86,6 +98,15 @@ public class Enemy : MonoBehaviour
         get { return isDead; }
     }
 
+    //Initialization Method
+    public void Awake()
+    {
+        rBody = GetComponent<Rigidbody2D>();
+        Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
+        isDead = false;
+        isKnockedBack = false;
+    }
+
     //Functions
 
     /// <summary>
@@ -103,6 +124,30 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            StartCoroutine(KnockBackCooldown());
+        }
+    }
+    private IEnumerator KnockBackCooldown()
+    {
+        Debug.Log("KNOCKBACK");
+        isKnockedBack = true;
+        hoppsLocation = Hopps.transform.position;
+        enemyLocation = transform.position;
+
+        rBody.linearVelocity = new Vector2(0, 0);
+
+        if (hoppsLocation.x < enemyLocation.x) //Hopps on left
+        {
+            rBody.AddForce(Vector2.right * 650, ForceMode2D.Impulse);
+        }
+        else if (hoppsLocation.x > enemyLocation.x) //Hopps on right
+        {
+            rBody.AddForce(Vector2.left * 650, ForceMode2D.Impulse);
+        }
+        yield return new WaitForSeconds(0.2f);
+        isKnockedBack = false;
     }
 
     /// <summary>

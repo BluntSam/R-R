@@ -6,16 +6,13 @@ public class DollStacy : Enemy
     //Components
 
     //[Header("Components")]
-    private Rigidbody2D rBody;
     private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider;
     public attackTriggerEnemy aTrigger;
 
     //Hopps Components
-    [Header("Hopps")]
-    [SerializeField] private GameObject Hopps;
-    private const string PLAYER_TAG = "Player";
+    [Header("Hopps' Health")]
     private Health playerHealth;
 
     //Field Variables
@@ -39,15 +36,15 @@ public class DollStacy : Enemy
 
     private void Awake()
     {
+        base.Awake();
+
         //Initialization
         //Components
-        rBody = GetComponent<Rigidbody2D>();
         sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
 
-        Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
         playerHealth = Hopps.GetComponent<Health>();
 
         //Setting Variables
@@ -70,13 +67,15 @@ public class DollStacy : Enemy
 
     private void FixedUpdate()
     {
-        CheckForHopps();
-        BehaviorChoice();
-
-        //Either I update them only when needed, or just do it all the time. I'm tired. This is temporary.
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         jForce = JumpForce;
+
+        if (!isKnockedBack)
+        {
+            CheckForHopps();
+            BehaviorChoice();
+        }
     }
 
     //Functions
@@ -88,6 +87,8 @@ public class DollStacy : Enemy
 
     private void BehaviorChoice()
     {
+        if (isKnockedBack) { return; }
+
         sRange = SightRange;
         mSpeed = MoveSpeed;
 
