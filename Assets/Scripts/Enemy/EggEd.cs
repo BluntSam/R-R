@@ -21,8 +21,8 @@ public class EggEd : Enemy
     //Field Variables
 
     //Mainly Initial Stats that Shouldn't change much
-    private int mHealth = 2;       //Max Health
-    private int cHealth = 2;       //Current Health
+    private int mHealth = 10;       //Max Health
+    private int cHealth = 10;       //Current Health
     private int atkPower = 1;      //Attack Power
     private float mSpeed = 6.0f;   //Movement Speed
     private float jForce = 2.0f;   //Jump Force
@@ -36,6 +36,7 @@ public class EggEd : Enemy
 
     //The Egg Variables
     [SerializeField] private Sprite noTop;
+    [SerializeField] private int hpNoTopLevel = 9;
 
     //Other Variables
 
@@ -84,9 +85,9 @@ public class EggEd : Enemy
 
     //Functions
 
-    private void EggCheck()
+    private void EggCheck() //To see if the top should be removed
     {
-        if (cHealth < 2)
+        if (cHealth <= hpNoTopLevel)
         {
             sRend.sprite = noTop;
             cCollider.size = new Vector2(2f, 2f);
@@ -96,7 +97,7 @@ public class EggEd : Enemy
 
     private void CheckForHopps()
     {
-        distanceBetween = Vector2.Distance(transform.position, Hopps.transform.position); //Get distance between this Stacy and Hopps
+        distanceBetween = Vector2.Distance(transform.position, Hopps.transform.position); //Get distance between this Ed and Hopps
     }
 
     private void BehaviorChoice()
@@ -108,11 +109,11 @@ public class EggEd : Enemy
         {
             Patrol();
         }
-        else if (distanceBetween < sRange && distanceBetween > 4) //Hopps is in sight
+        else if (distanceBetween < sRange && distanceBetween > 3) //Hopps is in sight
         {
             Chase();
         }
-        else if (distanceBetween <= 4) //Hopps is RIGHT THERE
+        else if (distanceBetween <= 3) //Hopps is RIGHT THERE
         {
             Attack();
         }
@@ -120,11 +121,11 @@ public class EggEd : Enemy
 
     private void Patrol()
     {
-        if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Stacy
+        if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Ed
         {
             EggFlip();
         }
-        else //There is floor, and there's nothing blocking this Stacy
+        else //There is floor, and there's nothing blocking this Ed
         {
             transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
         }
@@ -137,10 +138,20 @@ public class EggEd : Enemy
 
     private void Chase()
     {
-        target = Hopps.transform.position - transform.position;
-        if (target.x <= -1.5) { moveVector.x = -1.5f; }
-        if (target.x >= 1.5) { moveVector.x = 1.5f; }
-        transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+        if (NoFloor()) //If there's no floor
+        {
+            target = Hopps.transform.position - transform.position;
+            if (target.x <= -1.5) { moveVector.x = -1.5f; }
+            if (target.x >= 1.5) { moveVector.x = 1.5f; }
+            transform.Translate(new Vector3(0, 0, 0));
+        }
+        else //If there's floor
+        {
+            target = Hopps.transform.position - transform.position;
+            if (target.x <= -1.5) { moveVector.x = -1.5f; }
+            if (target.x >= 1.5) { moveVector.x = 1.5f; }
+            transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+        }
     }
 
     private void Attack()
@@ -166,7 +177,7 @@ public class EggEd : Enemy
         //Where the animation code would go if we had any.
     }
 
-    //Flips the Sprite *gasp*
+    //Flips the Sprite *gasp* (also changes collider offsets as this sprite is off center)
     private void SpriteFlip()
     {
         if (moveVector.x < 0)
@@ -183,17 +194,20 @@ public class EggEd : Enemy
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //This is only in regards to the box collider for a head jump hit
     {
-        if (collision.gameObject.tag == PLAYER_TAG)
+        if (collision.gameObject.tag == PLAYER_TAG) //checking if it is the player colliding with the enemy
         {
-            if (collision.otherCollider is BoxCollider2D)
+            if (collision.otherCollider is BoxCollider2D) //checking that it is the box collider and not the normal one
             {
-                //Debug.Log($"{gameObject.name} HIT HEAD");
-                TakeDamage(10);
-                Rigidbody2D hRBODY = Hopps.GetComponent<Rigidbody2D>();
-                hRBODY.linearVelocity = new Vector2(hRBODY.linearVelocity.x, 0);
-                hRBODY.AddForce(Vector2.up * Hopps.GetComponent<playerMovement>().jumpForce, ForceMode2D.Impulse);
+                if (cHealth <= hpNoTopLevel) //checking to see if the top is off
+                {
+                    //Debug.Log($"{gameObject.name} HIT HEAD");
+                    TakeDamage(20);
+                    Rigidbody2D hRBODY = Hopps.GetComponent<Rigidbody2D>();
+                    hRBODY.linearVelocity = new Vector2(hRBODY.linearVelocity.x, 0);
+                    hRBODY.AddForce(Vector2.up * Hopps.GetComponent<playerMovement>().jumpForce, ForceMode2D.Impulse);
+                }
             }
         }
     }

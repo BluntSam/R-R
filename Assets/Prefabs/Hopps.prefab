@@ -157,7 +157,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2706e49e664c36b47bafbf7f8744964f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -200,7 +200,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2706e49e664c36b47bafbf7f8744964f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -352,7 +352,7 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -1, y: 2}
   m_AutoConfigureDistance: 0
   m_Distance: 1.96
   m_MaxDistanceOnly: 0
@@ -706,6 +706,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3601369419194071665}
+        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnGlide
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6f89c6f0-b201-47b4-8908-8dbe57469132
+    m_ActionName: Player/Glide
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -827,7 +843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b186b723a4cc554e9497a9941f529f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::attackTrigger
-  spriteRenderer: {fileID: 8307705450421831953}
   Hopps: {fileID: 1231859981295989950}
   nAttack: {fileID: 5045667680610459571}
   damage: 1
