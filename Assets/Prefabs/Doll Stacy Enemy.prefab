@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2434163662434087846}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.58, y: 1.55, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
@@ -200,9 +200,9 @@ MonoBehaviour:
   jumpForce: 2
   sightRange: 10
   isDead: 0
+  moveVector: {x: 0, y: 0}
   aTrigger: {fileID: 5768715558008255605}
   Hopps: {fileID: 0}
-  moveVector: {x: 0, y: 0}
   distanceBetween: 0
 --- !u!1 &4115797551519705534
 GameObject:
@@ -358,3 +358,4 @@ MonoBehaviour:
   Hopps: {fileID: 0}
   damage: 1
   isHitting: 0
+  xDistance: 2

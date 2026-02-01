@@ -1,11 +1,4 @@
-using System.Collections;
-using System.Threading;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using UnityEngine.Windows;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputManager))]
 public class playerMovement : MonoBehaviour
@@ -26,7 +19,7 @@ public class playerMovement : MonoBehaviour
     public Vector2 moveVector;
   
     [Header("Jump Variables")]
-    [SerializeField] private float jumpForce = 15f;
+    public float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.5f;
@@ -54,6 +47,7 @@ public class playerMovement : MonoBehaviour
 
         //Animation
         AnimatePlayer();
+        FlipSprite();
     }
 
     private void Update()
@@ -75,12 +69,8 @@ public class playerMovement : MonoBehaviour
          
         if (pInput.JumpTriggered && isGrounded)
         {
-            
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
-             
-
         }
     }
    
@@ -122,7 +112,10 @@ public class playerMovement : MonoBehaviour
         {
             pAnimator.SetBool("isFalling", false);
         }
+    }
 
+    private void FlipSprite()
+    {
         //flip sprite based on direction
         if (moveVector.x < 0)
         {
