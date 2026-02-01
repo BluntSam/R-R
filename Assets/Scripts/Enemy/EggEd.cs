@@ -6,17 +6,11 @@ public class EggEd : Enemy
     //Components
 
     //[Header("Components")]
-    private Rigidbody2D rBody;
     private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider; //Normal Main Body Collider
     public attackTriggerEnemy aTrigger;
     private BoxCollider2D bCollider; //Top Collider
-
-    //Hopps Components
-    [Header("Hopps")]
-    [SerializeField] private GameObject Hopps;
-    private const string PLAYER_TAG = "Player";
 
     //Field Variables
 
@@ -42,16 +36,15 @@ public class EggEd : Enemy
 
     private void Awake()
     {
+        base.Awake();
+
         //Initialization
         //Components
-        rBody = GetComponent<Rigidbody2D>();
         sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
         bCollider = GetComponentInChildren<BoxCollider2D>();
-
-        Hopps = GameObject.FindWithTag(PLAYER_TAG);
 
         //Setting Variables
         MaxHealth = mHealth;
@@ -75,12 +68,15 @@ public class EggEd : Enemy
 
     private void FixedUpdate()
     {
-        CheckForHopps();
-        BehaviorChoice();
-
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         jForce = JumpForce;
+
+        if (!isKnockedBack)
+        {
+            CheckForHopps();
+            BehaviorChoice();
+        }
     }
 
     //Functions

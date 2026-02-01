@@ -11,12 +11,10 @@ public class playerMovement : MonoBehaviour
 
     [Header("Movement Variables")]
     [SerializeField] private float speed = 10f; //Player Speed
-
     private bool isGrounded;
-   
     private float horizontalVelocity;
-   
     public Vector2 moveVector;
+    public bool isKnockedBack = false;
   
     [Header("Jump Variables")]
     public float jumpForce = 15f;
@@ -38,23 +36,23 @@ public class playerMovement : MonoBehaviour
     //Update Function: Called once per frame
     private void FixedUpdate()
     {
-       
-
-        //Movement
-        HandleMovement();
-        HandleJump();
-        HandleGlide();
-
-        //Animation
-        AnimatePlayer();
-        FlipSprite();
+        if (!isKnockedBack)
+        {
+            //Movement
+            HandleMovement();
+            HandleJump();
+            HandleGlide();
+        }
     }
 
     private void Update()
     {
         //Ground Check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        
+
+        //Animation
+        AnimatePlayer();
+        FlipSprite();
     }
 
     private void HandleMovement()
