@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float jumpForce;    //Jump Force of the Enemy
     [SerializeField] private float sightRange;   //Targeting Range of the Enemy
     [SerializeField] public bool isDead;
+    public Vector2 moveVector;
 
     //Public/Protected Properties
 
@@ -112,5 +113,28 @@ public class Enemy : MonoBehaviour
         isDead = true;
         Debug.Log($"{gameObject.name} has died.");
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// Uses Raycasting to observe if there's floor in front of the Stacy
+    /// </summary>
+    /// <returns></returns>
+    public bool NoFloor()
+    {
+        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x * 0.4f, -1.5f);
+        Debug.DrawRay(RCOrigin, Vector2.down * 0.5f, Color.red);
+        return !Physics2D.Raycast(RCOrigin, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
+    }
+
+    /// <summary>
+    /// Uses Raycasting to observe if there's something blocking the Stacy's movement
+    /// </summary>
+    /// <returns></returns>
+    public bool OnBlocked()
+    {
+        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x, -1f);
+        Vector2 RCDirection = new Vector2(moveVector.x, 0);
+        Debug.DrawRay(RCOrigin, RCDirection * 0.5f, Color.red);
+        return Physics2D.Raycast(RCOrigin, RCDirection, 0.5f, LayerMask.GetMask("Ground"));
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class attackTriggerStacy : MonoBehaviour
+public class attackTriggerEnemy : MonoBehaviour
 {
     //Components
     [SerializeField] private GameObject enemy;
@@ -10,9 +10,10 @@ public class attackTriggerStacy : MonoBehaviour
     //Variables
     private const string PLAYER_TAG = "Player";
     private Health playerhealth;
-    public int damage;
+    [SerializeField] private int damage;
     public bool isHitting = false;
     private bool canHitCooldown = false;
+    [SerializeField] private float xDistance;
 
     private void Awake()
     {
@@ -32,13 +33,13 @@ public class attackTriggerStacy : MonoBehaviour
     private void Flipping()
     {
         //flip trigger location based on direction
-        if (enemy.GetComponent<DollStacy>().moveVector.x < 0)
+        if (enemy.GetComponent<Enemy>().moveVector.x < 0)
         {
-            transform.position = new Vector2(enemy.transform.position.x - 2f, enemy.transform.position.y);
+            transform.position = new Vector2(enemy.transform.position.x - xDistance, enemy.transform.position.y);
         }
-        if (enemy.GetComponent<DollStacy>().moveVector.x > 0)
+        if (enemy.GetComponent<Enemy>().moveVector.x > 0)
         {
-            transform.position = new Vector2(enemy.transform.position.x + 2f, enemy.transform.position.y);
+            transform.position = new Vector2(enemy.transform.position.x + xDistance, enemy.transform.position.y);
         }
     }
 

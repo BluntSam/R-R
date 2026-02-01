@@ -10,7 +10,7 @@ public class DollStacy : Enemy
     private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider;
-    public attackTriggerStacy aTrigger;
+    public attackTriggerEnemy aTrigger;
 
     //Hopps Components
     [Header("Hopps")]
@@ -30,7 +30,6 @@ public class DollStacy : Enemy
 
     //Movement Variables
     [Header("Variables")]
-    public Vector2 moveVector;
     public float distanceBetween;
     private Vector2 target;
     private bool harmfulToTouch = true;
@@ -46,7 +45,7 @@ public class DollStacy : Enemy
         sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
-        aTrigger = GetComponentInChildren<attackTriggerStacy>();
+        aTrigger = GetComponentInChildren<attackTriggerEnemy>();
 
         Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
         playerHealth = Hopps.GetComponent<Health>();
@@ -67,7 +66,10 @@ public class DollStacy : Enemy
     {
         //Animate();
         SpriteFlip();
+    }
 
+    private void FixedUpdate()
+    {
         CheckForHopps();
         BehaviorChoice();
 
@@ -75,11 +77,6 @@ public class DollStacy : Enemy
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         jForce = JumpForce;
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     //Functions
@@ -171,29 +168,6 @@ public class DollStacy : Enemy
         }
     }
 
-    /// <summary>
-    /// Uses Raycasting to observe if there's floor in front of the Stacy
-    /// </summary>
-    /// <returns></returns>
-    public bool NoFloor()
-    {
-        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x * 0.4f, -1.5f);
-        Debug.DrawRay(RCOrigin, Vector2.down * 0.5f, Color.red);
-        return !Physics2D.Raycast(RCOrigin, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
-    }
-
-    /// <summary>
-    /// Uses Raycasting to observe if there's something blocking the Stacy's movement
-    /// </summary>
-    /// <returns></returns>
-    public bool OnBlocked()
-    {
-        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x, -1f);
-        Vector2 RCDirection = new Vector2(moveVector.x, 0);
-        Debug.DrawRay(RCOrigin, RCDirection * 0.5f, Color.red);
-        return Physics2D.Raycast(RCOrigin, RCDirection, 0.5f, LayerMask.GetMask("Ground"));
-    }
-
     //This just makes it hurt to touch the Stacy
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -218,23 +192,3 @@ public class DollStacy : Enemy
         harmfulToTouch = true;
     }
 }
-
-//welcome to hell, boys (and girl)
-//Notes pasted from a google doc
-//putting a get set for like everything cus idk what the fuck we are gonna do with this shit
-/*
- * Enemy AI
-Health - functional
-Take Damage - functional
-Die - functional
-Patrol
-Flip
-Chase
-Attack
-
-(animation) <- AAAAAAAAAAAAAAAAHHHH
-flip
-walk
-
-just reused my old checking for no floor and checking for blocked code
- */
