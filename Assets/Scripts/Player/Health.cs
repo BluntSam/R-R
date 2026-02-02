@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         hoppsLocation = transform.position;
     }
 
-    public void TakeDamageStill(int amount)
+    public void TakeDamageHopps(int amount)
     {
         health -= amount;
 
@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount, GameObject enemyAttacker)
+    public void TakeDamageHopps(int amount, GameObject enemyAttacker)
     {
         health -= amount;
 
@@ -37,31 +37,6 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("mainScene"); //Change to allow for checkpoints and loading into other levels later
         }
-        else
-        {
-            hoppsLocation = transform.position;
-            enemyLocation = enemyAttacker.transform.position;
-            StartCoroutine(KnockBackCooldown());
-        }
-    }
-
-    private IEnumerator KnockBackCooldown()
-    {
-        Debug.Log("KNOCKBACK");
-        pMovement.isKnockedBack = true;
-
-        rBody.linearVelocity = new Vector2(0, 0);
-
-        if (hoppsLocation.x > enemyLocation.x)
-        {
-            rBody.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
-        }
-        else if (hoppsLocation.x < enemyLocation.x)
-        {
-            rBody.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
-        }
-        yield return new WaitForSeconds(0.2f);
-        pMovement.isKnockedBack = false;
     }
 
     public void GainHealth(int amount)

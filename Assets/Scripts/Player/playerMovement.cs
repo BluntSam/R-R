@@ -14,7 +14,6 @@ public class playerMovement : MonoBehaviour
     private bool isGrounded;
     private float horizontalVelocity;
     public Vector2 moveVector;
-    public bool isKnockedBack = false;
   
     [Header("Jump Variables")]
     public float jumpForce = 15f;
@@ -36,13 +35,10 @@ public class playerMovement : MonoBehaviour
     //Update Function: Called once per frame
     private void FixedUpdate()
     {
-        if (!isKnockedBack)
-        {
-            //Movement
-            HandleMovement();
-            HandleJump();
-            HandleGlide();
-        }
+        //Movement
+        HandleMovement();
+        HandleJump();
+        HandleGlide();
     }
 
     private void Update()
