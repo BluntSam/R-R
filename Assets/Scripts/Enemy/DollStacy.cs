@@ -6,7 +6,6 @@ public class DollStacy : Enemy
     //Components
 
     //[Header("Components")]
-    private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider;
     public attackTriggerEnemy aTrigger;
@@ -40,7 +39,6 @@ public class DollStacy : Enemy
 
         //Initialization
         //Components
-        sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();

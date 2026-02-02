@@ -6,7 +6,6 @@ public class EggEd : Enemy
     //Components
 
     //[Header("Components")]
-    private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider; //Normal Main Body Collider
     public attackTriggerEnemy aTrigger;
@@ -42,7 +41,6 @@ public class EggEd : Enemy
 
         //Initialization
         //Components
-        sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();

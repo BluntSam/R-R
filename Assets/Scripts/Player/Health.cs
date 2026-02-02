@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     private Vector2 hoppsLocation;
     private Vector2 enemyLocation;
     private Rigidbody2D rBody;
+    private SpriteRenderer sRend;
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour
         pMovement = GetComponent<playerMovement>();
         rBody = GetComponent<Rigidbody2D>();
         hoppsLocation = transform.position;
+        sRend = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamageHopps(int amount)
@@ -27,16 +29,8 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("mainScene"); //Change to allow for checkpoints and loading into other levels later
         }
-    }
 
-    public void TakeDamageHopps(int amount, GameObject enemyAttacker)
-    {
-        health -= amount;
-
-        if (health <= 0)
-        {
-            SceneManager.LoadSceneAsync("mainScene"); //Change to allow for checkpoints and loading into other levels later
-        }
+        StartCoroutine(DamageFlash());
     }
 
     public void GainHealth(int amount)
@@ -47,5 +41,12 @@ public class Health : MonoBehaviour
         {
             health = maxHealth;
         }
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        sRend.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sRend.material.color = Color.white;
     }
 }
