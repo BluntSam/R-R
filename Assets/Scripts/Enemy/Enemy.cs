@@ -15,17 +15,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float sightRange;   //Targeting Range of the Enemy
     [SerializeField] public bool isDead;
     [SerializeField] public bool isKnockedBack;
+    public Vector2 moveVector;
+    protected Rigidbody2D rBody;
+    protected SpriteRenderer sRend;
+    private Vector2 enemyLocation;
 
     //Hopps Components
     [Header("Hopps")]
     [SerializeField] protected GameObject Hopps;
     protected const string PLAYER_TAG = "Player";
     private Vector2 hoppsLocation;
-
-    [Header("Enemy Movement")]
-    public Vector2 moveVector;
-    [SerializeField] protected Rigidbody2D rBody;
-    private Vector2 enemyLocation;
 
     //Public/Protected Properties
 
@@ -99,9 +98,10 @@ public class Enemy : MonoBehaviour
     }
 
     //Initialization Method
-    public void Awake()
+    protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
+        sRend = GetComponent<SpriteRenderer>();
         Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
         isDead = false;
         isKnockedBack = false;
@@ -119,6 +119,8 @@ public class Enemy : MonoBehaviour
 
         CurrentHealth -= amount;
         Debug.Log($"{gameObject.name}'s HP is now: {CurrentHealth}.");
+
+        StartCoroutine(DamageFlash());
 
         if (CurrentHealth <= 0)
         {
@@ -148,6 +150,13 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(0.2f);
         isKnockedBack = false;
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        sRend.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sRend.material.color = Color.white;
     }
 
     /// <summary>

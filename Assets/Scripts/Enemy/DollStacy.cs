@@ -6,7 +6,6 @@ public class DollStacy : Enemy
     //Components
 
     //[Header("Components")]
-    private SpriteRenderer sRend;
     private Animator eAnimate;
     private CapsuleCollider2D cCollider;
     public attackTriggerEnemy aTrigger;
@@ -34,13 +33,12 @@ public class DollStacy : Enemy
 
     //Other Variables
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
         //Initialization
         //Components
-        sRend = GetComponent<SpriteRenderer>();
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
