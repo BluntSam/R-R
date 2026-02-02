@@ -36,7 +36,7 @@ public class EggEd : Enemy
 
     //Other Variables
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
 

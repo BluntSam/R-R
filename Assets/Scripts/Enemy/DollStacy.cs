@@ -34,7 +34,7 @@ public class DollStacy : Enemy
 
     //Other Variables
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
 

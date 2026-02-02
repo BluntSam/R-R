@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
     }
 
     //Initialization Method
-    public void Awake()
+    protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
         Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
