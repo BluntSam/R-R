@@ -201,12 +201,16 @@ MonoBehaviour:
   jumpForce: 2
   sightRange: 10
   isDead: 0
-  moveVector: {x: 0, y: 0}
-  aTrigger: {fileID: 0}
+  isKnockedBack: 0
   Hopps: {fileID: 0}
+  moveVector: {x: 0, y: 0}
+  rBody: {fileID: 0}
+  aTrigger: {fileID: 0}
   distanceBetween: 0
   noTop: {fileID: -6544329843217157280, guid: 3ef9f958934ed244589caf3bef586b0e, type: 3}
+  yesTop: {fileID: 4825144048026047326, guid: a3ef236a4bb2e5e47b34e154aa5af7f9, type: 3}
   hpNoTopLevel: 9
+  hatless: 0
 --- !u!61 &3071393279563876415
 BoxCollider2D:
   m_ObjectHideFlags: 0

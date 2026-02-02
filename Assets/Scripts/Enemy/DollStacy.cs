@@ -181,7 +181,7 @@ public class DollStacy : Enemy
 
             harmfulToTouch = false;
             atkPower = AttackPower;
-            playerHealth.TakeDamage(atkPower, gameObject);
+            playerHealth.TakeDamageHopps(atkPower);
             Debug.Log($"Player Took {atkPower} Damage");
             StartCoroutine(HurtCooldown());
         }

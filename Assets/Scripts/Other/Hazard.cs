@@ -24,7 +24,7 @@ public class Hazard : MonoBehaviour
                 playerHealth = collision.gameObject.GetComponent<Health>();
             }
             
-            playerHealth.TakeDamageStill(damage);
+            playerHealth.TakeDamageHopps(damage);
             Debug.Log($"Player Took {damage} Damage");
         }
         else if(collision.gameObject.tag == ENEMY_TAG && harmfulToEnemy)

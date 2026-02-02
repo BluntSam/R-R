@@ -62,7 +62,7 @@ public class Grapple : MonoBehaviour
     private IEnumerator grappleDamage(int amount)
     {
         Debug.Log("Player Took Damage From Using Grapple");
-        playerHealth.TakeDamageStill(amount);
+        playerHealth.TakeDamageHopps(amount);
         yield return new WaitForSeconds(1f);
     }
 

@@ -1051,7 +1051,7 @@ Transform:
   m_GameObject: {fileID: 411469739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: 2, z: 10}
+  m_LocalPosition: {x: -16, y: 3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2123,7 +2123,7 @@ Transform:
   m_GameObject: {fileID: 899246096}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: 2, z: 10}
+  m_LocalPosition: {x: -16, y: 3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2983,7 +2983,7 @@ Transform:
   m_GameObject: {fileID: 1284574969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: 2, z: 10}
+  m_LocalPosition: {x: -16, y: 3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44117,7 +44117,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2434163662434087846, guid: 238987437d8f8a842bf0027bf3fd3c7b, type: 3}
       propertyPath: m_Name
-      value: Doll Stacy Enemy
+      value: Doll Stacy Enemy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7437287627450263750, guid: 238987437d8f8a842bf0027bf3fd3c7b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -30,7 +30,9 @@ public class EggEd : Enemy
 
     //The Egg Variables
     [SerializeField] private Sprite noTop;
+    [SerializeField] private Sprite yesTop;
     [SerializeField] private int hpNoTopLevel = 9;
+    [SerializeField] private bool hatless;
 
     //Other Variables
 
@@ -48,7 +50,14 @@ public class EggEd : Enemy
 
         //Setting Variables
         MaxHealth = mHealth;
-        CurrentHealth = cHealth;
+        if (!hatless)
+        {
+            CurrentHealth = cHealth;
+        }
+        else if (hatless)
+        {
+            CurrentHealth = hpNoTopLevel;
+        }
         AttackPower = atkPower;
         MoveSpeed = mSpeed;
         JumpForce = jForce;
@@ -83,11 +92,21 @@ public class EggEd : Enemy
 
     private void EggCheck() //To see if the top should be removed
     {
-        if (cHealth <= hpNoTopLevel)
+        if (cHealth <= hpNoTopLevel || hatless)
         {
+            hatless = true;
             sRend.sprite = noTop;
             cCollider.size = new Vector2(2f, 2f);
             cCollider.offset = new Vector2(-0.15f, -0.25f);
+            SpriteFlip();
+        }
+
+        if (!hatless)
+        {
+            sRend.sprite = yesTop;
+            cCollider.size = new Vector2(2f, 2.5f);
+            cCollider.offset = new Vector2(-0.15f, 0f);
+            SpriteFlip();
         }
     }
 
