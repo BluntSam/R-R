@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Health : MonoBehaviour
     private playerMovement pMovement;
     private Vector2 hoppsLocation;
     private Vector2 enemyLocation;
+    public Vector2 spawnLocation;
     private Rigidbody2D rBody;
     private SpriteRenderer sRend;
 
@@ -19,6 +21,7 @@ public class Health : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         hoppsLocation = transform.position;
         sRend = GetComponent<SpriteRenderer>();
+        spawnLocation = transform.position;
     }
 
     public void TakeDamageHopps(int amount)
@@ -27,7 +30,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadSceneAsync("mainScene"); //Change to allow for checkpoints and loading into other levels later
+            Respawn(); //Change to allow for checkpoints and loading into other levels later
         }
 
         StartCoroutine(DamageFlash());
@@ -49,4 +52,14 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         sRend.material.color = Color.white;
     }
+    
+
+     public void Respawn()
+    {
+        health = maxHealth;
+
+        transform.position = spawnLocation;
+       
+    }
 }
+    
