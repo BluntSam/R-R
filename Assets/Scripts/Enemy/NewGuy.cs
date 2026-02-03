@@ -15,11 +15,11 @@ public class NewGuy : Enemy
 
     //Field Variables
 
-    private int mHealth = 3;       //Max Health
-    private int cHealth = 3;       //Current Health
+    private int mHealth = 1;       //Max Health
+    private int cHealth = 1;       //Current Health
     private int atkPower = 1;      //Attack Power
-    private float mSpeed = 1.5f;   //Movement Speed
-    private float jForce = 2.0f;   //Jump Force
+    private float mSpeed = 1f;   //Movement Speed
+    private float jForce = 1f;   //Jump Force
     private float sRange = 10.0f;  //Sight Range
 
     //Movement Variables
@@ -187,3 +187,12 @@ public class NewGuy : Enemy
         harmfulToTouch = true;
     }
 }
+
+//Flying Enemy
+//Change movement to include flight?
+//Base it off Wallace's eagle enemy probably
+
+//Jumping Enemy
+//Instead of running at the player, it would jump at them.
+//Wind up behavior that goes into a jump
+//Possibly have it remember where Hopps was when it was going to jump so that you can dodge it?

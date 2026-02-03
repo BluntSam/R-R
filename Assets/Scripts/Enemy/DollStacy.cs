@@ -167,7 +167,7 @@ public class DollStacy : Enemy
         }
     }
 
-    //This just makes it hurt to touch the Stacy
+    /*
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == PLAYER_TAG && harmfulToTouch)
@@ -190,4 +190,5 @@ public class DollStacy : Enemy
         yield return new WaitForSeconds(1f);
         harmfulToTouch = true;
     }
+    */
 }
