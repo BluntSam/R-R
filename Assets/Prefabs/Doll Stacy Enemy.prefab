@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -8286614805456518581, guid: 5436abd346465524c9b7d3798472041c, type: 3}
-  m_Color: {r: 0.7306688, g: 0.6901922, b: 0.8867924, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -200,9 +200,10 @@ MonoBehaviour:
   jumpForce: 2
   sightRange: 10
   isDead: 0
+  isKnockedBack: 0
   moveVector: {x: 0, y: 0}
-  aTrigger: {fileID: 5768715558008255605}
   Hopps: {fileID: 0}
+  aTrigger: {fileID: 5768715558008255605}
   distanceBetween: 0
 --- !u!1 &4115797551519705534
 GameObject:
