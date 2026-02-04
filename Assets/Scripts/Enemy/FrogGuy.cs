@@ -21,6 +21,7 @@ public class FrogGuy : Enemy
     private float mSpeed = 1.25f;     //Movement Speed
     private float jForce = 10.0f;     //Jump Force
     private float sRange = 15.0f;  //Sight Range
+    private int score = 200;
 
     //Movement Variables
     [Header("Variables")]
@@ -50,6 +51,7 @@ public class FrogGuy : Enemy
         MoveSpeed = mSpeed;
         JumpForce = jForce;
         SightRange = sRange;
+        ScoreValue = score;
 
         //Movement Variable
         moveVector = new Vector2(mSpeed, 0);
@@ -66,7 +68,7 @@ public class FrogGuy : Enemy
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
 
-        if (!isKnockedBack)
+        if (!IsKnockedBack)
         {
             CheckForHopps();
             BehaviorChoice();
@@ -82,7 +84,7 @@ public class FrogGuy : Enemy
 
     private void BehaviorChoice()
     {
-        if (isKnockedBack) { return; }
+        if (IsKnockedBack) { return; }
 
         sRange = SightRange;
         mSpeed = MoveSpeed;

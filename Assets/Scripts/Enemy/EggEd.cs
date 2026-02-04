@@ -24,6 +24,7 @@ public class EggEd : Enemy
     private float mSpeed = 3.0f;   //Movement Speed
     private float jForce = 2.0f;   //Jump Force
     private float sRange = 10.0f;  //Sight Range
+    private int score = 150;
 
     //Movement Variables
     [Header("Variables")]
@@ -65,6 +66,7 @@ public class EggEd : Enemy
         MoveSpeed = mSpeed;
         JumpForce = jForce;
         SightRange = sRange;
+        ScoreValue = score;
 
         //Movement Variable
         moveVector = new Vector2(mSpeed, 0);
@@ -84,7 +86,7 @@ public class EggEd : Enemy
         cHealth = CurrentHealth;
         jForce = JumpForce;
 
-        if (!isKnockedBack)
+        if (!IsKnockedBack)
         {
             CheckForHopps();
             BehaviorChoice();
@@ -221,7 +223,7 @@ public class EggEd : Enemy
                 if (cHealth <= hpNoTopLevel) //checking to see if the top is off
                 {
                     //Debug.Log($"{gameObject.name} HIT HEAD");
-                    TakeDamage(20);
+                    TakeDamage(20, 1);
                     Rigidbody2D hRBODY = Hopps.GetComponent<Rigidbody2D>();
                     hRBODY.linearVelocity = new Vector2(hRBODY.linearVelocity.x, 0);
                     hRBODY.AddForce(Vector2.up * Hopps.GetComponent<playerMovement>().jumpForce, ForceMode2D.Impulse);

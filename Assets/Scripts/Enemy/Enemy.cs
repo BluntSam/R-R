@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))] //Also include any type of 2d Collider, but that is more flexible. (Not Triggers)
@@ -13,8 +14,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed;    //Movement Speed of the Enemy
     [SerializeField] private float jumpForce;    //Jump Force of the Enemy
     [SerializeField] private float sightRange;   //Targeting Range of the Enemy
-    [SerializeField] public bool isDead;
-    [SerializeField] public bool isKnockedBack;
+    [SerializeField] private bool isDead;
+    [SerializeField] private bool isKnockedBack;
+    [SerializeField] private int scoreValue;
     public Vector2 moveVector;
     protected Rigidbody2D rBody;
     protected SpriteRenderer sRend;
@@ -97,6 +99,18 @@ public class Enemy : MonoBehaviour
         get { return isDead; }
     }
 
+    public bool IsKnockedBack
+    {
+        get { return isKnockedBack;  }
+        set { isKnockedBack = value; }
+    }
+
+    public int ScoreValue
+    {
+        get { return scoreValue; }
+        set { scoreValue = value; }
+    }
+
     //Initialization Method
     protected virtual void Awake()
     {
@@ -104,7 +118,7 @@ public class Enemy : MonoBehaviour
         sRend = GetComponent<SpriteRenderer>();
         Hopps = GameObject.FindWithTag(PLAYER_TAG); //I need the whole bunny and I *WILL* take the whole bunny
         isDead = false;
-        isKnockedBack = false;
+        IsKnockedBack = false;
     }
 
     //Functions
@@ -113,7 +127,7 @@ public class Enemy : MonoBehaviour
     /// Enemy Takes Damage
     /// </summary>
     /// <param name="amount"></param>
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, int type)
     {
         if (IsDead) { return; }
 
@@ -124,7 +138,7 @@ public class Enemy : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            Die();
+            Die(type);
         }
         else
         {
@@ -134,7 +148,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator KnockBackCooldown()
     {
         //Debug.Log("KNOCKBACK");
-        isKnockedBack = true;
+        IsKnockedBack = true;
         hoppsLocation = Hopps.transform.position;
         enemyLocation = transform.position;
 
@@ -149,7 +163,7 @@ public class Enemy : MonoBehaviour
             rBody.AddForce(Vector2.left * 650, ForceMode2D.Impulse);
         }
         yield return new WaitForSeconds(0.2f);
-        isKnockedBack = false;
+        IsKnockedBack = false;
     }
 
     private IEnumerator DamageFlash()
@@ -160,12 +174,13 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// Enemy Dies
+    /// Enemy Dies. If type 1, it applies a score.
     /// </summary>
-    protected void Die()
+    protected void Die(int type)
     {
+        if (type == 1) { Hopps.GetComponent<playerMovement>().playerScore += ScoreValue; }
+
         isDead = true;
-        Debug.Log($"{gameObject.name} has died.");
         Destroy(gameObject);
     }
 

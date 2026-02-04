@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputManager))]
@@ -20,6 +21,9 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.5f;
+
+    [Header("Other")]
+    public int playerScore;
 
 
     //Start Function: Called once before Update Function
@@ -49,6 +53,9 @@ public class playerMovement : MonoBehaviour
         //Animation
         AnimatePlayer();
         FlipSprite();
+
+        //Score
+        GetComponentInChildren<TextMeshProUGUI>().text = $"Score: {playerScore}";
     }
 
     private void HandleMovement()
@@ -60,7 +67,6 @@ public class playerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-         
         if (pInput.JumpTriggered && isGrounded)
         {
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
