@@ -18,15 +18,16 @@ public class FrogGuy : Enemy
     private int mHealth = 2;       //Max Health
     private int cHealth = 2;       //Current Health
     private int atkPower = 1;      //Attack Power
-    private float mSpeed = 1f;     //Movement Speed
-    private float jForce = 1f;     //Jump Force
-    private float sRange = 10.0f;  //Sight Range
+    private float mSpeed = 1.25f;     //Movement Speed
+    private float jForce = 10.0f;     //Jump Force
+    private float sRange = 15.0f;  //Sight Range
 
     //Movement Variables
     [Header("Variables")]
     public float distanceBetween;
     private Vector2 target;
     private bool canAttack = true;
+    private bool canJump = true;
 
     //Other Variables
 
@@ -64,7 +65,6 @@ public class FrogGuy : Enemy
     {
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
-        jForce = JumpForce;
 
         if (!isKnockedBack)
         {
@@ -86,16 +86,17 @@ public class FrogGuy : Enemy
 
         sRange = SightRange;
         mSpeed = MoveSpeed;
+        jForce = JumpForce;
 
         if (distanceBetween >= sRange) //Hopps is out of sight
         {
             Patrol();
         }
-        else if (distanceBetween < sRange && distanceBetween > 3) //Hopps is in sight
+        else if (distanceBetween < sRange && distanceBetween > 3.5f) //Hopps is in sight
         {
-            Chase();
+            Jump(); //This would change to windup which would lead to jump after (but that's too animation related rn)
         }
-        else if (distanceBetween <= 3) //Hopps is RIGHT THERE
+        else if (distanceBetween <= 3.5f) //Hopps is RIGHT THERE
         {
             Attack();
         }
@@ -118,12 +119,27 @@ public class FrogGuy : Enemy
         moveVector.x = moveVector.x * -1;
     }
 
-    private void Chase()
+    private void Jump()
     {
-        target = Hopps.transform.position - transform.position;
-        if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
-        if (target.x >= mSpeed) { moveVector.x = mSpeed; }
-        transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+        if (canJump) { StartCoroutine(JumpWait()); }
+    }
+
+    private IEnumerator JumpWait()
+    {
+        if (!NoFloor() && canJump) //Only if there is floor beneath them and they are allowed to jump
+        {
+            target = Hopps.transform.position - transform.position; //targeting Hopps
+
+            if (target.x <= -mSpeed) { moveVector.x = -mSpeed; } //flipping movement vector based on Hopps' location so the enemy faces Hopps
+            if (target.x >= mSpeed) { moveVector.x = mSpeed; }
+
+            rBody.AddForce(new Vector2(moveVector.x * mSpeed * 400, jForce * 75), ForceMode2D.Impulse); //jumps at Hopps
+            canJump = false;
+        }
+        yield return new WaitForSeconds(1f);
+        transform.Translate(new Vector3(0, 0, 0));
+        yield return new WaitForSeconds(3f);
+        canJump = true;
     }
 
     private void Attack()
@@ -133,7 +149,7 @@ public class FrogGuy : Enemy
             canAttack = false;
             atkPower = AttackPower;
             aTrigger.isHitting = true;
-            Chase(); //Keep running at Hopps
+            transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
             StartCoroutine(HitCooldown());
         }
     }
@@ -161,9 +177,17 @@ public class FrogGuy : Enemy
             sRend.flipX = true;
         }
     }
-}
 
-//Jumping Enemy
-//Instead of running at the player, it would jump at them.
-//Wind up behavior that goes into a jump
-//Possibly have it remember where Hopps was when it was going to jump so that you can dodge it?
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.otherCollider is CapsuleCollider2D) //only the capsule one
+        {
+            if (collision.gameObject.tag == PLAYER_TAG) //Making sure the colliding object is the player
+            {
+                Rigidbody2D hRBODY = Hopps.GetComponent<Rigidbody2D>();
+                hRBODY.linearVelocity = new Vector2(hRBODY.linearVelocity.x, 0);
+                hRBODY.AddForce(Vector2.up * Hopps.GetComponent<playerMovement>().jumpForce, ForceMode2D.Impulse);
+            }
+        }
+    }
+}
