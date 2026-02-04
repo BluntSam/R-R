@@ -68949,6 +68949,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hopps
       objectReference: {fileID: 0}
+    - target: {fileID: 2051826249782911328, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_text
+      value: 'Score: 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051826249782911328, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5012626518709789048, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9
@@ -68988,6 +68996,26 @@ PrefabInstance:
     - target: {fileID: 5012626518709789048, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 514.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 309.99994
       objectReference: {fileID: 0}
     - target: {fileID: 9184534270712664499, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_Camera

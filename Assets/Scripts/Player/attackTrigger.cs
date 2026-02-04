@@ -45,7 +45,7 @@ public class attackTrigger : MonoBehaviour
                 }
 
                 Debug.Log("Enemy was Hit");
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, 1);
 
                 StartCoroutine(attackCooldown());
             }

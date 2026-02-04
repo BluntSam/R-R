@@ -35,7 +35,7 @@ public class Hazard : MonoBehaviour
             }
 
             Debug.Log($"{collision.gameObject.name} Took {damage} Damage");
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, 0);
         }
     }
 }

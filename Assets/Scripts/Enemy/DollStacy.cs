@@ -19,6 +19,7 @@ public class DollStacy : Enemy
     private float mSpeed = 1.5f;   //Movement Speed
     private float jForce = 2.0f;   //Jump Force
     private float sRange = 10.0f;  //Sight Range
+    private int score = 100;
 
     //Movement Variables
     [Header("Variables")]
@@ -45,6 +46,7 @@ public class DollStacy : Enemy
         MoveSpeed = mSpeed;
         JumpForce = jForce;
         SightRange = sRange;
+        ScoreValue = score;
 
         //Movement Variable
         moveVector = new Vector2(mSpeed, 0);
@@ -62,7 +64,7 @@ public class DollStacy : Enemy
         cHealth = CurrentHealth;
         jForce = JumpForce;
 
-        if (!isKnockedBack)
+        if (!IsKnockedBack)
         {
             CheckForHopps();
             BehaviorChoice();
@@ -78,7 +80,7 @@ public class DollStacy : Enemy
 
     private void BehaviorChoice()
     {
-        if (isKnockedBack) { return; }
+        if (IsKnockedBack) { return; }
 
         sRange = SightRange;
         mSpeed = MoveSpeed;
