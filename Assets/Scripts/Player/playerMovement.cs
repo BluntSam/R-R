@@ -76,15 +76,16 @@ public class playerMovement : MonoBehaviour
    
     private void HandleGlide()
     {
-        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1 )
+        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f )
         {
             rBody.gravityScale = -0.5f;
-            Debug.Log("gliding");
-          
+            //Debug.Log("gliding");
+            pAnimator.SetBool("isGliding", true);
         }
         else
         {
             rBody.gravityScale = 2;
+            pAnimator.SetBool("isGliding", false);
         }
     }    
    
@@ -104,7 +105,7 @@ public class playerMovement : MonoBehaviour
         }
 
         //Falling
-        if (rBody.linearVelocity.y <= -0.5f && !isGrounded)
+        if (rBody.linearVelocity.y <= -0.5f && !isGrounded && !pAnimator.GetBool("isGliding"))
         {
             pAnimator.SetBool("isFalling", true);
         }
