@@ -13,6 +13,10 @@ public class EggEd : Enemy
 
     //Field Variables
 
+    //Hopps Components
+    [Header("Hopps' Health")]
+    private Health playerHealth;
+
     //Mainly Initial Stats that Shouldn't change much
     private int mHealth = 10;       //Max Health
     private int cHealth = 10;       //Current Health
@@ -32,6 +36,7 @@ public class EggEd : Enemy
     [SerializeField] private Sprite yesTop;
     [SerializeField] private int hpNoTopLevel = 9;
     [SerializeField] private bool hatless;
+    private bool harmfulToTouch = true;
 
     //Other Variables
 
@@ -95,14 +100,14 @@ public class EggEd : Enemy
             hatless = true;
             sRend.sprite = noTop;
             cCollider.size = new Vector2(2f, 2f);
-            cCollider.offset = new Vector2(-0.15f, -0.25f);
+            cCollider.offset = new Vector2(-0.15f, -0.5f);
             SpriteFlip();
         }
 
         if (!hatless)
         {
             sRend.sprite = yesTop;
-            cCollider.size = new Vector2(2f, 2.5f);
+            cCollider.size = new Vector2(2f, 3f);
             cCollider.offset = new Vector2(-0.15f, 0f);
             SpriteFlip();
         }
@@ -223,5 +228,31 @@ public class EggEd : Enemy
                 }
             }
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.otherCollider is CapsuleCollider2D) //Making sure it's not the box collider
+        {
+            if (collision.gameObject.tag == PLAYER_TAG && harmfulToTouch) //Making sure the colliding object is the player, and that the cooldown coroutine is not still active
+            {
+                if (playerHealth == null) //Checking that we have access to the player's health
+                {
+                    playerHealth = collision.gameObject.GetComponent<Health>(); //grabbing it if not
+                }
+
+                harmfulToTouch = false; //to make sure we don't hurt hopps fivty times over in like one nanosecond
+                atkPower = AttackPower; //how strong the hit will be
+                playerHealth.TakeDamageHopps(atkPower); //attacking hopps
+                Debug.Log($"Player Took {atkPower} Damage"); //debug note about the damage
+                StartCoroutine(HurtCooldown()); //cooldown
+            }
+        }
+    }
+
+    private IEnumerator HurtCooldown()
+    {
+        yield return new WaitForSeconds(1f); //wait 1 second
+        harmfulToTouch = true; //now you can hit again
     }
 }

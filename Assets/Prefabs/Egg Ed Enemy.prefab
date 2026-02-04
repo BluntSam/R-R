@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4825144048026047326, guid: a3ef236a4bb2e5e47b34e154aa5af7f9, type: 3}
+  m_Sprite: {fileID: 8520858042078530617, guid: f55917b1451c16949a1aacea9524f527, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,7 +180,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.14999998, y: 0}
-  m_Size: {x: 2, y: 2.5}
+  m_Size: {x: 2, y: 3}
   m_Direction: 0
 --- !u!114 &530295337461936527
 MonoBehaviour:
@@ -202,13 +202,12 @@ MonoBehaviour:
   sightRange: 10
   isDead: 0
   isKnockedBack: 0
-  Hopps: {fileID: 0}
   moveVector: {x: 0, y: 0}
-  rBody: {fileID: 0}
+  Hopps: {fileID: 0}
   aTrigger: {fileID: 0}
   distanceBetween: 0
-  noTop: {fileID: -6544329843217157280, guid: 3ef9f958934ed244589caf3bef586b0e, type: 3}
-  yesTop: {fileID: 4825144048026047326, guid: a3ef236a4bb2e5e47b34e154aa5af7f9, type: 3}
+  noTop: {fileID: 4577066195292871743, guid: b837ace280fe9ee4894923063fe7890e, type: 3}
+  yesTop: {fileID: 8520858042078530617, guid: f55917b1451c16949a1aacea9524f527, type: 3}
   hpNoTopLevel: 9
   hatless: 0
 --- !u!61 &3071393279563876415
@@ -245,17 +244,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.15, y: 0.6}
+  m_Offset: {x: -0.14999998, y: 0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.2, y: 2.6}
+    oldSize: {x: 2.2, y: 3.1}
     newSize: {x: 0.22, y: 0.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 1}
+  m_Size: {x: 1.5, y: 0.75}
   m_EdgeRadius: 0
 --- !u!1 &7604450372575953253
 GameObject:
@@ -286,7 +285,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.5, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5358755715527063448}
