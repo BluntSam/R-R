@@ -12,6 +12,8 @@ public class Grapple : MonoBehaviour
     Vector3 point;
     public Health playerHealth;
     public int hpdamage = 1;
+    public PauseMenu pauseMenu;
+    public DeathScreen deathScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +28,7 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !pauseMenu.paused && !deathScreen.isDead)
         {
              point =Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if(Physics2D.OverlapCircle(point,0.1f,grappleLayer))

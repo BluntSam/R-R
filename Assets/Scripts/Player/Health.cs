@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public Vector2 spawnLocation;
     private Rigidbody2D rBody;
     private SpriteRenderer sRend;
+    [SerializeField] DeathScreen deathScreen;
 
     void Awake()
     {
@@ -52,14 +53,13 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         sRend.material.color = Color.white;
     }
-    
 
-     public void Respawn()
+
+    public void Respawn()
     {
         health = maxHealth;
-
+        deathScreen.isDead = true;
         transform.position = spawnLocation;
-       
     }
 }
     

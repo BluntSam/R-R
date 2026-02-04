@@ -6,9 +6,10 @@ public class PlayerInputManager : MonoBehaviour
     //Yes, this is basically the code Wallace taught us. It was way better than ours.
     
     //Variables
-    private Vector2 moveInput;
+    public Vector2 moveInput;
     private bool jumpPressed = false;
     private bool glidePressed = false;
+    [SerializeField] PauseMenu pauseMenuCode;
 
     //Properties
     public Vector2 MoveInput
@@ -55,4 +56,8 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        pauseMenuCode.Pause();
+    }
 }
