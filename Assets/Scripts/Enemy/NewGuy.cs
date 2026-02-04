@@ -92,11 +92,11 @@ public class NewGuy : Enemy
         {
             Patrol();
         }
-        else if (distanceBetween < sRange && distanceBetween > 4) //Hopps is in sight
+        else if (distanceBetween < sRange && distanceBetween > 3) //Hopps is in sight
         {
             Chase();
         }
-        else if (distanceBetween <= 4) //Hopps is RIGHT THERE
+        else if (distanceBetween <= 3) //Hopps is RIGHT THERE
         {
             Attack();
         }
@@ -155,11 +155,11 @@ public class NewGuy : Enemy
     {
         if (moveVector.x < 0)
         {
-            sRend.flipX = true;
+            sRend.flipX = false;
         }
         if (moveVector.x > 0)
         {
-            sRend.flipX = false;
+            sRend.flipX = true;
         }
     }
 
