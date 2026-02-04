@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class NewGuy : Enemy
+public class FrogGuy : Enemy
 {
     //Components
     //[Header("Components")]
@@ -15,18 +15,17 @@ public class NewGuy : Enemy
 
     //Field Variables
 
-    private int mHealth = 1;       //Max Health
-    private int cHealth = 1;       //Current Health
+    private int mHealth = 2;       //Max Health
+    private int cHealth = 2;       //Current Health
     private int atkPower = 1;      //Attack Power
-    private float mSpeed = 1f;   //Movement Speed
-    private float jForce = 1f;   //Jump Force
+    private float mSpeed = 1f;     //Movement Speed
+    private float jForce = 1f;     //Jump Force
     private float sRange = 10.0f;  //Sight Range
 
     //Movement Variables
     [Header("Variables")]
     public float distanceBetween;
     private Vector2 target;
-    private bool harmfulToTouch = true;
     private bool canAttack = true;
 
     //Other Variables
@@ -162,35 +161,7 @@ public class NewGuy : Enemy
             sRend.flipX = true;
         }
     }
-
-    //This just makes it hurt to touch the enemy
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == PLAYER_TAG && harmfulToTouch)
-        {
-            if (playerHealth == null)
-            {
-                playerHealth = collision.gameObject.GetComponent<Health>();
-            }
-
-            harmfulToTouch = false;
-            atkPower = AttackPower;
-            playerHealth.TakeDamageHopps(atkPower);
-            Debug.Log($"Player Took {atkPower} Damage");
-            StartCoroutine(HurtCooldown());
-        }
-    }
-
-    private IEnumerator HurtCooldown()
-    {
-        yield return new WaitForSeconds(1f);
-        harmfulToTouch = true;
-    }
 }
-
-//Flying Enemy
-//Change movement to include flight?
-//Base it off Wallace's eagle enemy probably
 
 //Jumping Enemy
 //Instead of running at the player, it would jump at them.

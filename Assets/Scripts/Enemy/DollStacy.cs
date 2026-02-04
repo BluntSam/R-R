@@ -10,10 +10,6 @@ public class DollStacy : Enemy
     private CapsuleCollider2D cCollider;
     public attackTriggerEnemy aTrigger;
 
-    //Hopps Components
-    [Header("Hopps' Health")]
-    private Health playerHealth;
-
     //Field Variables
 
     //Mainly Initial Stats that Shouldn't change much
@@ -28,7 +24,6 @@ public class DollStacy : Enemy
     [Header("Variables")]
     public float distanceBetween;
     private Vector2 target;
-    private bool harmfulToTouch = true;
     private bool canAttack = true;
 
     //Other Variables
@@ -42,8 +37,6 @@ public class DollStacy : Enemy
         eAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
-
-        playerHealth = Hopps.GetComponent<Health>();
 
         //Setting Variables
         MaxHealth = mHealth;
@@ -166,29 +159,4 @@ public class DollStacy : Enemy
             sRend.flipX = false;
         }
     }
-
-    /*
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == PLAYER_TAG && harmfulToTouch)
-        {
-            if (playerHealth == null)
-            {
-                playerHealth = collision.gameObject.GetComponent<Health>();
-            }
-
-            harmfulToTouch = false;
-            atkPower = AttackPower;
-            playerHealth.TakeDamageHopps(atkPower);
-            Debug.Log($"Player Took {atkPower} Damage");
-            StartCoroutine(HurtCooldown());
-        }
-    }
-
-    private IEnumerator HurtCooldown()
-    {
-        yield return new WaitForSeconds(1f);
-        harmfulToTouch = true;
-    }
-    */
 }
