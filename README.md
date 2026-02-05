@@ -2,6 +2,7 @@
 Made in Unity  
 
 *Made by:*  
+Allison Blake (Artist)  
 Samuel Burke (Programmer)  
 Jack Cope (Designer/Artist)   
 Samuel Hiller (Programmer/Co-Producer)  
