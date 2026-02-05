@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 7667859934034541343}
   - component: {fileID: 2419669938915322754}
   - component: {fileID: 3601369419194071665}
+  - component: {fileID: 4708133858914782573}
+  - component: {fileID: 6284267502230415543}
   m_Layer: 0
   m_Name: Hopps
   m_TagString: Player
@@ -148,6 +150,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 870788412789632289}
   groundCheckRadius: 0.5
+  playerScore: 0
 --- !u!70 &1540389777657427464
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -226,6 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 0
   maxHealth: 10
+  spawnLocation: {x: 0, y: 0}
+  deathScreen: {fileID: 6284267502230415543}
 --- !u!114 &5045667680610459571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +380,8 @@ MonoBehaviour:
   isGrappling: 0
   playerHealth: {fileID: 5968614900303016516}
   hpdamage: 1
+  pauseMenu: {fileID: 4708133858914782573}
+  deathScreen: {fileID: 6284267502230415543}
 --- !u!120 &1961980990120745265
 LineRenderer:
   serializedVersion: 2
@@ -723,6 +730,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6f89c6f0-b201-47b4-8908-8dbe57469132
     m_ActionName: Player/Glide
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4708133858914782573}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d21a7709-607e-48a7-be1c-4fe84069b09b
+    m_ActionName: Player/Pause
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -740,6 +763,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295c6c9b1907da241a0156a4eccc1780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputManager
+  moveInput: {x: 0, y: 0}
+  pauseMenuCode: {fileID: 4708133858914782573}
+--- !u!114 &4708133858914782573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231859981295989950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4758db0fb16e94c8b408c767986774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  pauseMenu: {fileID: 0}
+  audioSource: {fileID: 5325971079094965521}
+  paused: 0
+  cooldown: 0
+--- !u!114 &6284267502230415543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231859981295989950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc470b23515b424981cc09542698d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathScreen
+  isDead: 0
+  deathScreen: {fileID: 0}
+  playerInputManager: {fileID: 3601369419194071665}
+  enemyArray: {fileID: 0}
 --- !u!1 &3043620700909545025
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,9 +985,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 481.1401, y: 310}
-  m_SizeDelta: {x: 277.72, y: 50}
-  m_Pivot: {x: 0.50000024, y: 0.49999973}
+  m_AnchoredPosition: {x: 514.9999, y: 309.99994}
+  m_SizeDelta: {x: 210, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5520245476385955123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -959,10 +1016,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0000'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
+  m_sharedMaterial: {fileID: 3018418337837390977, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -993,7 +1050,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1121,7 +1178,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &566565876419053031
 MonoBehaviour:
