@@ -3,11 +3,11 @@ Made in Unity
 
 *Made by:*  
 Samuel Burke (Programmer)  
-Jack Cope (Game Designer/Artist)   
+Jack Cope (Designer/Artist)   
 Samuel Hiller (Programmer/Co-Producer)  
 Talon Hnatiak (Programmer/Co-Producer)  
-Jamilyn Maderazo (Artist)  
-Evan Ter Velde (Game Designer)  
+Jamilyn Maderazo (Artist/Designer)  
+Evan Ter Velde (Designer)  
 
 # Run Instructions
 Open the ThreadfulDevBuild1 folder and click on the Threadful.exe executable. There is currently no quit option, so using Alt+F4 is required to exit the program. It is in extremely basic stages of development currently.
