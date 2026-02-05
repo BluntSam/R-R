@@ -28,6 +28,11 @@ public class playerMovement : MonoBehaviour
     public int playerScore;
     private bool glideCheck = false;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource soundEffects;
+    [SerializeField] private AudioClip walkSounds;
+    [SerializeField] private AudioClip jumpSounds;
+    private bool walkCheck = false;
 
     //Start Function: Called once before Update Function
     private void Awake()
@@ -38,6 +43,7 @@ public class playerMovement : MonoBehaviour
         pAnimator = GetComponent<Animator>();
         pInput = GetComponent<PlayerInputManager>();
         hp = GetComponent<Health>();
+        soundEffects = GetComponent<AudioSource>();
     }
 
     //Update Function: Called once per frame
@@ -67,6 +73,24 @@ public class playerMovement : MonoBehaviour
         horizontalVelocity = pInput.MoveInput.x * speed;
         moveVector = new Vector2(horizontalVelocity, rBody.linearVelocity.y);
         rBody.linearVelocity = moveVector;
+        
+        if (Mathf.Abs(rBody.linearVelocity.x) > 0.1 && isGrounded && !soundEffects.isPlaying && !walkCheck)
+        {
+            StartCoroutine(walkingSoundPlay());
+        }
+        else
+        {
+            StopCoroutine(walkingSoundPlay());
+        }
+    }
+    
+    private IEnumerator walkingSoundPlay()
+    {
+        walkCheck = true;
+        soundEffects.clip = walkSounds;
+        soundEffects.Play();
+        yield return new WaitForSeconds(1);
+        walkCheck = false;
     }
 
     private void HandleJump()
@@ -75,6 +99,9 @@ public class playerMovement : MonoBehaviour
         {
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            
+            soundEffects.clip = jumpSounds;
+            soundEffects.Play();
         }
     }
    

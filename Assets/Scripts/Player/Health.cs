@@ -14,9 +14,12 @@ public class Health : MonoBehaviour
     private Rigidbody2D rBody;
     private SpriteRenderer sRend;
     [SerializeField] DeathScreen deathScreen;
+    [SerializeField] private AudioClip hitSounds;
+    [SerializeField] private AudioSource soundEffects;
 
     void Awake()
     {
+        soundEffects = GetComponent<AudioSource>();
         health = maxHealth;
         pMovement = GetComponent<playerMovement>();
         rBody = GetComponent<Rigidbody2D>();
@@ -28,6 +31,9 @@ public class Health : MonoBehaviour
     public void TakeDamageHopps(int amount)
     {
         health -= amount;
+
+        soundEffects.clip = hitSounds;
+        soundEffects.Play();
 
         if (health <= 0)
         {
