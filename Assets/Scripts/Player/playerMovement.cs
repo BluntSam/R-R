@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputManager))]
 public class playerMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class playerMovement : MonoBehaviour
     private SpriteRenderer sRend;
     private Animator pAnimator;
     private PlayerInputManager pInput;
+    private Health hp;
 
     [Header("Movement Variables")]
     [SerializeField] private float speed = 10f; //Player Speed
@@ -24,6 +26,7 @@ public class playerMovement : MonoBehaviour
 
     [Header("Other")]
     public int playerScore;
+    private bool glideCheck = false;
 
 
     //Start Function: Called once before Update Function
@@ -34,6 +37,7 @@ public class playerMovement : MonoBehaviour
         sRend = GetComponent<SpriteRenderer>();
         pAnimator = GetComponent<Animator>();
         pInput = GetComponent<PlayerInputManager>();
+        hp = GetComponent<Health>();
     }
 
     //Update Function: Called once per frame
@@ -79,16 +83,31 @@ public class playerMovement : MonoBehaviour
         if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f )
         {
             rBody.gravityScale = -0.5f;
-            //Debug.Log("gliding");
+            Debug.Log("gliding");
             pAnimator.SetBool("isGliding", true);
+            if (!glideCheck)
+            {
+                StartCoroutine(GlideHurt());
+            }
         }
         else
         {
             rBody.gravityScale = 2;
             pAnimator.SetBool("isGliding", false);
+            StopCoroutine(GlideHurt());
+            StopCoroutine(GlideHurt());
         }
     }    
    
+    private IEnumerator GlideHurt()
+    {
+        glideCheck = true;
+        hp.TakeDamageHopps(1);
+        yield return new WaitForSeconds(3f);
+        glideCheck = false;
+    }
+
+
     private void AnimatePlayer()
     {
         //Walking
