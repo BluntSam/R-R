@@ -2,27 +2,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource bgMusicSource;
     public bool paused;
     public float cooldown;
 
     public void Awake() {
         paused = false;
-        audioSource.mute = false;
+        bgMusicSource.mute = false;
         Resume();
         cooldown = 0;
     }
 
     public void Pause() {
         pauseMenu.SetActive(true);
-        audioSource.mute = true;
+        bgMusicSource.mute = true;
         paused = true;
         Time.timeScale = 0f;
     }
 
     public void Resume() {
         pauseMenu.SetActive(false);
-        audioSource.mute = false;
+        bgMusicSource.mute = false;
         paused = false;
         Time.timeScale = 1f;
 
