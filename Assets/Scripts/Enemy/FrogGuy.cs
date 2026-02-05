@@ -106,6 +106,7 @@ public class FrogGuy : Enemy
 
     private void Patrol()
     {
+        //Debug.Log($"Floor: {NoFloor()} Blocked: {OnBlocked()}");
         if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this enemy
         {
             EnemyFlip();
@@ -180,6 +181,7 @@ public class FrogGuy : Enemy
         }
     }
 
+    //Makes the frog bouncy
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.otherCollider is CapsuleCollider2D) //only the capsule one

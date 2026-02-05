@@ -201,7 +201,7 @@ public class Enemy : MonoBehaviour
     /// <returns></returns>
     public bool OnBlocked()
     {
-        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x, -1f);
+        Vector2 RCOrigin = (Vector2)transform.position + new Vector2(moveVector.x, -0.9f);
         Vector2 RCDirection = new Vector2(moveVector.x, 0);
         Debug.DrawRay(RCOrigin, RCDirection * 0.5f, Color.red);
         return Physics2D.Raycast(RCOrigin, RCDirection, 0.5f, LayerMask.GetMask("Ground"));
