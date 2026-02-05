@@ -43512,18 +43512,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 575455129}
-    - target: {fileID: 4848389827968034713, guid: 096815d5909d3ed4581e6c349464eed4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 4920519154318834461, guid: 096815d5909d3ed4581e6c349464eed4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 575455129}
-    - target: {fileID: 4920519154318834461, guid: 096815d5909d3ed4581e6c349464eed4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resume
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43532,6 +43524,11 @@ PrefabInstance:
 --- !u!1 &1885268254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4831295378800690715, guid: 096815d5909d3ed4581e6c349464eed4, type: 3}
+  m_PrefabInstance: {fileID: 1885268253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1885268255 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8202101543455707141, guid: 096815d5909d3ed4581e6c349464eed4, type: 3}
   m_PrefabInstance: {fileID: 1885268253}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1893436002
@@ -68325,6 +68322,10 @@ PrefabInstance:
       propertyPath: bgMusicSource
       value: 
       objectReference: {fileID: 1994020694}
+    - target: {fileID: 4708133858914782573, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: pauseMenuSong
+      value: 
+      objectReference: {fileID: 1885268255}
     - target: {fileID: 5012626518709789048, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9
