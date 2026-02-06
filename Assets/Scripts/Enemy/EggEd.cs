@@ -101,7 +101,7 @@ public class EggEd : Enemy
         {
             hatless = true;
             sRend.sprite = noTop;
-            cCollider.size = new Vector2(2f, 2f);
+            cCollider.size = new Vector2(1.7f, 2f);
             cCollider.offset = new Vector2(-0.15f, -0.5f);
             SpriteFlip();
         }
@@ -109,7 +109,7 @@ public class EggEd : Enemy
         if (!hatless)
         {
             sRend.sprite = yesTop;
-            cCollider.size = new Vector2(2f, 3f);
+            cCollider.size = new Vector2(1.7f, 3f);
             cCollider.offset = new Vector2(-0.15f, 0f);
             SpriteFlip();
         }

@@ -68430,30 +68430,6 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 981811238}
-    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -148.00012
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625214688548262953, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -63.00006
-      objectReference: {fileID: 0}
     - target: {fileID: 9184534270712664499, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: m_Camera
       value: 

@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour
     private Animator pAnimator;
     private PlayerInputManager pInput;
     private Health hp;
+    [SerializeField] private DeathScreen deathScreen;
 
     [Header("Movement Variables")]
     [SerializeField] private float speed = 10f; //Player Speed
@@ -95,7 +96,7 @@ public class playerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (pInput.JumpTriggered && isGrounded)
+        if (pInput.JumpTriggered && isGrounded && !deathScreen.isDead)
         {
             rBody.linearVelocity = new Vector2(rBody.linearVelocity.x, 0);
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -107,7 +108,7 @@ public class playerMovement : MonoBehaviour
    
     private void HandleGlide()
     {
-        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f )
+        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead)
         {
             rBody.gravityScale = -0.5f;
             Debug.Log("gliding");
@@ -130,7 +131,7 @@ public class playerMovement : MonoBehaviour
     {
         glideCheck = true;
         hp.TakeDamageHopps(1);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         glideCheck = false;
     }
 
