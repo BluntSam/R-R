@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerInputManager : MonoBehaviour
     public Vector2 moveInput;
     private bool jumpPressed = false;
     private bool glidePressed = false;
+    private bool isClicking = false;
     [SerializeField] PauseMenu pauseMenuCode;
 
     //Properties
@@ -24,7 +26,16 @@ public class PlayerInputManager : MonoBehaviour
     public bool GlideTriggered
     {
         get { return glidePressed; }
-    }    
+    }
+
+    public bool IsClicking {
+        get {
+            return isClicking;
+        }
+        set {
+            isClicking = value;
+        }
+    }
 
     //Functions
     public void OnMove(InputAction.CallbackContext context)
@@ -60,4 +71,15 @@ public class PlayerInputManager : MonoBehaviour
     {
         pauseMenuCode.Pause();
     }
+
+    public void OnStickClick(CallbackContext context) {
+        if (context.performed) {
+            Debug.Log("clicked");
+            IsClicking = true;
+        } else if (context.canceled) {
+            IsClicking = false;
+            Debug.Log("unclicked");
+        }
+    }
+
 }

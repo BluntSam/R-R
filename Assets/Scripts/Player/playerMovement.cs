@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputManager))]
 public class playerMovement : MonoBehaviour
@@ -28,6 +29,7 @@ public class playerMovement : MonoBehaviour
     [Header("Other")]
     public int playerScore;
     private bool glideCheck = false;
+    private Scene levelOne;
 
     [Header("Sounds")]
     [SerializeField] private AudioSource soundEffects;
@@ -45,6 +47,7 @@ public class playerMovement : MonoBehaviour
         pInput = GetComponent<PlayerInputManager>();
         hp = GetComponent<Health>();
         soundEffects = GetComponent<AudioSource>();
+        levelOne = SceneManager.GetSceneByBuildIndex(1);
     }
 
     //Update Function: Called once per frame
@@ -108,22 +111,20 @@ public class playerMovement : MonoBehaviour
    
     private void HandleGlide()
     {
-        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead && hp.health >1)
-        {
-            rBody.gravityScale = -0.5f;
-            Debug.Log("gliding");
-            pAnimator.SetBool("isGliding", true);
-            if (!glideCheck)
-            {
-                StartCoroutine(GlideHurt());
+        if (SceneManager.GetActiveScene() != levelOne) {
+            if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead && hp.health > 1) {
+                rBody.gravityScale = -0.5f;
+                Debug.Log("gliding");
+                pAnimator.SetBool("isGliding", true);
+                if (!glideCheck) {
+                    StartCoroutine(GlideHurt());
+                }
+            } else {
+                rBody.gravityScale = 2;
+                pAnimator.SetBool("isGliding", false);
+                StopCoroutine(GlideHurt());
+                StopCoroutine(GlideHurt());
             }
-        }
-        else
-        {
-            rBody.gravityScale = 2;
-            pAnimator.SetBool("isGliding", false);
-            StopCoroutine(GlideHurt());
-            StopCoroutine(GlideHurt());
         }
     }    
    
