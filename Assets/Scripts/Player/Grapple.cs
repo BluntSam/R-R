@@ -14,6 +14,7 @@ public class Grapple : MonoBehaviour
     public int hpdamage = 1;
     public PauseMenu pauseMenu;
     public DeathScreen deathScreen;
+    PlayerInputManager playerInputManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +22,7 @@ public class Grapple : MonoBehaviour
         rb= GetComponent<Rigidbody>();
         lr = GetComponent<LineRenderer>();
         dj = GetComponent<DistanceJoint2D>();
+        playerInputManager = GetComponent<PlayerInputManager>();
         dj.enabled = false;
         lr.enabled = false;
     }
@@ -28,7 +30,7 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health >1)
+        if(playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health >1 && !isGrappling)
         {
              point =Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if(Physics2D.OverlapCircle(point,0.1f,grappleLayer))
@@ -46,7 +48,7 @@ public class Grapple : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (!playerInputManager.IsClicking)
         {
             isGrappling= false;
             lr.enabled = false;
