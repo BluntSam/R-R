@@ -108,7 +108,7 @@ public class playerMovement : MonoBehaviour
    
     private void HandleGlide()
     {
-        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead)
+        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead && hp.health >1)
         {
             rBody.gravityScale = -0.5f;
             Debug.Log("gliding");

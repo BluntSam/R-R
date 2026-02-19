@@ -28,7 +28,7 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !pauseMenu.paused && !deathScreen.isDead)
+        if(Input.GetMouseButtonDown(0) && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health >1)
         {
              point =Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if(Physics2D.OverlapCircle(point,0.1f,grappleLayer))
