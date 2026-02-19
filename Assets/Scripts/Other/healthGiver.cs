@@ -30,7 +30,7 @@ public class healthGiver : MonoBehaviour
 
     private IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
 }
