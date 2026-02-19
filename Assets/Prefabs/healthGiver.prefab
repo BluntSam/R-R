@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8131588b5c0db1b42b7462b7fc342dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::healthGiver
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 5968614900303016516, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
   hpgain: 1
 --- !u!58 &374951238870805530
 CircleCollider2D:
