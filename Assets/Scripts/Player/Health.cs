@@ -53,6 +53,8 @@ public class Health : MonoBehaviour
         }
     }
 
+   
+
     private IEnumerator DamageFlash()
     {
         sRend.material.color = Color.red;
