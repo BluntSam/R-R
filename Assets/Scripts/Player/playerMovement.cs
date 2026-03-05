@@ -150,6 +150,7 @@ public class playerMovement : MonoBehaviour
                 for (int i = 0; i < 1; i++)
                 {
                     StartCoroutine(PassiveHealth());
+                    hp.GainHealth(hpGain);
                     StopCoroutine(PassiveHealth());
 
 
@@ -170,8 +171,7 @@ public class playerMovement : MonoBehaviour
     private IEnumerator PassiveHealth()
     {
 
-        hp.GainHealth(hpGain);
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(10.0f);
 
     }
 
