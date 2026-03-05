@@ -21,15 +21,17 @@ public class nextLevel : MonoBehaviour
             {
                 SceneManager.LoadSceneAsync("Level2");
             }
-           else if (SceneManager.GetActiveScene() == levelTwo) 
+            if (SceneManager.GetActiveScene() != levelOne && SceneManager.GetActiveScene() != levelThree ) 
             {
                 SceneManager.LoadSceneAsync("Level3");
             }
                 
         }
     }
-        
+
     
+
+
 }
 
 
