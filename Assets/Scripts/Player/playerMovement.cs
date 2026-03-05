@@ -58,7 +58,7 @@ public class playerMovement : MonoBehaviour
         HandleMovement();
         HandleJump();
         HandleGlide();
-        PassiveHealth();
+        passiveHealth();
     }
 
     private void Update()
