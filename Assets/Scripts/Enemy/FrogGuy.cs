@@ -5,7 +5,7 @@ public class FrogGuy : Enemy
 {
     //Components
     //[Header("Components")]
-    private Animator eAnimate;
+    private Animator fAnimate;
     private CapsuleCollider2D cCollider;
     public attackTriggerEnemy aTrigger;
 
@@ -38,7 +38,7 @@ public class FrogGuy : Enemy
 
         //Initialization
         //Components
-        eAnimate = GetComponent<Animator>();
+        fAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
 
@@ -106,6 +106,11 @@ public class FrogGuy : Enemy
 
     private void Patrol()
     {
+        fAnimate.SetBool("stand", true);
+        fAnimate.SetBool("charge", false);
+        fAnimate.SetBool("leap", false);
+        fAnimate.SetBool("land", false);
+
         //Debug.Log($"Floor: {NoFloor()} Blocked: {OnBlocked()}");
         if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this enemy
         {
@@ -129,6 +134,12 @@ public class FrogGuy : Enemy
 
     private IEnumerator JumpWait()
     {
+        fAnimate.SetBool("stand", false);
+        fAnimate.SetBool("charge", true);
+        fAnimate.SetBool("leap", false);
+        fAnimate.SetBool("land", false);
+        yield return new WaitForSeconds(0.5f);
+
         if (!NoFloor() && canJump) //Only if there is floor beneath them and they are allowed to jump
         {
             target = Hopps.transform.position - transform.position; //targeting Hopps
@@ -136,12 +147,25 @@ public class FrogGuy : Enemy
             if (target.x <= -mSpeed) { moveVector.x = -mSpeed; } //flipping movement vector based on Hopps' location so the enemy faces Hopps
             if (target.x >= mSpeed) { moveVector.x = mSpeed; }
 
+            fAnimate.SetBool("stand", false);
+            fAnimate.SetBool("charge", false);
+            fAnimate.SetBool("leap", true);
+            fAnimate.SetBool("land", false);
+
             rBody.AddForce(new Vector2(moveVector.x * mSpeed * 400, jForce * 75), ForceMode2D.Impulse); //jumps at Hopps
             canJump = false;
         }
         yield return new WaitForSeconds(1f);
         transform.Translate(new Vector3(0, 0, 0));
+        fAnimate.SetBool("stand", false);
+        fAnimate.SetBool("charge", false);
+        fAnimate.SetBool("leap", false);
+        fAnimate.SetBool("land", true);
         yield return new WaitForSeconds(3f);
+        fAnimate.SetBool("stand", true);
+        fAnimate.SetBool("charge", false);
+        fAnimate.SetBool("leap", false);
+        fAnimate.SetBool("land", false);
         canJump = true;
     }
 
