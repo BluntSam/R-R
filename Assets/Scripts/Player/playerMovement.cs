@@ -58,7 +58,7 @@ public class playerMovement : MonoBehaviour
         HandleMovement();
         HandleJump();
         HandleGlide();
-        
+        passiveHealth();
     }
 
     private void Update()
@@ -139,8 +139,37 @@ public class playerMovement : MonoBehaviour
         glideCheck = false;
     }
 
+    bool temptest = false;
 
-    
+    private void passiveHealth()
+    {
+        if (rBody.linearVelocityX == 0 && rBody.linearVelocityY == 0) // checking is velocity on both x and y are at 0 (not moving)
+        {
+            if (!temptest)
+            {
+                Debug.Log("Passive Heal Start");
+                StartCoroutine(PassiveHealth());
+            }
+        }
+        else
+        {
+            StopCoroutine(PassiveHealth());
+        }
+    }
+
+    private IEnumerator PassiveHealth()
+    {
+        temptest = true;
+        yield return new WaitForSeconds(5.0f);
+        if (hp.health < 5)
+        {
+            hp.GainHealth(hpGain);
+            Debug.Log("Passively Healed");
+        }
+        temptest = false;
+    }
+
+
 
     private void AnimatePlayer()
     {
