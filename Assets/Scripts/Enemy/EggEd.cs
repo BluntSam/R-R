@@ -33,8 +33,6 @@ public class EggEd : Enemy
     private bool canAttack = true;
 
     //The Egg Variables
-    [SerializeField] private Sprite noTop;
-    [SerializeField] private Sprite yesTop;
     [SerializeField] private int hpNoTopLevel = 9;
     [SerializeField] private bool hatless;
     private bool harmfulToTouch = true;
@@ -99,18 +97,20 @@ public class EggEd : Enemy
     {
         if (cHealth <= hpNoTopLevel || hatless)
         {
+            eAnimate.SetBool("hatless", true);
             hatless = true;
-            sRend.sprite = noTop;
             cCollider.size = new Vector2(1.7f, 2f);
-            cCollider.offset = new Vector2(-0.15f, -0.5f);
+            cCollider.offset = new Vector2(-0.15f, 0f);
+            bCollider.offset = new Vector2(bCollider.offset.x, 0.75f);
             SpriteFlip();
         }
 
         if (!hatless)
         {
-            sRend.sprite = yesTop;
+            eAnimate.SetBool("hatless", false);
             cCollider.size = new Vector2(1.7f, 3f);
             cCollider.offset = new Vector2(-0.15f, 0f);
+            bCollider.offset = new Vector2(bCollider.offset.x, 0.25f);
             SpriteFlip();
         }
     }
