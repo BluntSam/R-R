@@ -139,40 +139,34 @@ public class playerMovement : MonoBehaviour
         glideCheck = false;
     }
 
+    bool temptest = false;
+
     private void passiveHealth()
     {
         if (rBody.linearVelocityX == 0 && rBody.linearVelocityY == 0) // checking is velocity on both x and y are at 0 (not moving)
         {
-
-
-            if (hp.health < 5)// checks if health is lower than 5 will then enter a loop and give health also enters a coroutine
+            if (!temptest)
             {
-                for (int i = 0; i < 1; i++)
-                {
-                    StartCoroutine(PassiveHealth());
-                    hp.GainHealth(hpGain);
-                    StopCoroutine(PassiveHealth());
-
-
-                }
-                StopCoroutine(PassiveHealth());
-
+                Debug.Log("Passive Heal Start");
+                StartCoroutine(PassiveHealth());
             }
-
-
         }
         else
         {
-
             StopCoroutine(PassiveHealth());
         }
     }
 
     private IEnumerator PassiveHealth()
     {
-
-        yield return new WaitForSeconds(10.0f);
-
+        temptest = true;
+        yield return new WaitForSeconds(5.0f);
+        if (hp.health < 5)
+        {
+            hp.GainHealth(hpGain);
+            Debug.Log("Passively Healed");
+        }
+        temptest = false;
     }
 
 
