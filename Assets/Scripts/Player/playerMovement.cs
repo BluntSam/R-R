@@ -58,7 +58,7 @@ public class playerMovement : MonoBehaviour
         HandleMovement();
         HandleJump();
         HandleGlide();
-        passiveHealth();
+        
     }
 
     private void Update()
@@ -140,40 +140,7 @@ public class playerMovement : MonoBehaviour
     }
 
 
-    private void passiveHealth()
-    {
-        if(rBody.linearVelocityX == 0 && rBody.linearVelocityY == 0) // checking is velocity on both x and y are at 0 (not moving)
-        {
-
-            
-            if (hp.health < 5 )// checks if health is lower than 5 will then enter a loop and give health also enters a coroutine
-            {
-                for (int i = 0; i<1; i++)
-                {
-                    
-                    StartCoroutine(PassiveHealth());
-                    
-                }
-
-                StopCoroutine(PassiveHealth());
-            }
-           
-
-        }
-        else
-        {
-           
-            StopCoroutine(PassiveHealth());
-        }
-    }
-
-    private IEnumerator PassiveHealth()
-    {
-       
-        hp.GainHealth(hpGain);
-        yield return new WaitForSeconds(5.0f);
-
-    }
+    
 
     private void AnimatePlayer()
     {
