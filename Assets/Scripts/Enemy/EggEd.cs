@@ -131,7 +131,7 @@ public class EggEd : Enemy
         }
         else if (distanceBetween < sRange && distanceBetween > 3) //Hopps is in sight
         {
-            Chase();
+            Patrol(); //Egg don't care
         }
         else if (distanceBetween <= 3) //Hopps is RIGHT THERE
         {
