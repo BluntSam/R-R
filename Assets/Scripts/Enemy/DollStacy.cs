@@ -27,7 +27,14 @@ public class DollStacy : Enemy
     private Vector2 target;
     private bool canAttack = true;
 
-    //Other Variables
+    //Animation Variables
+    [Header("Animation Bools")]
+    [SerializeField] private bool isWalkingAnim;
+    [SerializeField] private bool isFallingAnim;
+    [SerializeField] private bool isDeadAnim;
+    [SerializeField] private bool isNoticeAnim;
+    [SerializeField] private bool isSlashAnim;
+    [SerializeField] private bool isNoSeeAnim;
 
     protected override void Awake()
     {
@@ -54,12 +61,14 @@ public class DollStacy : Enemy
 
     private void Update()
     {
-        //Animate();
+        Animate();
         SpriteFlip();
     }
 
     private void FixedUpdate()
     {
+        if (IsDead) { isDeadAnim = true; return; }
+
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         jForce = JumpForce;
@@ -142,11 +151,51 @@ public class DollStacy : Enemy
         canAttack = true;
     }
 
-    //Currently not needed as the only animation we are using, is Stacy constantly walking no matter what.
-    //Will be needed when we decide to not do that.
     private void Animate()
     {
-        //Where the animation code would go if we had any.
+        //Stacy Walk (Stacy is Walking)
+        if (isWalkingAnim)
+        {
+
+        }
+
+        //Stacy Dead (Stacy is Dead)
+        if (isDeadAnim)
+        {
+            //Turn off everything that isn't dead
+            eAnimate.SetBool("IsWalking", false);
+            eAnimate.SetBool("IsFalling", false);
+            eAnimate.SetBool("IsDead", true); //Dead Animation
+            eAnimate.SetBool("IsNotice", false);
+            eAnimate.SetBool("IsSlash", false);
+            eAnimate.SetBool("IsNoSee", false);
+
+            cCollider.size = new Vector2(1.4f, 1.8f);
+        }
+
+        //Stacy Fall (Stacy is Falling)
+        if (isFallingAnim)
+        {
+
+        }
+
+        //Stacy Notice (Stacy Noticed Player)
+        if (isNoticeAnim)
+        {
+
+        }  
+        
+        //Stacy Slash (Stacy is Attacking Player)
+        if (isSlashAnim)
+        {
+
+        }
+
+        //Stacy No See (Stacy Lost Player)
+        if (isNoSeeAnim)
+        {
+
+        }
     }
 
     //Flips the Sprite *gasp*

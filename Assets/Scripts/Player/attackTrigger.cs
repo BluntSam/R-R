@@ -11,7 +11,6 @@ public class attackTrigger : MonoBehaviour
     //Variables
     public const string ENEMY_TAG = "Enemy";
     public int damage = 1;
-    private bool isHitting;
     public bool canHitCooldown = false;
 
     private void FixedUpdate()
@@ -34,8 +33,8 @@ public class attackTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        isHitting = nAttack.violent;
-        if (isHitting)
+        //Debug.Log($"{collision} is in attack range");
+        if (nAttack.violent)
         {
             if (collision.gameObject.tag == ENEMY_TAG && !canHitCooldown)
             {
@@ -44,7 +43,7 @@ public class attackTrigger : MonoBehaviour
                     enemy = collision.gameObject.GetComponent<Enemy>();
                 }
 
-                Debug.Log("Enemy was Hit");
+                Debug.Log($"{enemy.name} was Hit");
                 enemy.TakeDamage(damage, 1);
 
                 StartCoroutine(attackCooldown());

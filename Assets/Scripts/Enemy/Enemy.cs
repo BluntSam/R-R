@@ -134,14 +134,14 @@ public class Enemy : MonoBehaviour
         CurrentHealth -= amount;
         Debug.Log($"{gameObject.name}'s HP is now: {CurrentHealth}.");
 
-        StartCoroutine(DamageFlash());
-
         if (CurrentHealth <= 0)
         {
             Die(type);
         }
         else
         {
+            StartCoroutine(DamageFlash());
+
             StartCoroutine(KnockBackCooldown());
         }
     }
