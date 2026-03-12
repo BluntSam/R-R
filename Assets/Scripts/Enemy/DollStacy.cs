@@ -146,6 +146,9 @@ public class DollStacy : Enemy
     {
         if (canAttack)
         {
+            isSlashAnim = true;
+            isWalkingAnim = false;
+
             canAttack = false;
             atkPower = AttackPower;
             aTrigger.isHitting = true;
@@ -156,8 +159,11 @@ public class DollStacy : Enemy
 
     private IEnumerator HitCooldown()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.75f);
+        isSlashAnim = false;
+        yield return new WaitForSeconds(1.25f);
         canAttack = true;
+        isWalkingAnim = true;
     }
 
     private void FallCheck()
@@ -177,6 +183,7 @@ public class DollStacy : Enemy
     }
 
     //i think this is the worst thing ive ever coded
+    //just hide it
     private void Animate()
     {
         //Stacy Walk (Stacy is Walking)
@@ -211,6 +218,11 @@ public class DollStacy : Enemy
             eAnimate.SetBool("IsNotice", true);
             eAnimate.SetBool("IsWalking", false);
         }
+        else
+        {
+            eAnimate.SetBool("IsNotice", false);
+            eAnimate.SetBool("IsWalking", true);
+        }
 
         //Stacy Slash (Stacy is Attacking Player)
         if (isSlashAnim)
@@ -218,12 +230,22 @@ public class DollStacy : Enemy
             eAnimate.SetBool("IsSlash", true);
             eAnimate.SetBool("IsWalking", false);
         }
+        else
+        {
+            eAnimate.SetBool("IsSlash", false);
+            eAnimate.SetBool("IsWalking", true);
+        }
 
         //Stacy No See (Stacy Lost Player)
         if (isNoSeeAnim)
         {
             eAnimate.SetBool("IsNoSee", true);
             eAnimate.SetBool("IsWalking", false);
+        }
+        else
+        {
+            eAnimate.SetBool("IsNoSee", false);
+            eAnimate.SetBool("IsWalking", true);
         }
     }
 
