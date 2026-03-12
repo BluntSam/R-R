@@ -178,10 +178,17 @@ public class Enemy : MonoBehaviour
     /// </summary>
     protected void Die(int type)
     {
-        if (type == 1) { Hopps.GetComponent<playerMovement>().playerScore += ScoreValue; }
-
+        //Type zero means no score, and instant delete.
+        //Type one means score, and instant delete.
+        //Type two means score, and no delete.
+        
         isDead = true;
-        Destroy(gameObject);
+
+        //Score
+        if (type == 1 || type == 2) { Hopps.GetComponent<playerMovement>().playerScore += ScoreValue; }
+
+        //Delete Game Object
+        if (type == 0 || type == 1) { Destroy(gameObject); }
     }
 
     /// <summary>

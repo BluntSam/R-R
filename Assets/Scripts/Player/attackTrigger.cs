@@ -38,13 +38,18 @@ public class attackTrigger : MonoBehaviour
         {
             if (collision.gameObject.tag == ENEMY_TAG && !canHitCooldown)
             {
-                if (enemy == null)
-                {
-                    enemy = collision.gameObject.GetComponent<Enemy>();
-                }
+                enemy = collision.gameObject.GetComponent<Enemy>();
 
                 Debug.Log($"{enemy.name} was Hit");
-                enemy.TakeDamage(damage, 1);
+                
+                if (enemy.GetComponent<DollStacy>() != null)
+                {
+                    enemy.TakeDamage(damage, 2);
+                }
+                else
+                {
+                    enemy.TakeDamage(damage, 1);
+                }
 
                 StartCoroutine(attackCooldown());
             }
