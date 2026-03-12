@@ -57,17 +57,26 @@ public class DollStacy : Enemy
 
         //Movement Variable
         moveVector = new Vector2(mSpeed, 0);
+
+        //walkin'
+        isWalkingAnim = true;
     }
 
     private void Update()
     {
         Animate();
         SpriteFlip();
+        FallCheck();
     }
 
     private void FixedUpdate()
     {
-        if (IsDead) { isDeadAnim = true; return; }
+        if (IsDead)
+        {
+            isDeadAnim = true;
+            this.gameObject.layer = 3;
+            return;
+        }
 
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
@@ -151,12 +160,33 @@ public class DollStacy : Enemy
         canAttack = true;
     }
 
+    private void FallCheck()
+    {
+        if (rBody.linearVelocity.y < -0.75f || rBody.linearVelocity.y > 0.75f)
+        {
+            eAnimate.SetBool("IsWalking", false);
+            eAnimate.SetBool("IsFalling", true);
+            eAnimate.SetBool("IsNotice", false);
+            eAnimate.SetBool("IsSlash", false);
+            eAnimate.SetBool("IsNoSee", false);
+        }
+        else
+        {
+            eAnimate.SetBool("IsFalling", false);
+        }
+    }
+
+    //i think this is the worst thing ive ever coded
     private void Animate()
     {
         //Stacy Walk (Stacy is Walking)
         if (isWalkingAnim)
         {
-
+            eAnimate.SetBool("IsWalking", true);
+        }
+        else
+        {
+            eAnimate.SetBool("IsWalking", false);
         }
 
         //Stacy Dead (Stacy is Dead)
@@ -172,29 +202,28 @@ public class DollStacy : Enemy
 
             cCollider.size = new Vector2(1.4f, 1.8f);
         }
-
-        //Stacy Fall (Stacy is Falling)
-        if (isFallingAnim)
-        {
-
-        }
+        //no else because you can't undie.
+        //also it would be funny if you undied and then were stuck sliding in a dead pose
 
         //Stacy Notice (Stacy Noticed Player)
         if (isNoticeAnim)
         {
+            eAnimate.SetBool("IsNotice", true);
+            eAnimate.SetBool("IsWalking", false);
+        }
 
-        }  
-        
         //Stacy Slash (Stacy is Attacking Player)
         if (isSlashAnim)
         {
-
+            eAnimate.SetBool("IsSlash", true);
+            eAnimate.SetBool("IsWalking", false);
         }
 
         //Stacy No See (Stacy Lost Player)
         if (isNoSeeAnim)
         {
-
+            eAnimate.SetBool("IsNoSee", true);
+            eAnimate.SetBool("IsWalking", false);
         }
     }
 
