@@ -35,6 +35,8 @@ public class DollStacy : Enemy
     [SerializeField] private bool isNoticeAnim;
     [SerializeField] private bool isSlashAnim;
     [SerializeField] private bool isNoSeeAnim;
+    [SerializeField] private bool seenRecently;
+    [SerializeField] private bool pauseMovement;
 
     protected override void Awake()
     {
@@ -60,6 +62,8 @@ public class DollStacy : Enemy
 
         //walkin'
         isWalkingAnim = true;
+        seenRecently = false;
+        pauseMovement = false;
     }
 
     private void Update()
@@ -119,13 +123,24 @@ public class DollStacy : Enemy
 
     private void Patrol()
     {
-        if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Stacy
+        if (seenRecently)
         {
-            StacyFlip();
+            seenRecently = false;
+            StartCoroutine(Lost());
         }
-        else //There is floor, and there's nothing blocking this Stacy
+        else
         {
-            transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+            if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Stacy
+            {
+                StacyFlip();
+            }
+            else //There is floor, and there's nothing blocking this Stacy
+            {
+                if (!pauseMovement)
+                {
+                    transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+                }
+            }
         }
     }
 
@@ -136,10 +151,52 @@ public class DollStacy : Enemy
 
     private void Chase()
     {
-        target = Hopps.transform.position - transform.position;
-        if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
-        if (target.x >= mSpeed) { moveVector.x = mSpeed; }
-        transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+        if (!seenRecently)
+        {
+            seenRecently = true;
+            StartCoroutine(Noticed());
+        }
+        else
+        {
+            if (!pauseMovement)
+            {
+                target = Hopps.transform.position - transform.position;
+                if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
+                if (target.x >= mSpeed) { moveVector.x = mSpeed; }
+                transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+            }
+        }
+    }
+
+    private IEnumerator Noticed()
+    {
+        isWalkingAnim = false;
+        pauseMovement = true;
+
+        eAnimate.SetBool("IsNotice", true);
+
+        yield return new WaitForSeconds(1f);
+
+        eAnimate.SetBool("IsNotice", false);
+
+        pauseMovement = false;
+        isWalkingAnim = true;
+    }
+
+    private IEnumerator Lost()
+    {
+        isWalkingAnim = false;
+        pauseMovement = true;
+
+
+        eAnimate.SetBool("IsNoSee", true);
+
+        yield return new WaitForSeconds(1f);
+
+        eAnimate.SetBool("IsNoSee", false);
+
+        pauseMovement = false;
+        isWalkingAnim = true;
     }
 
     private void Attack()
@@ -212,18 +269,6 @@ public class DollStacy : Enemy
         //no else because you can't undie.
         //also it would be funny if you undied and then were stuck sliding in a dead pose
 
-        //Stacy Notice (Stacy Noticed Player)
-        if (isNoticeAnim)
-        {
-            eAnimate.SetBool("IsNotice", true);
-            eAnimate.SetBool("IsWalking", false);
-        }
-        else
-        {
-            eAnimate.SetBool("IsNotice", false);
-            eAnimate.SetBool("IsWalking", true);
-        }
-
         //Stacy Slash (Stacy is Attacking Player)
         if (isSlashAnim)
         {
@@ -233,18 +278,6 @@ public class DollStacy : Enemy
         else
         {
             eAnimate.SetBool("IsSlash", false);
-            eAnimate.SetBool("IsWalking", true);
-        }
-
-        //Stacy No See (Stacy Lost Player)
-        if (isNoSeeAnim)
-        {
-            eAnimate.SetBool("IsNoSee", true);
-            eAnimate.SetBool("IsWalking", false);
-        }
-        else
-        {
-            eAnimate.SetBool("IsNoSee", false);
             eAnimate.SetBool("IsWalking", true);
         }
     }
