@@ -213,4 +213,7 @@ public class Enemy : MonoBehaviour
         Debug.DrawRay(RCOrigin, RCDirection * 0.5f, Color.red);
         return Physics2D.Raycast(RCOrigin, RCDirection, 0.5f, LayerMask.GetMask("Ground"));
     }
+    //To make enemies not run into each other, one would have to alter this to include them.
+    //YOU CANNOT MAKE AN ENEMY GROUND LAYER WITHOUT MAKING SURE THE RAYCASTING DOESN'T HIT THE ENEMY'S OWN HITBOX
+    //preferably do not make enemies ground unless you have to
 }

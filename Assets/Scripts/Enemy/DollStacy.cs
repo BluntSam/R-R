@@ -239,4 +239,13 @@ public class DollStacy : Enemy
             sRend.flipX = false;
         }
     }
+
+    //this is just to stop those stacys that run into each other in level 2 tbh
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            StacyFlip();
+        }
+    }
 }

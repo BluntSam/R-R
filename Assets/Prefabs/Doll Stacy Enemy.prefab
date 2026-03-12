@@ -206,6 +206,12 @@ MonoBehaviour:
   Hopps: {fileID: 0}
   aTrigger: {fileID: 5768715558008255605}
   distanceBetween: 0
+  isWalkingAnim: 0
+  isFallingAnim: 0
+  isDeadAnim: 0
+  isNoticeAnim: 0
+  isSlashAnim: 0
+  isNoSeeAnim: 0
 --- !u!1 &4115797551519705534
 GameObject:
   m_ObjectHideFlags: 0
