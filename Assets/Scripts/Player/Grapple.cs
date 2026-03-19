@@ -15,6 +15,7 @@ public class Grapple : MonoBehaviour
     public PauseMenu pauseMenu;
     public DeathScreen deathScreen;
     PlayerInputManager playerInputManager;
+    [SerializeField] RectTransform cursorTransform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +33,7 @@ public class Grapple : MonoBehaviour
     {
         if(playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health >1 && !isGrappling)
         {
-             point =Camera.main.ScreenToWorldPoint(Input.mousePosition);
+             point = Camera.main.ScreenToWorldPoint(cursorTransform.position);
             if(Physics2D.OverlapCircle(point,0.1f,grappleLayer))
             {
                 StartCoroutine(grappleDamage(hpdamage));
