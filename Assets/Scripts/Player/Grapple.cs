@@ -31,87 +31,62 @@ public class Grapple : MonoBehaviour
         dj = GetComponent<DistanceJoint2D>();
         playerInputManager = GetComponent<PlayerInputManager>();
         dj.enabled = false;
-        lr.enabled = false;
+        lr.enabled = true;
+        
     }
 
 
-    private void Update()
+   
+
+    // Update is called once per frame
+     void Update()
     {
-        lr.SetPosition(0,grappleOrigin.position);
-        mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
 
-        Vector3 DisplacementToCursor = mouseWorldPoint - grappleOrigin.position;
-        Vector3 GrappleDirection = DisplacementToCursor.normalized;
+            lr.SetPosition(0, grappleOrigin.position);
+            mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(grappleOrigin.position, GrappleDirection, Mathf.Min(DisplacementToCursor.magnitude, maxGrappleRange),grappleLayer);
-        isGrappleValid = hit && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
+            Vector3 DisplacementToCursor = mouseWorldPoint - grappleOrigin.position;
+            Vector3 GrappleDirection = DisplacementToCursor.normalized;
 
-        if (isGrappleValid)
+            RaycastHit2D hit = Physics2D.Raycast(grappleOrigin.position, GrappleDirection, Mathf.Min(DisplacementToCursor.magnitude, maxGrappleRange), grappleLayer);
+            isGrappleValid = hit && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
+
+            if (isGrappleValid)
+            {
+                lr.startColor = yarnColorValid;
+                lr.endColor = yarnColorValid;
+                lr.SetPosition(1, hit.point);
+            }
+            else
+            {
+                lr.startColor = yarnColorInvalid;
+                lr.endColor = yarnColorInvalid;
+                lr.SetPosition(1, grappleOrigin.position + GrappleDirection * Mathf.Min(DisplacementToCursor.magnitude, maxGrappleRange));
+            }
+
+        if (playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health > 1 && !isGrappling)
         {
-            lr.startColor = yarnColorValid;
-            lr.endColor = yarnColorInvalid;
-            lr.SetPosition(1,hit.point);
+            if (isGrappleValid)
+            {
+                //  StartCoroutine(grappleDamage(hpdamage));
+
+                isGrappling = true;
+                lr.enabled = true;
+                dj.enabled = true;
+                dj.connectedAnchor = hit.point;
+                
+            }
+
+            
         }
         else
         {
-            lr.startColor =yarnColorInvalid;
-            lr.endColor=yarnColorInvalid;
-            lr.SetPosition(1, grappleOrigin.position+GrappleDirection*Mathf.Min(DisplacementToCursor.magnitude, maxGrappleRange));
+            isGrappling = false;
+            
+            dj.enabled = false;
         }
-        if (playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health > 1 && !isGrappling)
-        {
-            if(isGrappleValid)
-            {
-                isGrappling = true;
-
-                dj.enabled = true;
-                dj.connectedAnchor = hit.point;
-            }
-            if (!playerInputManager.IsClicking)
-            {
-                isGrappling = false;
-                lr.enabled = false;
-                dj.enabled = false;
-            }
-        }
-
- }
-
-    // Update is called once per frame
-    /*  void Update()
-      {
-          if(playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health >1 && !isGrappling)
-          {
-               point =Camera.main.ScreenToWorldPoint(Input.mousePosition);
-              if(Physics2D.OverlapCircle(point,0.1f,grappleLayer))
-              {
-                  StartCoroutine(grappleDamage(hpdamage));
-
-                  isGrappling = true;
-                  lr.enabled = true;
-                  lr.SetPosition(0,transform.position);
-                  lr.SetPosition(1, point);
-
-
-                  dj.enabled = true;
-                  dj.connectedAnchor = point;
-              }
-          }
-
-          if (!playerInputManager.IsClicking)
-          {
-              isGrappling= false;
-              lr.enabled = false;
-              dj.enabled = false;
-          }
-
-          if(isGrappling)
-          {
-              lr.enabled = true;
-              lr.SetPosition(0, transform.position);
-              lr.SetPosition(1, point);
-          }
-      }*/
+    }
 
     private IEnumerator grappleDamage(int amount)
     {
