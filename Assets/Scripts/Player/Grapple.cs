@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Grapple : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Grapple : MonoBehaviour
     public DeathScreen deathScreen;
     PlayerInputManager playerInputManager;
     public Transform grappleOrigin;
+    public float maxGrappleRange = 10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
