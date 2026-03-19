@@ -15,6 +15,7 @@ public class Grapple : MonoBehaviour
     public PauseMenu pauseMenu;
     public DeathScreen deathScreen;
     PlayerInputManager playerInputManager;
+    public Transform grappleOrigin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +40,7 @@ public class Grapple : MonoBehaviour
 
                 isGrappling = true;
                 lr.enabled = true;
-                lr.SetPosition(0,transform.position);
+                lr.SetPosition(0,grappleOrigin.position);
                 lr.SetPosition(1, point);
 
 
@@ -58,7 +59,7 @@ public class Grapple : MonoBehaviour
         if(isGrappling)
         {
             lr.enabled = true;
-            lr.SetPosition(0, transform.position);
+            lr.SetPosition(0, grappleOrigin.position);
             lr.SetPosition(1, point);
         }
     }
