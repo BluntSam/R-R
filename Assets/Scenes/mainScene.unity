@@ -483,6 +483,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hopps
       objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: grappleOrigin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorValid.b
+      value: 0.16027856
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorValid.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorValid.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorGrapple.b
+      value: 0.9547169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorGrapple.g
+      value: 0.9547169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorGrapple.r
+      value: 0.9547169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorInvalid.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorInvalid.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorInvalid.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: yarnColorInvalid.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961980990120745265, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4708133858914782573, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: bgMusicSource
       value: 
@@ -743,11 +791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.71635
+      value: 7.721377
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8748134
+      value: 0.8748236
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.z
