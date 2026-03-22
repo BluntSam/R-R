@@ -22,11 +22,14 @@ public class Grapple : MonoBehaviour
     public bool isGrappleValid;
     public Transform grappleOrigin;
     public float maxGrappleRange = 20;
+    Vector3 displacementToCursor;
+    Vector3 grappleDir;
+    RaycastHit2D hit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb= GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         lr = GetComponent<LineRenderer>();
         dj = GetComponent<DistanceJoint2D>();
         playerInputManager = GetComponent<PlayerInputManager>();
@@ -41,16 +44,15 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
-        
-
             lr.SetPosition(0, grappleOrigin.position);
+        if(!isGrappling) {
             mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            Vector3 DisplacementToCursor = mouseWorldPoint - grappleOrigin.position;
-            Vector3 GrappleDirection = DisplacementToCursor.normalized;
-
-            RaycastHit2D hit = Physics2D.Raycast(grappleOrigin.position, GrappleDirection, Mathf.Min(DisplacementToCursor.magnitude, maxGrappleRange), grappleLayer);
+            displacementToCursor = mouseWorldPoint - grappleOrigin.position;
+            grappleDir = displacementToCursor.normalized;
+            hit = Physics2D.Raycast(grappleOrigin.position, grappleDir, Mathf.Min(displacementToCursor.magnitude, maxGrappleRange), grappleLayer);
             isGrappleValid = hit && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
+        }
+            
 
             if (isGrappleValid)
             {
@@ -62,28 +64,21 @@ public class Grapple : MonoBehaviour
             {
                 lr.startColor = yarnColorInvalid;
                 lr.endColor = yarnColorInvalid;
-                lr.SetPosition(1, grappleOrigin.position + GrappleDirection * Mathf.Min(DisplacementToCursor.magnitude, maxGrappleRange));
+                lr.SetPosition(1, grappleOrigin.position + grappleDir * Mathf.Min(displacementToCursor.magnitude, maxGrappleRange));
             }
 
-        if (playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health > 1 && !isGrappling)
+        if (playerInputManager.IsClicking && !pauseMenu.paused && !deathScreen.isDead && playerHealth.health > 1 && !isGrappling && isGrappleValid)
         {
-            if (isGrappleValid)
-            {
-                //  StartCoroutine(grappleDamage(hpdamage));
+                StartCoroutine(grappleDamage(hpdamage));
 
                 isGrappling = true;
                 lr.enabled = true;
                 dj.enabled = true;
                 dj.connectedAnchor = hit.point;
-                
-            }
-
-            
         }
-        else
+        if(!playerInputManager.IsClicking)
         {
             isGrappling = false;
-            
             dj.enabled = false;
         }
     }

@@ -47,6 +47,7 @@ Transform:
   - {fileID: 8348714111207610087}
   - {fileID: 870788412789632289}
   - {fileID: 156944985482779550}
+  - {fileID: 643949378303486963}
   - {fileID: 4652232633627847142}
   - {fileID: 1106243872342936994}
   m_Father: {fileID: 0}
@@ -292,6 +293,12 @@ MonoBehaviour:
   hpdamage: 1
   pauseMenu: {fileID: 4708133858914782573}
   deathScreen: {fileID: 6284267502230415543}
+  yarnColorValid: {r: 0, g: 0, b: 0, a: 0}
+  yarnColorInvalid: {r: 0, g: 0, b: 0, a: 0}
+  yarnColorGrapple: {r: 0, g: 0, b: 0, a: 0}
+  isGrappleValid: 0
+  grappleOrigin: {fileID: 0}
+  maxGrappleRange: 20
 --- !u!120 &1961980990120745265
 LineRenderer:
   serializedVersion: 2
@@ -1559,6 +1566,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4582452924897936598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643949378303486963}
+  m_Layer: 0
+  m_Name: grappleOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643949378303486963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582452924897936598}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 2.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5012626518709789048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4831295378800690715
 GameObject:
   m_ObjectHideFlags: 0
