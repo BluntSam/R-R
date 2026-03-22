@@ -513,11 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.7176924
+      value: 7.722128
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8748236
+      value: 0.8748338
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -560,6 +560,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+--- !u!1 &2103799946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 13688947576313529, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+  m_PrefabInstance: {fileID: 3531668463735690297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &345338706475530626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -681,6 +686,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[15]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[16]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[17]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[18]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[19]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[20]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[21]'
+      value: 
+      objectReference: {fileID: 2103799946}
+    - target: {fileID: 5454487281277828645, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
+      propertyPath: 'enemyList.Array.data[22]'
+      value: 
+      objectReference: {fileID: 2103799946}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -754,6 +791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ALL-Checkpoints
       objectReference: {fileID: 0}
+    - target: {fileID: 6694190079467006592, guid: 4b5ef772abce4a9428cfb8de6626004c, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1983496409}
     - target: {fileID: 7045223138534665573, guid: 4b5ef772abce4a9428cfb8de6626004c, type: 3}
       propertyPath: health
       value: 
