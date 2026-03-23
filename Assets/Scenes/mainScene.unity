@@ -522,7 +522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: yarnColorInvalid.a
-      value: 0.56078434
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1753805469677918158, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: yarnColorInvalid.b
