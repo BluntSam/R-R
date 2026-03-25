@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 4708133858914782573}
   - component: {fileID: 6284267502230415543}
   - component: {fileID: 8089339112159267177}
+  - component: {fileID: 3731350634495069273}
   m_Layer: 0
   m_Name: Hopps
   m_TagString: Player
@@ -1100,6 +1101,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 502bc522-df48-4bc5-9758-24d2ea71e8ac
     m_ActionName: 'Player/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3731350634495069273}
+        m_TargetAssemblyTypeName: DebugControls, Assembly-CSharp
+        m_MethodName: OnDebugLvl2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: baba5fa0-03fe-4d74-abbf-fdd7925ead25
+    m_ActionName: 'Player/Lvl2Debug[/Keyboard/7]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3731350634495069273}
+        m_TargetAssemblyTypeName: DebugControls, Assembly-CSharp
+        m_MethodName: OnDebugLvl3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6aba4655-d782-40d5-9dbd-4d99d75a7958
+    m_ActionName: 'Player/Lvl3Debug[/Keyboard/8]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -1250,6 +1283,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3731350634495069273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231859981295989950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b638b0e50188246bf77a96cf6ef6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DebugControls
 --- !u!1 &1689354791452795611
 GameObject:
   m_ObjectHideFlags: 0
