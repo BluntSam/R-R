@@ -437,8 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e33e6aab92c164fae7b658c9cea394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyLevel3
-  closedSprite: {fileID: 20685930}
-  openSprite: {fileID: 2098775722}
+  closedChestSprite: {fileID: 0}
+  openChestSprite: {fileID: 0}
 --- !u!61 &704586668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1047,7 +1047,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

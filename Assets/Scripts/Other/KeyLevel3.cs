@@ -1,24 +1,16 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class KeyLevel3 : MonoBehaviour
 {
-    [SerializeField] private GameObject closedSprite;
-    [SerializeField] private GameObject openSprite;
-
-    private SpriteRenderer sRend;
-    
+    [Header("Chest")]
+    [SerializeField] private GameObject closedChestSprite;
+    [SerializeField] private GameObject openChestSprite;
 
     private void Awake()
     {
-        sRend = GetComponent<SpriteRenderer>();
-        key();
-    }
-    public void key()
-    {
-        closedSprite.SetActive(true);
-        openSprite.SetActive(false);
+        //Set chest closed, not open
+        closedChestSprite.SetActive(true);
+        openChestSprite.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -31,8 +23,11 @@ public class KeyLevel3 : MonoBehaviour
 
     public void Collect()
     {
-        closedSprite.SetActive(false);
-        openSprite.SetActive(true);
+        //Set chest open, not closed
+        closedChestSprite.SetActive(false);
+        openChestSprite.SetActive(true);
+
+        //Remove key
         gameObject.SetActive(false);
     }
 }
