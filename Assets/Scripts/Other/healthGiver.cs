@@ -17,6 +17,7 @@ public class healthGiver : MonoBehaviour
         }
     }
 
+    //deletes itself
     private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(0.5f);

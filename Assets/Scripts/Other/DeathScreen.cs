@@ -32,6 +32,7 @@ public class DeathScreen : MonoBehaviour
         enemyArray.SpawnEnemy();
         Debug.Log("respawned enemies");
         isDead = false;
+        Debug.Log("player not dead no more");
         respawnRoutine = null;
     }
 

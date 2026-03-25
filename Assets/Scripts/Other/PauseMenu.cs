@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionsMenu;
     [SerializeField] AudioSource bgMusicSource;
     [SerializeField] AudioSource pauseMenuSong;
     public bool paused;
@@ -32,8 +33,29 @@ public class PauseMenu : MonoBehaviour {
 
     }
 
+    public void Options()
+    {
+        optionsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        bgMusicSource.mute = true;
+        pauseMenuSong.mute = false;
+        paused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void BackOptions()
+    {
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        bgMusicSource.mute = true;
+        pauseMenuSong.mute = false;
+        paused = true;
+        Time.timeScale = 0f;
+
+    }
+
     public void MainMenu() {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         SceneManager.LoadScene("menuScene");
     }
 }

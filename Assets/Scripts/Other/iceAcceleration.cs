@@ -6,10 +6,10 @@ public class iceAcceleration : MonoBehaviour
     {
         if (collision.gameObject.name == "Hopps")
         {
-            Debug.Log("Ice Ice Baby");
+            //Debug.Log("Ice Ice Baby");
             Rigidbody2D rBody = collision.gameObject.GetComponent<Rigidbody2D>();
             rBody.AddForce(collision.GetContact(0).normal * 15, ForceMode2D.Impulse);
-            Debug.Log(collision.GetContact(0).normal * 15);
+            //Debug.Log(collision.GetContact(0).normal * 15);
         }
     }
 }

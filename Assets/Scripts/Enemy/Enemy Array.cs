@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyArray : MonoBehaviour
 {
-
+    [Header("use actual game object health giver dont use the one in the prefabs folder")]
     public List<GameObject> enemyList;
     [SerializeField]private List<GameObject> spawnLocations;
 

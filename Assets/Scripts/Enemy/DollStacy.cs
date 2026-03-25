@@ -27,7 +27,16 @@ public class DollStacy : Enemy
     private Vector2 target;
     private bool canAttack = true;
 
-    //Other Variables
+    //Animation Variables
+    [Header("Animation Bools")]
+    [SerializeField] private bool isWalkingAnim;
+    [SerializeField] private bool isFallingAnim;
+    [SerializeField] private bool isDeadAnim;
+    [SerializeField] private bool isNoticeAnim;
+    [SerializeField] private bool isSlashAnim;
+    [SerializeField] private bool isNoSeeAnim;
+    [SerializeField] private bool seenRecently;
+    [SerializeField] private bool pauseMovement;
 
     protected override void Awake()
     {
@@ -50,16 +59,29 @@ public class DollStacy : Enemy
 
         //Movement Variable
         moveVector = new Vector2(mSpeed, 0);
+
+        //walkin'
+        isWalkingAnim = true;
+        seenRecently = false;
+        pauseMovement = false;
     }
 
     private void Update()
     {
-        //Animate();
+        Animate();
         SpriteFlip();
+        FallCheck();
     }
 
     private void FixedUpdate()
     {
+        if (IsDead)
+        {
+            isDeadAnim = true;
+            this.gameObject.layer = 3;
+            return;
+        }
+
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         jForce = JumpForce;
@@ -101,13 +123,24 @@ public class DollStacy : Enemy
 
     private void Patrol()
     {
-        if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Stacy
+        if (seenRecently)
         {
-            StacyFlip();
+            seenRecently = false;
+            StartCoroutine(Lost());
         }
-        else //There is floor, and there's nothing blocking this Stacy
+        else
         {
-            transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+            if (NoFloor() || OnBlocked()) //If there's no floor, or there's something blocking this Stacy
+            {
+                StacyFlip();
+            }
+            else //There is floor, and there's nothing blocking this Stacy
+            {
+                if (!pauseMovement)
+                {
+                    transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+                }
+            }
         }
     }
 
@@ -118,16 +151,61 @@ public class DollStacy : Enemy
 
     private void Chase()
     {
-        target = Hopps.transform.position - transform.position;
-        if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
-        if (target.x >= mSpeed) { moveVector.x = mSpeed; }
-        transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+        if (!seenRecently)
+        {
+            seenRecently = true;
+            StartCoroutine(Noticed());
+        }
+        else
+        {
+            if (!pauseMovement)
+            {
+                target = Hopps.transform.position - transform.position;
+                if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
+                if (target.x >= mSpeed) { moveVector.x = mSpeed; }
+                transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
+            }
+        }
+    }
+
+    private IEnumerator Noticed()
+    {
+        isWalkingAnim = false;
+        pauseMovement = true;
+
+        eAnimate.SetBool("IsNotice", true);
+
+        yield return new WaitForSeconds(1f);
+
+        eAnimate.SetBool("IsNotice", false);
+
+        pauseMovement = false;
+        isWalkingAnim = true;
+    }
+
+    private IEnumerator Lost()
+    {
+        isWalkingAnim = false;
+        pauseMovement = true;
+
+
+        eAnimate.SetBool("IsNoSee", true);
+
+        yield return new WaitForSeconds(1f);
+
+        eAnimate.SetBool("IsNoSee", false);
+
+        pauseMovement = false;
+        isWalkingAnim = true;
     }
 
     private void Attack()
     {
         if (canAttack)
         {
+            isSlashAnim = true;
+            isWalkingAnim = false;
+
             canAttack = false;
             atkPower = AttackPower;
             aTrigger.isHitting = true;
@@ -138,15 +216,70 @@ public class DollStacy : Enemy
 
     private IEnumerator HitCooldown()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.75f);
+        isSlashAnim = false;
+        yield return new WaitForSeconds(1.25f);
         canAttack = true;
+        isWalkingAnim = true;
     }
 
-    //Currently not needed as the only animation we are using, is Stacy constantly walking no matter what.
-    //Will be needed when we decide to not do that.
+    private void FallCheck()
+    {
+        if (rBody.linearVelocity.y < -0.75f || rBody.linearVelocity.y > 0.75f)
+        {
+            eAnimate.SetBool("IsWalking", false);
+            eAnimate.SetBool("IsFalling", true);
+            eAnimate.SetBool("IsNotice", false);
+            eAnimate.SetBool("IsSlash", false);
+            eAnimate.SetBool("IsNoSee", false);
+        }
+        else
+        {
+            eAnimate.SetBool("IsFalling", false);
+        }
+    }
+
+    //i think this is the worst thing ive ever coded
+    //just hide it
     private void Animate()
     {
-        //Where the animation code would go if we had any.
+        //Stacy Walk (Stacy is Walking)
+        if (isWalkingAnim)
+        {
+            eAnimate.SetBool("IsWalking", true);
+        }
+        else
+        {
+            eAnimate.SetBool("IsWalking", false);
+        }
+
+        //Stacy Dead (Stacy is Dead)
+        if (isDeadAnim)
+        {
+            //Turn off everything that isn't dead
+            eAnimate.SetBool("IsWalking", false);
+            eAnimate.SetBool("IsFalling", false);
+            eAnimate.SetBool("IsDead", true); //Dead Animation
+            eAnimate.SetBool("IsNotice", false);
+            eAnimate.SetBool("IsSlash", false);
+            eAnimate.SetBool("IsNoSee", false);
+
+            cCollider.size = new Vector2(1.4f, 1.8f);
+        }
+        //no else because you can't undie.
+        //also it would be funny if you undied and then were stuck sliding in a dead pose
+
+        //Stacy Slash (Stacy is Attacking Player)
+        if (isSlashAnim)
+        {
+            eAnimate.SetBool("IsSlash", true);
+            eAnimate.SetBool("IsWalking", false);
+        }
+        else
+        {
+            eAnimate.SetBool("IsSlash", false);
+            eAnimate.SetBool("IsWalking", true);
+        }
     }
 
     //Flips the Sprite *gasp*
@@ -159,6 +292,15 @@ public class DollStacy : Enemy
         if (moveVector.x > 0)
         {
             sRend.flipX = false;
+        }
+    }
+
+    //this is just to stop those stacys that run into each other in level 2 tbh
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            StacyFlip();
         }
     }
 }
