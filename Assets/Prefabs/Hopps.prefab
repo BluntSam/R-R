@@ -559,6 +559,7 @@ Transform:
   - {fileID: 8348714111207610087}
   - {fileID: 870788412789632289}
   - {fileID: 156944985482779550}
+  - {fileID: 643949378303486963}
   - {fileID: 4652232633627847142}
   - {fileID: 1106243872342936994}
   - {fileID: 6082128663991567148}
@@ -806,6 +807,12 @@ MonoBehaviour:
   hpdamage: 1
   pauseMenu: {fileID: 4708133858914782573}
   deathScreen: {fileID: 6284267502230415543}
+  yarnColorValid: {r: 0, g: 0, b: 0, a: 0}
+  yarnColorInvalid: {r: 0, g: 0, b: 0, a: 0}
+  yarnColorGrapple: {r: 0, g: 0, b: 0, a: 0}
+  isGrappleValid: 0
+  grappleOrigin: {fileID: 0}
+  maxGrappleRange: 20
 --- !u!120 &1961980990120745265
 LineRenderer:
   serializedVersion: 2
@@ -2705,6 +2712,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+  - component: {fileID: 643949378303486963}
+  m_Layer: 0
+  m_Name: grappleOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643949378303486963
+Transform:
   - component: {fileID: 39443934566482279}
   - component: {fileID: 8785969007361198808}
   - component: {fileID: 8837988804119268343}
