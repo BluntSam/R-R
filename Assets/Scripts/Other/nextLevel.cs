@@ -11,7 +11,7 @@ public class nextLevel : MonoBehaviour
     {
         levelOne = SceneManager.GetSceneByBuildIndex(1);
         levelTwo = SceneManager.GetSceneByBuildIndex(2);
-        levelTwo = SceneManager.GetSceneByBuildIndex(3);
+        levelThree = SceneManager.GetSceneByBuildIndex(3);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,7 +21,7 @@ public class nextLevel : MonoBehaviour
             {
                 SceneManager.LoadSceneAsync("Level2");
             }
-            if (SceneManager.GetActiveScene() != levelOne && SceneManager.GetActiveScene() != levelThree ) 
+            if (SceneManager.GetActiveScene() == levelTwo ) 
             {
                 SceneManager.LoadSceneAsync("Level3");
             }
