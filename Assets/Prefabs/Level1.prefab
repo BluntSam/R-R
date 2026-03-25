@@ -136806,13 +136806,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1648252552320316633, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2765479545686826612}
   m_SourcePrefab: {fileID: 100100000, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
 --- !u!4 &5996974606246493971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1768168284727663239, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
   m_PrefabInstance: {fileID: 5453932877732504980}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6732749471311925581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648252552320316633, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
+  m_PrefabInstance: {fileID: 5453932877732504980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2765479545686826612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732749471311925581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1579f148149a55b4497c7ac3494865c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutscenePlayer
+  video: {fileID: 0}
+  startGameScript: {fileID: 0}
+  videoScreen: {fileID: 0}
 --- !u!1001 &5978655056154571623
 PrefabInstance:
   m_ObjectHideFlags: 0

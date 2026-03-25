@@ -4,8 +4,9 @@ using UnityEngine.Video;
 public class CutscenePlayer : MonoBehaviour
 {
     public VideoPlayer video;
-    
+
     public startGameScript startGameScript;
+    public GameObject player;
 
     public GameObject videoScreen;
     private void Awake()
@@ -17,6 +18,14 @@ public class CutscenePlayer : MonoBehaviour
         videoScreen.SetActive(true);
         video.Play();
         video.loopPointReached += Video_loopPointReached;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == player.name)
+        {
+            play();
+        }
     }
 
     private void Video_loopPointReached(VideoPlayer source)
