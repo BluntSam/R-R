@@ -25,11 +25,16 @@ public class nextLevel : MonoBehaviour
             {
                 SceneManager.LoadSceneAsync("Level3");
             }
-                
+            if (SceneManager.GetActiveScene() == levelThree)
+            {
+                SceneManager.LoadScene("menuScene");
+            }
         }
     }
-
     
+    
+
+
 
 
 }
