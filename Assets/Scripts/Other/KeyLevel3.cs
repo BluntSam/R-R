@@ -8,7 +8,7 @@ public class KeyLevel3 : MonoBehaviour
     [SerializeField] private GameObject openSprite;
 
     private SpriteRenderer sRend;
-    private bool Key = false;
+    
 
     private void Awake()
     {
@@ -20,12 +20,19 @@ public class KeyLevel3 : MonoBehaviour
         closedSprite.SetActive(true);
         openSprite.SetActive(false);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            closedSprite.SetActive(false);
-            openSprite.SetActive(true);
+            Collect();
         }
+    }
+
+    public void Collect()
+    {
+        closedSprite.SetActive(false);
+        openSprite.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
