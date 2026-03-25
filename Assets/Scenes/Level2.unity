@@ -937,7 +937,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7742316748587136065, guid: 396d3c0df0354aa438058325baa960cf, type: 3}
       propertyPath: m_Name
-      value: Checkpoints
+      value: Checkpoints_Lvl2
       objectReference: {fileID: 0}
     - target: {fileID: 8214571390682964327, guid: 396d3c0df0354aa438058325baa960cf, type: 3}
       propertyPath: m_LocalPosition.x
