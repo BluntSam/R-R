@@ -556,6 +556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4948677572410645841}
   - {fileID: 8348714111207610087}
   - {fileID: 870788412789632289}
   - {fileID: 156944985482779550}
@@ -802,6 +803,9 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 72
+  hookLayer:
+    serializedVersion: 2
+    m_Bits: 128
   isGrappling: 0
   playerHealth: {fileID: 5968614900303016516}
   hpdamage: 1
@@ -811,7 +815,7 @@ MonoBehaviour:
   yarnColorInvalid: {r: 1, g: 0, b: 0, a: 0}
   yarnColorGrapple: {r: 0.9547169, g: 0.9547169, b: 0.9547169, a: 0}
   isGrappleValid: 0
-  grappleOrigin: {fileID: 39443934566482279}
+  grappleOrigin: {fileID: 4948677572410645841}
   maxGrappleRange: 20
 --- !u!120 &1961980990120745265
 LineRenderer:
@@ -4703,3 +4707,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &9216045825451888250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4948677572410645841}
+  m_Layer: 0
+  m_Name: GrappleOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4948677572410645841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216045825451888250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.27, y: 2.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5012626518709789048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

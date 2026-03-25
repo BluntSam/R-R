@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Drawing;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
@@ -9,6 +8,7 @@ public class Grapple : MonoBehaviour
     LineRenderer lr;
     DistanceJoint2D dj;
     public LayerMask grappleLayer;
+    public LayerMask hookLayer;
     public bool isGrappling;
     Vector3 mouseWorldPoint;
     public Health playerHealth;
@@ -50,7 +50,7 @@ public class Grapple : MonoBehaviour
             displacementToCursor = mouseWorldPoint - grappleOrigin.position;
             grappleDir = displacementToCursor.normalized;
             hit = Physics2D.Raycast(grappleOrigin.position, grappleDir, Mathf.Min(displacementToCursor.magnitude, maxGrappleRange), grappleLayer);
-            isGrappleValid = hit && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
+            isGrappleValid = hit && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground") || hit.collider.gameObject.layer == hookLayer);
         }
             
 
