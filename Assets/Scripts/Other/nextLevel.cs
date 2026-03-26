@@ -21,6 +21,9 @@ public class nextLevel : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (SceneManager.GetActiveScene() == levelThree) {
+            videoScreen.SetActive(true);
+        }
         if (collision.gameObject.tag == "Player")
         {
             play();  
