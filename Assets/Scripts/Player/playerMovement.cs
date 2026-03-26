@@ -31,6 +31,7 @@ public class playerMovement : MonoBehaviour
     private bool glideCheck = false;
     private Scene levelOne;
     private int hpGain = 1;
+    [SerializeField] bool glideOn;
 
     [Header("Sounds")]
     [SerializeField] private AudioSource soundEffects;
@@ -49,7 +50,12 @@ public class playerMovement : MonoBehaviour
         hp = GetComponent<Health>();
         soundEffects = GetComponent<AudioSource>();
         levelOne = SceneManager.GetSceneByBuildIndex(1);
-    }
+
+        glideOn = (SceneManager.GetActiveScene() != levelOne) ? true : false;
+
+        }
+
+    //variable = (condition) ? expressionTrue :  expressionFalse;
 
     //Update Function: Called once per frame
     private void FixedUpdate()
@@ -57,7 +63,7 @@ public class playerMovement : MonoBehaviour
         //Movement
         HandleMovement();
         HandleJump();
-        HandleGlide();
+        if (glideOn) { HandleGlide(); }
         passiveHealth();
     }
 
@@ -113,20 +119,18 @@ public class playerMovement : MonoBehaviour
    
     private void HandleGlide()
     {
-        if (SceneManager.GetActiveScene() != levelOne) {
-            if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead && hp.health > 1) {
-                rBody.gravityScale = -0.5f;
-                Debug.Log("gliding");
-                pAnimator.SetBool("isGliding", true);
-                if (!glideCheck) {
-                    StartCoroutine(GlideHurt());
-                }
-            } else {
-                rBody.gravityScale = 2;
-                pAnimator.SetBool("isGliding", false);
-                StopCoroutine(GlideHurt());
-                StopCoroutine(GlideHurt());
+        if (pInput.GlideTriggered && isGrounded == false && rBody.linearVelocity.y <= -1f && !deathScreen.isDead && hp.health > 1) {
+            rBody.gravityScale = -0.5f;
+            Debug.Log("gliding");
+            pAnimator.SetBool("isGliding", true);
+            if (!glideCheck) {
+                StartCoroutine(GlideHurt());
             }
+        } else {
+            rBody.gravityScale = 2;
+            pAnimator.SetBool("isGliding", false);
+            StopCoroutine(GlideHurt());
+            StopCoroutine(GlideHurt());
         }
     }    
 
