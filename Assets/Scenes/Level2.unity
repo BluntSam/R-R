@@ -187,11 +187,35 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6792549733040454459, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
+      propertyPath: startGameScript
+      value: 
+      objectReference: {fileID: 594095059}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1648252552320316633, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 594095059}
   m_SourcePrefab: {fileID: 100100000, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
+--- !u!1 &594095058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648252552320316633, guid: 2d8b3a94d1bef574d909d77790d7715b, type: 3}
+  m_PrefabInstance: {fileID: 594095057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &594095059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594095058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917b53733c9787d4da0e7aa807898212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::startGameScript
 --- !u!114 &667071117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8189668134036497030, guid: cdf6705909c61e145820a76f5a7cce1c, type: 3}

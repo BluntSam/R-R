@@ -31,15 +31,24 @@ public class nextLevel : MonoBehaviour
         video.Play();
         video.loopPointReached += Video_loopPointReached;
     }
-    private void Video_loopPointReached(VideoPlayer source) {
+    private void Video_loopPointReached(VideoPlayer source)
+    {
         video.Stop();
-        if (SceneManager.GetActiveScene() == levelOne) {
-            SceneManager.LoadSceneAsync("Level2");
-        } else if(SceneManager.GetActiveScene() == levelTwo) {
-            SceneManager.LoadSceneAsync("Level3");
+        if (SceneManager.GetActiveScene() == levelOne)
+        {
+            SceneManager.LoadSceneAsync(2);
+        }
+        else if(SceneManager.GetActiveScene() == levelTwo)
+        {
+            SceneManager.LoadSceneAsync(3);
+        }
+        else if (SceneManager.GetActiveScene() == levelThree)
+        {
+            SceneManager.LoadSceneAsync(0);
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
             startGameScript.PlayGame();
         }
     }
