@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 4941c048cad65234a9515af33a1a2e5b
+guid: 5a0f12e14ad6a2c4288fabb18ecd1e8d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4303859106943522049
-    second: Stacie_NoSee_0
+      213: 3367820721127624934
+    second: Stacie_NoSeeV2_0
   - first:
-      213: -5281530406837716566
-    second: Stacie_NoSee_1
+      213: 8589531921392510685
+    second: Stacie_NoSeeV2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,24 +99,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stacie_NoSee_0
+      name: Stacie_NoSeeV2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 105d2b01e016abb30800000000000000
-      internalID: 4303859106943522049
+      spriteID: 6e013063a17ecbe20800000000000000
+      internalID: 3367820721127624934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stacie_NoSee_1
+      name: Stacie_NoSeeV2_1
       rect:
         serializedVersion: 2
         x: 46
@@ -153,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa97306e31c34b6b0800000000000000
-      internalID: -5281530406837716566
+      spriteID: dd6aa71f5c5243770800000000000000
+      internalID: 8589531921392510685
       vertices: []
       indices: 
       edges: []
@@ -163,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 10d368eb872ee404fa52d2b33467986e
+    spriteID: 2b1796937b0b72244b7e9fe8c86815d6
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stacie_NoSee_0: 4303859106943522049
-      Stacie_NoSee_1: -5281530406837716566
+      Stacie_NoSeeV2_0: 3367820721127624934
+      Stacie_NoSeeV2_1: 8589531921392510685
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
