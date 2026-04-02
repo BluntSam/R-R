@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject optionsMenu;
     [SerializeField] AudioSource bgMusicSource;
     [SerializeField] AudioSource pauseMenuSong;
+    [SerializeField] GameObject cursorObject;
     public bool paused;
     public float cooldown;
 
@@ -17,6 +18,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Pause() {
+        cursorObject.SetActive(false);
         pauseMenu.SetActive(true);
         bgMusicSource.mute = true;
         pauseMenuSong.mute = false;
@@ -25,6 +27,8 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Resume() {
+        cursorObject.SetActive(true);
+        Debug.Log("UHAHBDVOIUHWROFIBSEFI");
         pauseMenu.SetActive(false);
         bgMusicSource.mute = false;
         pauseMenuSong.mute = true;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputManager : MonoBehaviour
@@ -12,6 +13,11 @@ public class PlayerInputManager : MonoBehaviour
     private bool glidePressed = false;
     private bool isClicking = false;
     [SerializeField] PauseMenu pauseMenuCode;
+
+    [Header("fill this with slop in the levels, only matters for main menu")]
+    public GameObject StartButton;
+    public GameObject SettingsButton;
+    public GameObject QuitButton;
 
     //Properties
     public Vector2 MoveInput
@@ -75,6 +81,9 @@ public class PlayerInputManager : MonoBehaviour
     public void OnStickClick(CallbackContext context) {
         if (context.performed) {
             Debug.Log("clicked");
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) {
+                //Cursor.
+            }
             IsClicking = true;
         } else if (context.canceled) {
             IsClicking = false;

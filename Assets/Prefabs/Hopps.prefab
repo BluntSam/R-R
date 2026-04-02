@@ -1166,6 +1166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputManager
   moveInput: {x: 0, y: 0}
   pauseMenuCode: {fileID: 4708133858914782573}
+  StartButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  QuitButton: {fileID: 0}
 --- !u!114 &4708133858914782573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,6 +1185,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 7238847679314172160}
   bgMusicSource: {fileID: 0}
   pauseMenuSong: {fileID: 8202101543455707141}
+  cursorObject: {fileID: 5366530417018342973}
   paused: 0
   cooldown: 0
 --- !u!114 &6284267502230415543
