@@ -530,6 +530,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5822431604401692851, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5968614900303016516, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: healthBar
       value: 
@@ -538,6 +542,10 @@ PrefabInstance:
       propertyPath: enemyArray
       value: 
       objectReference: {fileID: 942316655}
+    - target: {fileID: 8826842027230951821, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -792,18 +800,6 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1983496409}
-    - target: {fileID: 4216187189832436628, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
-      propertyPath: m_text
-      value: E or Right Click to attack hostile toys!
-      objectReference: {fileID: 0}
-    - target: {fileID: 4216187189832436628, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
-      propertyPath: m_margin.x
-      value: 85.87659
-      objectReference: {fileID: 0}
-    - target: {fileID: 4216187189832436628, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
-      propertyPath: m_margin.z
-      value: 95.32371
-      objectReference: {fileID: 0}
     - target: {fileID: 4741868829319144723, guid: f061fd5b8d289cb48813b92b900ec3f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.38
