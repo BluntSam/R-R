@@ -6,6 +6,7 @@ public class KeyLevel3 : MonoBehaviour
     [SerializeField] private GameObject closedChestSprite;
     [SerializeField] private GameObject openChestSprite;
     [SerializeField] private GameObject LockedChestText; // Jam added this
+    [SerializeField] private GameObject OneWayGate; // Jam added this
 
     private void Awake()
     {
@@ -15,6 +16,9 @@ public class KeyLevel3 : MonoBehaviour
 
         //Jams text saying "we need key" is there
         LockedChestText.SetActive(true);
+
+        //Jams one way gate to mini slide enemy section (prevents players from going wrong way)
+        OneWayGate.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -33,6 +37,9 @@ public class KeyLevel3 : MonoBehaviour
 
         //Jams text that says the "chest is locked" is now gone
         LockedChestText.SetActive(false);
+
+        //Jams OneWayGate is now ACTIVE
+        OneWayGate.SetActive(true);
 
         //Remove key
         gameObject.SetActive(false);

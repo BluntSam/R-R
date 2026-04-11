@@ -569,6 +569,7 @@ MonoBehaviour:
   closedChestSprite: {fileID: 20685930}
   openChestSprite: {fileID: 2098775722}
   LockedChestText: {fileID: 297760655}
+  OneWayGate: {fileID: 1677533863}
 --- !u!61 &704586668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -874,6 +875,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+--- !u!1 &1677533863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9137191644317777564, guid: 45ddce41f502b9c46a5c85eb859f97d3, type: 3}
+  m_PrefabInstance: {fileID: 1919382895861315943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1803012016
 PrefabInstance:
   m_ObjectHideFlags: 0
