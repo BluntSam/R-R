@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 5968614900303016516, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1435357721}
+      objectReference: {fileID: 1604876629}
     - target: {fileID: 6284267502230415543, guid: 0e8b0559469c05444b7cb0dff3ca9f24, type: 3}
       propertyPath: enemyArray
       value: 
@@ -809,11 +809,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1435357721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5148802140396737876, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
-  m_PrefabInstance: {fileID: 1604876628}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1604876628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -875,6 +870,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+--- !u!1 &1604876629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3734991157724949531, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+  m_PrefabInstance: {fileID: 1604876628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1677533863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9137191644317777564, guid: 45ddce41f502b9c46a5c85eb859f97d3, type: 3}
