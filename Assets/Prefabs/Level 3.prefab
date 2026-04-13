@@ -177949,7 +177949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[this is locked, i need a key]'
+  m_text: My way home is locked! I need to find a key.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
   m_sharedMaterial: {fileID: 3018418337837390977, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
@@ -178014,7 +178014,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 95.13549, y: -1.0976353, z: 91.59709, w: 48.28148}
+  m_margin: {x: 92.99529, y: -1.0976353, z: 93.79443, w: 48.28148}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -179011,7 +179011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[slide text]'
+  m_text: This slide is extra slippery!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
   m_sharedMaterial: {fileID: 3018418337837390977, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
@@ -179076,7 +179076,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 98.81471, y: -2.2258797, z: 91.27602, w: 50.418365}
+  m_margin: {x: 98.81471, y: -3.499897, z: 88.67238, w: 50.418365}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
