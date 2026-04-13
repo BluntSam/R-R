@@ -840,14 +840,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1080439126649046417, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -5907327268507171989, guid: 4c596a69b01c3e340ba41c0dc705cdb4, type: 3}
-    - target: {fileID: 3385494256048593830, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3141533005089377888, guid: 4915ad0564678b941ac24d18298e97a0, type: 3}
     - target: {fileID: 4296273858343899902, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_Name
       value: MainCamera
@@ -892,10 +884,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6928971656109551682, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -5907327268507171989, guid: 4c596a69b01c3e340ba41c0dc705cdb4, type: 3}
     - target: {fileID: 7865443160858853214, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: Hopps
       value: 
