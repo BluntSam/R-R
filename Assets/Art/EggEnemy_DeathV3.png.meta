@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 516c683cb1376dc4486f3989f1c18d02
+guid: 0402e1c1cc4ff0d44a5c28417c92b713
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1140977205714093003
-    second: ToyFrog_Walk_0
-  - first:
-      213: -2401282870304586290
-    second: ToyFrog_Walk_1
-  - first:
-      213: 5346582555790612349
-    second: ToyFrog_Walk_2
+      213: -6943137487494048023
+    second: EggEnemy_DeathV3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,74 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ToyFrog_Walk_0
+      name: EggEnemy_DeathV3_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 26
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bc3086339b095df00800000000000000
-      internalID: 1140977205714093003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ToyFrog_Walk_1
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 0
-        width: 27
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec5c346b3fdecaed0800000000000000
-      internalID: -2401282870304586290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ToyFrog_Walk_2
-      rect:
-        serializedVersion: 2
-        x: 60
+        x: 0
         y: 0
         width: 25
-        height: 23
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d771330d180e23a40800000000000000
-      internalID: 5346582555790612349
+      spriteID: 9e6183fcd3505af90800000000000000
+      internalID: -6943137487494048023
       vertices: []
       indices: 
       edges: []
@@ -198,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ToyFrog_Walk_0: 1140977205714093003
-      ToyFrog_Walk_1: -2401282870304586290
-      ToyFrog_Walk_2: 5346582555790612349
+      EggEnemy_DeathV3_0: -6943137487494048023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

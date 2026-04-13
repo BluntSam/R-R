@@ -1,0 +1,511 @@
+fileFormatVersion: 2
+guid: aecce8881ea1bd140aad59f81f88aa4c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9096542652179105190
+    second: logo_rr_big_splash_0
+  - first:
+      213: -1525611597868993594
+    second: logo_rr_big_splash_1
+  - first:
+      213: 6972657668848134380
+    second: logo_rr_big_splash_2
+  - first:
+      213: 2397421666632469350
+    second: logo_rr_big_splash_3
+  - first:
+      213: 4409879318542219794
+    second: logo_rr_big_splash_4
+  - first:
+      213: -8804094964573450249
+    second: logo_rr_big_splash_5
+  - first:
+      213: -340830264203330501
+    second: logo_rr_big_splash_6
+  - first:
+      213: 3713299195890429640
+    second: logo_rr_big_splash_7
+  - first:
+      213: -1457766639310394336
+    second: logo_rr_big_splash_8
+  - first:
+      213: -1664586236466275700
+    second: logo_rr_big_splash_9
+  - first:
+      213: -930619315446691455
+    second: logo_rr_big_splash_10
+  - first:
+      213: -2594895024610656930
+    second: logo_rr_big_splash_11
+  - first:
+      213: 4277884791875142531
+    second: logo_rr_big_splash_12
+  - first:
+      213: -1007410860512218368
+    second: logo_rr_big_splash_13
+  - first:
+      213: -6694088265622347415
+    second: logo_rr_big_splash_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo_rr_big_splash_0
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 106
+        width: 530
+        height: 414
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5abca447a692c180800000000000000
+      internalID: -9096542652179105190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_1
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 199
+        width: 262
+        height: 322
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c37dc3b550f3dae0800000000000000
+      internalID: -1525611597868993594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_2
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 179
+        width: 532
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8a814053bd3c060800000000000000
+      internalID: 6972657668848134380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_3
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b0470cd4a554120800000000000000
+      internalID: 2397421666632469350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_4
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21afc0c20e9033d30800000000000000
+      internalID: 4409879318542219794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_5
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff4bcb964291d580800000000000000
+      internalID: -8804094964573450249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_6
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c35753ea0254bf0800000000000000
+      internalID: -340830264203330501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_7
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ceeacbd1f9488330800000000000000
+      internalID: 3713299195890429640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_8
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 129
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c2d7217f8f4cbe0800000000000000
+      internalID: -1457766639310394336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_9
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a5c6523a336e8e0800000000000000
+      internalID: -1664586236466275700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_10
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 189cea9c9a6c513f0800000000000000
+      internalID: -930619315446691455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_11
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5d37a439b41dfbd0800000000000000
+      internalID: -2594895024610656930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_12
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38383c19d891e5b30800000000000000
+      internalID: 4277884791875142531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 129
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0037c4ce825f402f0800000000000000
+      internalID: -1007410860512218368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_rr_big_splash_14
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 109
+        width: 532
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96128707032d913a0800000000000000
+      internalID: -6694088265622347415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bc7eada11f84476419e5e1d808e24fc3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      logo_rr_big_splash_0: -9096542652179105190
+      logo_rr_big_splash_1: -1525611597868993594
+      logo_rr_big_splash_10: -930619315446691455
+      logo_rr_big_splash_11: -2594895024610656930
+      logo_rr_big_splash_12: 4277884791875142531
+      logo_rr_big_splash_13: -1007410860512218368
+      logo_rr_big_splash_14: -6694088265622347415
+      logo_rr_big_splash_2: 6972657668848134380
+      logo_rr_big_splash_3: 2397421666632469350
+      logo_rr_big_splash_4: 4409879318542219794
+      logo_rr_big_splash_5: -8804094964573450249
+      logo_rr_big_splash_6: -340830264203330501
+      logo_rr_big_splash_7: 3713299195890429640
+      logo_rr_big_splash_8: -1457766639310394336
+      logo_rr_big_splash_9: -1664586236466275700
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

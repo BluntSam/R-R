@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ec071ca2f5884648b733dcdce4a71c6
+guid: acef49763ee862e458e96371745a9999
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8855063840389701511
-    second: ToyFrog_Dead_0
+      213: 4030346388211881879
+    second: ToyFrog_DeadV2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ToyFrog_Dead_0
+      name: ToyFrog_DeadV2_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 2
         y: 0
-        width: 28
-        height: 19
+        width: 27
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9706a227a5e7c1580800000000000000
-      internalID: -8855063840389701511
+      spriteID: 797d527bfaaaee730800000000000000
+      internalID: 4030346388211881879
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ToyFrog_Dead_0: -8855063840389701511
+      ToyFrog_DeadV2_0: 4030346388211881879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
