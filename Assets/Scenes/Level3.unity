@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 704586667}
   - component: {fileID: 704586668}
   - component: {fileID: 704586669}
+  - component: {fileID: 704586670}
   m_Layer: 0
   m_Name: crappy_key_0
   m_TagString: Untagged
@@ -528,7 +529,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8891852512652414091, guid: cc201e434bf7ec340a190d3266a4adb2, type: 3}
+  m_Sprite: {fileID: -4356546939702462640, guid: 503fe2a6e88b1364b83853011d623eff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -608,7 +609,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.8, y: 1.5}
+    oldSize: {x: 3, y: 2}
     newSize: {x: 0.28, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -631,6 +632,28 @@ MonoBehaviour:
   BobAmount: 0.5
   originalPos: {x: 0, y: 0}
   ArbChange: 2
+--- !u!95 &704586670
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704586664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a9ff2227088f1440a2dfb52a4a34c53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &755309894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -817,6 +840,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1080439126649046417, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5907327268507171989, guid: 4c596a69b01c3e340ba41c0dc705cdb4, type: 3}
+    - target: {fileID: 3385494256048593830, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3141533005089377888, guid: 4915ad0564678b941ac24d18298e97a0, type: 3}
     - target: {fileID: 4296273858343899902, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_Name
       value: MainCamera
@@ -861,6 +892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6928971656109551682, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5907327268507171989, guid: 4c596a69b01c3e340ba41c0dc705cdb4, type: 3}
     - target: {fileID: 7865443160858853214, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: Hopps
       value: 
