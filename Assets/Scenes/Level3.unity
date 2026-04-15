@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 20685931}
   - component: {fileID: 20685933}
   - component: {fileID: 20685934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ClosedChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
