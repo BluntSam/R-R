@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jamilyn - Artist
+  m_text: 'Jamilyn - Artist/Designer
 
 '
   m_isRightToLeft: 0
@@ -1704,7 +1704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jack - Artist
+  m_text: 'Jack - Artist/Designer
 
 '
   m_isRightToLeft: 0
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Talon - Producer
+  m_text: 'Talon - Co-Producer/Programmer
 
 '
   m_isRightToLeft: 0
@@ -2362,7 +2362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Samuel - Producer
+  m_text: Samuel - Co-Producer/Programmer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
   m_sharedMaterial: {fileID: 3018418337837390977, guid: f9bdee24e3c2fdd4285a3d4f7b25bf12, type: 2}
