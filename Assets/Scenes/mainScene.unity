@@ -857,6 +857,10 @@ PrefabInstance:
       value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 6848558286439091409, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
+      propertyPath: 'enemyList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1613764409420034158, guid: f4f53114fc44b6146a24796e8c97af1b, type: 3}
+    - target: {fileID: 6848558286439091409, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
       propertyPath: 'enemyList.Array.data[10]'
       value: 
       objectReference: {fileID: 2231206837070099730, guid: ca7834ac32ddddf49926e93db2a9949e, type: 3}
