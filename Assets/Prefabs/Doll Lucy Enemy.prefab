@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1613764409420034158}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37, y: 3.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -204,7 +204,7 @@ MonoBehaviour:
   scoreValue: 0
   moveVector: {x: 0, y: 0}
   Hopps: {fileID: 0}
-  aTrigger: {fileID: 0}
+  aTrigger: {fileID: 2992840123517352940}
   distanceBetween: 0
   isWalkingAnim: 0
   isFallingAnim: 0
