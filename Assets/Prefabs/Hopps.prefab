@@ -812,9 +812,10 @@ MonoBehaviour:
   hpdamage: 1
   pauseMenu: {fileID: 4708133858914782573}
   deathScreen: {fileID: 6284267502230415543}
-  yarnColorValid: {r: 0, g: 1, b: 0.16027856, a: 0.34117648}
-  yarnColorInvalid: {r: 1, g: 0, b: 0, a: 0}
-  yarnColorGrapple: {r: 0.9547169, g: 0.9547169, b: 0.9547169, a: 0}
+  yarnColorValid: {r: 0, g: 1, b: 0.16027856, a: 0.5686275}
+  yarnColorInvalid: {r: 0, g: 0, b: 0, a: 0}
+  yarnColorUnable: {r: 1, g: 0, b: 0, a: 0.5686275}
+  yarnColorGrapple: {r: 0.8117648, g: 0.654902, b: 0.31764707, a: 1}
   isGrappleValid: 0
   grappleOrigin: {fileID: 4948677572410645841}
   maxGrappleRange: 20

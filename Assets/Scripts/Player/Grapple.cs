@@ -18,6 +18,7 @@ public class Grapple : MonoBehaviour
     PlayerInputManager playerInputManager;
     public Color yarnColorValid;
     public Color yarnColorInvalid;
+    public Color yarnColorUnable;
     public Color yarnColorGrapple;
     public bool isGrappleValid;
     public Transform grappleOrigin;
@@ -57,14 +58,24 @@ public class Grapple : MonoBehaviour
 
             if (isGrappleValid)
             {
-                lr.startColor = yarnColorValid;
-                lr.endColor = yarnColorValid;
+                if (playerHealth.health <= 1) // jam did this
+                {
+                    lr.startColor = yarnColorUnable; //usually grabable terrain, but you got no HP
+                    lr.endColor = yarnColorUnable;
+                }
+                else if(!isGrappling)
+                {
+                    lr.startColor = yarnColorValid; // grabbable terrain
+                    lr.endColor = yarnColorValid;
+                }
+
                 lr.SetPosition(1, hit.point);
             }
             else
             {
-                lr.startColor = yarnColorInvalid;
+                lr.startColor = yarnColorInvalid; // not grabbable terrain
                 lr.endColor = yarnColorInvalid;
+
                 lr.SetPosition(1, grappleOrigin.position + grappleDir * Mathf.Min(displacementToCursor.magnitude, maxGrappleRange));
             }
 
@@ -72,6 +83,8 @@ public class Grapple : MonoBehaviour
         {
                 StartCoroutine(grappleDamage(hpdamage));
 
+                lr.startColor = yarnColorGrapple; lr.endColor = yarnColorGrapple; // jam did this (you are currently grappling on grappable terrain)
+            
                 isGrappling = true;
                 lr.enabled = true;
                 dj.enabled = true;
