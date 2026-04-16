@@ -105,7 +105,6 @@ public class DollStacy : Enemy
         if (IsKnockedBack) { return; }
 
         sRange = SightRange;
-        mSpeed = MoveSpeed;
 
         if (distanceBetween >= sRange) //Hopps is out of sight
         {
@@ -138,6 +137,8 @@ public class DollStacy : Enemy
             {
                 if (!pauseMovement)
                 {
+                    mSpeed = 1.5f;
+                    moveVector = new Vector2(mSpeed, 0);
                     transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
                 }
             }
@@ -160,6 +161,8 @@ public class DollStacy : Enemy
         {
             if (!pauseMovement)
             {
+                mSpeed = 3.0f;
+                moveVector = new Vector2(mSpeed, 0);
                 target = Hopps.transform.position - transform.position;
                 if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
                 if (target.x >= mSpeed) { moveVector.x = mSpeed; }
