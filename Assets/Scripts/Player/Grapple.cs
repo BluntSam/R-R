@@ -18,8 +18,9 @@ public class Grapple : MonoBehaviour
     PlayerInputManager playerInputManager;
     public Color yarnColorValid;
     public Color yarnColorInvalid;
-    public Color yarnColorUnable;
+    public Color yarnColorUnable; // jam add+ modify
     public Color yarnColorGrapple;
+    [SerializeField] public Sprite yarnGrapple; // jam add
     public bool isGrappleValid;
     public Transform grappleOrigin;
     public float maxGrappleRange = 20;

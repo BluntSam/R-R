@@ -815,7 +815,8 @@ MonoBehaviour:
   yarnColorValid: {r: 0, g: 1, b: 0.16027856, a: 0.5686275}
   yarnColorInvalid: {r: 0, g: 0, b: 0, a: 0}
   yarnColorUnable: {r: 1, g: 0, b: 0, a: 0.5686275}
-  yarnColorGrapple: {r: 0.8117648, g: 0.654902, b: 0.31764707, a: 1}
+  yarnColorGrapple: {r: 1, g: 1, b: 1, a: 1}
+  yarnGrapple: {fileID: 0}
   isGrappleValid: 0
   grappleOrigin: {fileID: 4948677572410645841}
   maxGrappleRange: 20
@@ -846,7 +847,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe96b220be6b5c5419f2c4cbd23c00eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -922,7 +923,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
-    textureMode: 0
+    textureMode: 1
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
