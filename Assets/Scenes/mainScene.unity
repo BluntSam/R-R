@@ -283,11 +283,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 661301698023504720, guid: 6d00a7ad28af9b142b34c0bea29f83d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.989964
+      value: 267
       objectReference: {fileID: 0}
     - target: {fileID: 661301698023504720, guid: 6d00a7ad28af9b142b34c0bea29f83d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.167004
+      value: -38.58
       objectReference: {fileID: 0}
     - target: {fileID: 661301698023504720, guid: 6d00a7ad28af9b142b34c0bea29f83d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -707,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.81703305
+      value: 0.8161824
       objectReference: {fileID: 0}
     - target: {fileID: 4990602721257708078, guid: befca1f0c51c0044dae6e23af3c7b2f8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -777,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 1983496415}
     - target: {fileID: 8342726051544862839, guid: 66e1ed2bc264ce147a6be85181d0ba39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.81703305
+      value: 0.8161824
       objectReference: {fileID: 0}
     - target: {fileID: 8342726051544862839, guid: 66e1ed2bc264ce147a6be85181d0ba39, type: 3}
       propertyPath: m_LocalPosition.y
@@ -832,6 +832,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3389479206138488353, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 285.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389479206138488353, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4853385671690044382, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
       propertyPath: playerHealth
       value: 
@@ -849,9 +857,21 @@ PrefabInstance:
       value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 6848558286439091409, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
+      propertyPath: 'enemyList.Array.data[10]'
+      value: 
+      objectReference: {fileID: 2231206837070099730, guid: ca7834ac32ddddf49926e93db2a9949e, type: 3}
+    - target: {fileID: 6848558286439091409, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
       propertyPath: 'spawnLocations.Array.data[7]'
       value: 
       objectReference: {fileID: 720478495}
+    - target: {fileID: 7066194255992392736, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066194255992392736, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -36.27
+      objectReference: {fileID: 0}
     - target: {fileID: 9200442584563841839, guid: f78b142493a5cba438fd90cd338dca5e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.38

@@ -139,15 +139,6 @@ public class DollLucy : Enemy
             {
                 if (!pauseMovement)
                 {
-                    mSpeed = 0.5f;
-                    if (moveVector.x < 0)
-                    {
-                        moveVector = new Vector2(-mSpeed, 0);
-                    }
-                    else
-                    {
-                        moveVector = new Vector2(mSpeed, 0);
-                    }
                     transform.Translate(new Vector3((moveVector.x * mSpeed) * Time.deltaTime, 0, 0));
                 }
             }
@@ -214,15 +205,6 @@ public class DollLucy : Enemy
             atkPower = AttackPower;
             aTrigger.isHitting = true;
 
-            mSpeed = 1.0f;
-            if (moveVector.x < 0)
-            {
-                moveVector = new Vector2(-mSpeed, 0);
-            }
-            else
-            {
-                moveVector = new Vector2(mSpeed, 0);
-            }
             target = Hopps.transform.position - transform.position;
             if (target.x <= -mSpeed) { moveVector.x = -mSpeed; }
             if (target.x >= mSpeed) { moveVector.x = mSpeed; }
