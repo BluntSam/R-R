@@ -46,6 +46,10 @@ public class attackTrigger : MonoBehaviour
                 {
                     enemy.TakeDamage(damage, 2);
                 }
+                else if (enemy.GetComponent<DollLucy>() != null)
+                {
+                    enemy.TakeDamage(damage, 2);
+                }
                 else
                 {
                     enemy.TakeDamage(damage, 1);

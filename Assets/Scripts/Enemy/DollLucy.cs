@@ -264,6 +264,7 @@ public class DollLucy : Enemy
             eAnimate.SetBool("IsNoSee", false);
 
             cCollider.size = new Vector2(1.4f, 1.8f);
+            cCollider.offset = new Vector2(-0.25f, -0.25f);
         }
         //no else because you can't undie.
         //also it would be funny if you undied and then were stuck sliding in a dead pose
