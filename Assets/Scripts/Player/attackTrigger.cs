@@ -44,7 +44,8 @@ public class attackTrigger : MonoBehaviour
                 
                 if (enemy.GetComponent<DollStacy>() != null || 
                     enemy.GetComponent<DollLucy>() != null ||
-                    enemy.GetComponent<EggEd>() != null)
+                    enemy.GetComponent<EggEd>() != null ||
+                    enemy.GetComponent<FrogGuy>() != null)
                 {
                     enemy.TakeDamage(damage, 2);
                 }
