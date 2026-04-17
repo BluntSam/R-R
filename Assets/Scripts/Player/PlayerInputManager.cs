@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
@@ -13,11 +15,14 @@ public class PlayerInputManager : MonoBehaviour
     private bool glidePressed = false;
     private bool isClicking = false;
     [SerializeField] PauseMenu pauseMenuCode;
+    float NavInput;
 
-    [Header("fill this with slop in the levels, only matters for main menu")]
     public GameObject StartButton;
     public GameObject SettingsButton;
     public GameObject QuitButton;
+    List<GameObject> buttonArray = new List<GameObject>();
+    EventSystem eventSystem;
+    int currentArrayPosition = 0;
 
     //Properties
     public Vector2 MoveInput
@@ -59,6 +64,34 @@ public class PlayerInputManager : MonoBehaviour
         {
             jumpPressed = false;
         }
+    }
+
+    public void OnNavigate(CallbackContext context) {
+        if(context.performed) {
+            NavInput = context.ReadValue<Vector2>().y;
+        } else if(context.canceled) {
+            NavInput = 0;
+        }
+        if(NavInput > 0) {
+            currentArrayPosition = Mathf.Clamp(currentArrayPosition + 1, 0, 2);
+            eventSystem.SetSelectedGameObject(buttonArray[currentArrayPosition]);
+        } else if(NavInput < 0) {
+            currentArrayPosition = Mathf.Clamp(currentArrayPosition - 1, 0, 2);
+            eventSystem.SetSelectedGameObject(buttonArray[currentArrayPosition]);
+        }
+        Debug.Log(currentArrayPosition);
+    }
+
+    private void Update() {
+        currentArrayPosition = Mathf.Clamp(currentArrayPosition, 0, 2);
+    }
+
+    private void Awake() {
+        eventSystem = GetComponent<EventSystem>();
+        buttonArray[0] = StartButton;
+        buttonArray[1] = SettingsButton;
+        buttonArray[2] = QuitButton;
+        eventSystem.firstSelectedGameObject = buttonArray[0];
     }
 
     public void OnGlide(InputAction.CallbackContext context)
