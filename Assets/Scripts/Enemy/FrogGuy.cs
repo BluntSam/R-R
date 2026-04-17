@@ -7,6 +7,7 @@ public class FrogGuy : Enemy
     //[Header("Components")]
     private Animator fAnimate;
     private CapsuleCollider2D cCollider;
+    private BoxCollider2D bCollider;
     public attackTriggerEnemy aTrigger;
 
     //Hopps Components
@@ -40,6 +41,7 @@ public class FrogGuy : Enemy
         //Components
         fAnimate = GetComponent<Animator>();
         cCollider = GetComponent<CapsuleCollider2D>();
+        bCollider = GetComponent<BoxCollider2D>();
         aTrigger = GetComponentInChildren<attackTriggerEnemy>();
 
         playerHealth = Hopps.GetComponent<Health>();
@@ -59,16 +61,29 @@ public class FrogGuy : Enemy
 
     private void Update()
     {
-        //Animate();
         SpriteFlip();
     }
 
     private void FixedUpdate()
     {
+        if (IsDead)
+        {
+            fAnimate.SetBool("isDead", true);
+            this.gameObject.layer = 3;
+
+            cCollider.size = new Vector2(0.5f, 0.2f);
+            cCollider.offset = new Vector2(0, 0f);
+
+            bCollider.size = new Vector2(0.6f, 0.4f);
+            bCollider.offset = new Vector2(0, -0.07f);
+
+            return;
+        }
+
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
 
-        if (!IsKnockedBack)
+        if (!IsKnockedBack && !IsDead)
         {
             CheckForHopps();
             BehaviorChoice();
@@ -191,6 +206,7 @@ public class FrogGuy : Enemy
     {
         //Where the animation code would go if we had any.
     }
+    //i aint doing that shit past me. im shoving it in fixed update
 
     //Flips the Sprite *gasp*
     private void SpriteFlip()
@@ -208,7 +224,7 @@ public class FrogGuy : Enemy
     //Makes the frog bouncy
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.otherCollider is CapsuleCollider2D) //only the capsule one
+        if (collision.otherCollider is CapsuleCollider2D && !IsDead) //only the capsule one
         {
             if (collision.gameObject.tag == PLAYER_TAG) //Making sure the colliding object is the player
             {
