@@ -73,18 +73,30 @@ public class EggEd : Enemy
     private void Update()
     {
         EggCheck();
-
-        //Animate();
         SpriteFlip();
     }
 
     private void FixedUpdate()
     {
+        if (IsDead)
+        {
+            eAnimate.SetBool("isDead", true);
+            this.gameObject.layer = 3;
+
+            cCollider.size = new Vector2(1.9f, 1.9f);
+            cCollider.offset = new Vector2(0, 0.15f);
+
+            bCollider.size = new Vector2(1, 1);
+            bCollider.offset = new Vector2(0, 0);
+
+            return;
+        }
+
         mHealth = MaxHealth;
         cHealth = CurrentHealth;
         jForce = JumpForce;
 
-        if (!IsKnockedBack)
+        if (!IsKnockedBack && !IsDead)
         {
             CheckForHopps();
             BehaviorChoice();
@@ -176,7 +188,7 @@ public class EggEd : Enemy
 
     private void Attack()
     {
-        if (canAttack)
+        if (canAttack && !IsDead)
         {
             canAttack = false;
             atkPower = AttackPower;
@@ -216,6 +228,8 @@ public class EggEd : Enemy
 
     private void OnCollisionEnter2D(Collision2D collision) //This is only in regards to the box collider for a head jump hit
     {
+        if (IsDead) { return; }
+
         if (collision.gameObject.tag == PLAYER_TAG) //checking if it is the player colliding with the enemy
         {
             if (collision.otherCollider is BoxCollider2D) //checking that it is the box collider and not the normal one
@@ -223,7 +237,7 @@ public class EggEd : Enemy
                 if (cHealth <= hpNoTopLevel) //checking to see if the top is off
                 {
                     //Debug.Log($"{gameObject.name} HIT HEAD");
-                    TakeDamage(20, 1);
+                    TakeDamage(20, 2);
                     Rigidbody2D hRBODY = Hopps.GetComponent<Rigidbody2D>();
                     hRBODY.linearVelocity = new Vector2(hRBODY.linearVelocity.x, 0);
                     hRBODY.AddForce(Vector2.up * Hopps.GetComponent<playerMovement>().jumpForce, ForceMode2D.Impulse);
@@ -234,6 +248,8 @@ public class EggEd : Enemy
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (IsDead) { return; }
+
         if (collision.otherCollider is CapsuleCollider2D) //Making sure it's not the box collider
         {
             if (collision.gameObject.tag == PLAYER_TAG && harmfulToTouch) //Making sure the colliding object is the player, and that the cooldown coroutine is not still active
