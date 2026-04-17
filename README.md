@@ -24,4 +24,5 @@ Basic Enemy AI Tutorial from MoreBBlakeyyy - [Link!](https://www.youtube.com/wat
 cat_land_floor by superEGsonic - [Link!](https://freesound.org/s/803297/) - License: Creative Commons 0  
 Plushie Being Smacked by Zamazan - [Link!](https://freesound.org/s/408314/) - License: Attribution NonCommercial 3.0  
 Hacky Sack3.aif by timgormly - [Link!](https://freesound.org/s/162799/) - License: Creative Commons 0  
-swoosh17.wav by kwahmah_02 - [Link!](https://freesound.org/s/269315/) - License: Attribution 3.0
+swoosh17.wav by kwahmah_02 - [Link!](https://freesound.org/s/269315/) - License: Attribution 3.0  
+VCR OSD Mono Font by Riciery Leal - [Link!](https://www.dafont.com/vcr-osd-mono.font) - Labeled "100% Free" on a royalty free font sharing website
